@@ -208,9 +208,12 @@
             // 
             this.scroll9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scroll9.Location = new System.Drawing.Point(0, 287);
+            this.scroll9.Minimum = 1;
             this.scroll9.Name = "scroll9";
             this.scroll9.Size = new System.Drawing.Size(104, 23);
             this.scroll9.TabIndex = 10;
+            this.scroll9.Value = 1;
+            this.scroll9.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scroll9_Scroll);
             // 
             // tableLayoutPanel3
             // 

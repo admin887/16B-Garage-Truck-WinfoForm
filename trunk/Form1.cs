@@ -40,5 +40,10 @@ namespace Garage_Truck_WinfoForms
             c.Draw();
         }
 
+        private void scroll9_Scroll(object sender, ScrollEventArgs e)
+        {
+            timer1.Interval = scroll9.Value;
+        }
+
     }
 }
