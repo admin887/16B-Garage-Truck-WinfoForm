@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garage Truck WinfoForms", "Garage Truck WinfoForms.csproj", "{CA3C3FE0-320E-4E10-846A-B1DB6F2FF828}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garbage Truck WinfoForms", "Garbage Truck WinfoForms.csproj", "{CA3C3FE0-320E-4E10-846A-B1DB6F2FF828}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
