@@ -32,7 +32,6 @@ namespace Garage_Truck_WinfoForms
         }
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            //rotateFlag = false;
             timer1.Enabled = false;
         }
 
