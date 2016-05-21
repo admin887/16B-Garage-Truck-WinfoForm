@@ -82,7 +82,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(669, 357);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -196,7 +195,6 @@
             this.scroll7.Name = "scroll7";
             this.scroll7.Size = new System.Drawing.Size(112, 22);
             this.scroll7.TabIndex = 8;
-            this.scroll7.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
             // scroll8
             // 
@@ -297,7 +295,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(539, 306);
             this.panel2.TabIndex = 1;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // Form1
             // 
