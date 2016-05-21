@@ -67,7 +67,7 @@ GLUquadric obj;
             GL.glVertex3f(0.0f, 0.0f, 3.0f);
             GL.glEnd();
 
-            GL.glBegin(GL.GL_QUADS);
+            //GL.glBegin(GL.GL_QUADS);
 
             //GL.glColor3f(255, 255, 255);
             //GL.glVertex2f(-1, -1);
@@ -82,175 +82,190 @@ GLUquadric obj;
 
 
             ////1 Gil
-            GL.glColor3f(0, 1, 0);
-            GL.glVertex3f(-1, 1, -1);
-            GL.glVertex3f(1, 1, -1);
-            GL.glVertex3f(1, -1, -1);
-            GL.glVertex3f(-1, -1, -1);
 
-            ////2 Gil
-            
-            GL.glColor3f(0, 0, 1);
-            GL.glVertex3f(-1, 1, 1);
-            GL.glVertex3f(1, 1, 1);
-            GL.glVertex3f(1, -1, 1);
-            GL.glVertex3f(-1, -1, 1);
-            
-            ////3 Gil
-            GL.glColor3f(1.0f, 0, 0);
-            GL.glVertex3f(-1, -1, 1);
-            GL.glVertex3f(-1, 1, 1);
-            GL.glVertex3f(-1, 1, -1);
-            GL.glVertex3f(-1, -1, -1);
-
-            ////4 Gil
-            GL.glColor3f(0.5f, 0, 0);
-            GL.glVertex3f(1, -1, 1);
-            GL.glVertex3f(1, 1, 1);
-            GL.glVertex3f(1, 1, -1);
-            GL.glVertex3f(1, -1, -1);
-
-            ////5 Gil
-            GL.glColor3f(0, 0.5f, 0);
-            GL.glVertex3f(-1, -1, 1);
-            GL.glVertex3f(1, -1, 1);
-            GL.glVertex3f(1, -1, -1);
-            GL.glVertex3f(-1, -1, -1);
-
-            ////6 Gil
-            GL.glColor3f(0, 0.5f, 0);
-            GL.glVertex3f(-1, 1, 1);
-            GL.glVertex3f(1, 1, 1);
-            GL.glVertex3f(1, 1, -1);
-            GL.glVertex3f(-1, 1, -1);
-
-
-
-
-
-
-            //roof 1
-            GL.glColor3f(0, 0.5f, 0.5f);
-            GL.glVertex3f(1, -1, 1); 
-            GL.glVertex3f(0, -2, 0);
-            GL.glVertex3f(1, -1, -1);
-            GL.glVertex3f(1, -1, 1);
-
-            //roof 2
-            GL.glColor3f(0.5f, 0, 0.5f);
-            GL.glVertex3f(-1, -1, 1);
-            GL.glVertex3f(0, -2, 0);
-            GL.glVertex3f(-1, -1, -1);
-            GL.glVertex3f(-1, -1, 1);
-
-            //roof 3
-            GL.glColor3f(0.5f, 0.5f, 0);
-            GL.glVertex3f(-1, -1, 1);
-            GL.glVertex3f(0, -2, 0);
-            GL.glVertex3f(1, -1, 1);
-            GL.glVertex3f(-1, -1, 1);
-
-            //roof 4
-            GL.glColor3f(0.5f, 0.5f, 0.5f);
-            GL.glVertex3f(1, -1, -1);
-            GL.glVertex3f(0, -2, 0);
-            GL.glVertex3f(-1, -1, -1);
-            GL.glVertex3f(1, -1, -1);
-
-
-           
-
-            GL.glEnd();
-
-           
-
+            GL.glColor3f(1.0f, 0.0f, 0.0f);
+            GL.glPushMatrix();
+            GL.glRotatef(0f, 1.0f, 0.0f, 0.0f);
             GL.glBegin(GL.GL_QUADS);
+            GL.glVertex3f(0.0f, 0.0f, 0.0f);
+            GL.glVertex3f(0.0f, 1.0f, 0.0f);
+            GL.glVertex3f(1.0f, 1.0f, 0.0f);
+            GL.glVertex3f(1.0f, 0.0f, 0.0f);
+            GL.glEnd();
+            GL.glPopMatrix();
 
-            GL.glTexCoord2f(0.5f, 0.5f);			// top right of texture
-            GL.glVertex3f(-1.0f, 1.0f, -1.0f);		// top right of quad
-            GL.glTexCoord2f(0.0f, 0.5f);			// top left of texture
-            GL.glVertex3f(1.0f, 1.0f, -1.0f);		// top left of quad
-            GL.glTexCoord2f(0.0f, 0.0f);			// bottom left of texture
-            GL.glVertex3f(1.0f, -1.0f, -1.0f);	    // bottom left of quad
-            GL.glTexCoord2f(0.5f, 0.0f);			// bottom right of texture
-            GL.glVertex3f(-1.0f, -1.0f, -1.0f);		// bottom right of quad
-
-            GL.glTexCoord2f(0.5f, 1.0f);			
-            GL.glVertex3f(1.0f, 1.0f, 1.0f);		
-            GL.glTexCoord2f(0.0f, 1.0f);			
-            GL.glVertex3f(-1.0f, 1.0f, 1.0f);      
-            GL.glTexCoord2f(0.0f, 0.5f);			
-            GL.glVertex3f(-1.0f, -1.0f, 1.0f);	   
-            GL.glTexCoord2f(0.5f, 0.5f);			
-            GL.glVertex3f(1.0f, -1.0f, 1.0f);      
-
-            GL.glTexCoord2f(1.0f, 0.5f);			
-            GL.glVertex3f(-1.0f, 1.0f, 1.0f);
-            GL.glTexCoord2f(0.5f, 0.5f);			
-            GL.glVertex3f(-1.0f, 1.0f, -1.0f);
-            GL.glTexCoord2f(0.5f, 0.0f);		
-            GL.glVertex3f(-1.0f, -1.0f, -1.0f);
-            GL.glTexCoord2f(1.0f, 0.0f);			
-            GL.glVertex3f(-1.0f, -1.0f, 1.0f);
-
-            GL.glTexCoord2f(1.0f, 1.0f);
-            GL.glVertex3f(1.0f, 1.0f, -1.0f);
-            GL.glTexCoord2f(0.5f, 1.0f);
-            GL.glVertex3f(1.0f, 1.0f, 1.0f);
-            GL.glTexCoord2f(0.5f, 0.5f);
-            GL.glVertex3f(1.0f, -1.0f, 1.0f);
-            GL.glTexCoord2f(1.0f, 0.5f);
-            GL.glVertex3f(1.0f, -1.0f, -1.0f);
-
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glColor3f(0.0f, 1.0f, 0.0f);
+            GL.glBegin(GL.GL_QUADS);
+            GL.glVertex3f(0.0f, 0.0f, 0.0f);
+            GL.glVertex3f(0.0f, 1.0f, 0.0f);
+            GL.glVertex3f(1.0f, 1.0f, 0.0f);
+            GL.glVertex3f(1.0f, 0.0f, 0.0f);
             GL.glEnd();
 
-            GL.glColor3f(0, 0.5f, 0.7f);
-            GL.glRotatef(90.0f, -1.0f, 0.0f,0.0f);
-            GLU.gluCylinder(obj, 0.1f, 0.1f, 2.0f, 32, 32);
+           //////2 Gil
+           //
+           //GL.glColor3f(0, 0, 1);
+           //GL.glVertex3f(-1, 1, 1);
+           //GL.glVertex3f(1, 1, 1);
+           //GL.glVertex3f(1, -1, 1);
+           //GL.glVertex3f(-1, -1, 1);
+           //
+           //////3 Gil
+           //GL.glColor3f(1.0f, 0, 0);
+           //GL.glVertex3f(-1, -1, 1);
+           //GL.glVertex3f(-1, 1, 1);
+           //GL.glVertex3f(-1, 1, -1);
+           //GL.glVertex3f(-1, -1, -1);
+           //
+           //////4 Gil
+           //GL.glColor3f(0.5f, 0, 0);
+           //GL.glVertex3f(1, -1, 1);
+           //GL.glVertex3f(1, 1, 1);
+           //GL.glVertex3f(1, 1, -1);
+           //GL.glVertex3f(1, -1, -1);
+           //
+           //////5 Gil
+           //GL.glColor3f(0, 0.5f, 0);
+           //GL.glVertex3f(-1, -1, 1);
+           //GL.glVertex3f(1, -1, 1);
+           //GL.glVertex3f(1, -1, -1);
+           //GL.glVertex3f(-1, -1, -1);
+           //
+           //////6 Gil
+           //GL.glColor3f(0, 0.5f, 0);
+           //GL.glVertex3f(-1, 1, 1);
+           //GL.glVertex3f(1, 1, 1);
+           //GL.glVertex3f(1, 1, -1);
+           //GL.glVertex3f(-1, 1, -1);
+           //
+           //
+           //
+           //
+           //
+           //
+           ////roof 1
+           //GL.glColor3f(0, 0.5f, 0.5f);
+           //GL.glVertex3f(1, -1, 1); 
+           //GL.glVertex3f(0, -2, 0);
+           //GL.glVertex3f(1, -1, -1);
+           //GL.glVertex3f(1, -1, 1);
+           //
+           ////roof 2
+           //GL.glColor3f(0.5f, 0, 0.5f);
+           //GL.glVertex3f(-1, -1, 1);
+           //GL.glVertex3f(0, -2, 0);
+           //GL.glVertex3f(-1, -1, -1);
+           //GL.glVertex3f(-1, -1, 1);
+           //
+           ////roof 3
+           //GL.glColor3f(0.5f, 0.5f, 0);
+           //GL.glVertex3f(-1, -1, 1);
+           //GL.glVertex3f(0, -2, 0);
+           //GL.glVertex3f(1, -1, 1);
+           //GL.glVertex3f(-1, -1, 1);
+           //
+           ////roof 4
+           //GL.glColor3f(0.5f, 0.5f, 0.5f);
+           //GL.glVertex3f(1, -1, -1);
+           //GL.glVertex3f(0, -2, 0);
+           //GL.glVertex3f(-1, -1, -1);
+           //GL.glVertex3f(1, -1, -1);
 
-            GL.glFlush();
 
            
-          
-            /*
-            GL.glColor3f(0, 0, 1);
-            GL.glVertex3f(-1, 1, 1);
-            GL.glVertex3f(1, 1, 1);
-            GL.glVertex3f(1, -1, 1);
-            GL.glVertex3f(-1, -1, 1);
-            */
-            GL.glColor3f(1.0f, 1.0f, 1.0f);
-            GL.glEnable(GL.GL_TEXTURE_2D);
-            GL.glVertex3f(1.0f, -1.0f, 1.0f);	    // bottom left of quad
-            GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
-            GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
-            GL.glEnd();
-          
-            /*
-            GL.glColor3f(0, 0, 1);
-            GL.glVertex3f(-1, 1, 1);
-            GL.glVertex3f(1, 1, 1);
-            GL.glVertex3f(1, -1, 1);
-            GL.glVertex3f(-1, -1, 1);
-            */
-            GL.glColor3f(1.0f, 1.0f, 1.0f);
-            GL.glEnable(GL.GL_TEXTURE_2D);
-            GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
-            GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
-            GL.glEnd();
-          
-            /*
-            GL.glColor3f(0, 0, 1);
-            GL.glVertex3f(-1, 1, 1);
-            GL.glVertex3f(1, 1, 1);
-            GL.glVertex3f(1, -1, 1);
-            GL.glVertex3f(-1, -1, 1);
-            */
 
- 
+            //GL.glEnd();
 
-            GL.glColor3f(1.0f, 1.0f, 1.0f);
-            GL.glEnable(GL.GL_TEXTURE_2D);
+           
+
+        //   GL.glBegin(GL.GL_QUADS);
+        //
+        //   GL.glTexCoord2f(0.5f, 0.5f);			// top right of texture
+        //   GL.glVertex3f(-1.0f, 1.0f, -1.0f);		// top right of quad
+        //   GL.glTexCoord2f(0.0f, 0.5f);			// top left of texture
+        //   GL.glVertex3f(1.0f, 1.0f, -1.0f);		// top left of quad
+        //   GL.glTexCoord2f(0.0f, 0.0f);			// bottom left of texture
+        //   GL.glVertex3f(1.0f, -1.0f, -1.0f);	    // bottom left of quad
+        //   GL.glTexCoord2f(0.5f, 0.0f);			// bottom right of texture
+        //   GL.glVertex3f(-1.0f, -1.0f, -1.0f);		// bottom right of quad
+        //
+        //   GL.glTexCoord2f(0.5f, 1.0f);			
+        //   GL.glVertex3f(1.0f, 1.0f, 1.0f);		
+        //   GL.glTexCoord2f(0.0f, 1.0f);			
+        //   GL.glVertex3f(-1.0f, 1.0f, 1.0f);      
+        //   GL.glTexCoord2f(0.0f, 0.5f);			
+        //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);	   
+        //   GL.glTexCoord2f(0.5f, 0.5f);			
+        //   GL.glVertex3f(1.0f, -1.0f, 1.0f);      
+        //
+        //   GL.glTexCoord2f(1.0f, 0.5f);			
+        //   GL.glVertex3f(-1.0f, 1.0f, 1.0f);
+        //   GL.glTexCoord2f(0.5f, 0.5f);			
+        //   GL.glVertex3f(-1.0f, 1.0f, -1.0f);
+        //   GL.glTexCoord2f(0.5f, 0.0f);		
+        //   GL.glVertex3f(-1.0f, -1.0f, -1.0f);
+        //   GL.glTexCoord2f(1.0f, 0.0f);			
+        //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);
+        //
+        //   GL.glTexCoord2f(1.0f, 1.0f);
+        //   GL.glVertex3f(1.0f, 1.0f, -1.0f);
+        //   GL.glTexCoord2f(0.5f, 1.0f);
+        //   GL.glVertex3f(1.0f, 1.0f, 1.0f);
+        //   GL.glTexCoord2f(0.5f, 0.5f);
+        //   GL.glVertex3f(1.0f, -1.0f, 1.0f);
+        //   GL.glTexCoord2f(1.0f, 0.5f);
+        //   GL.glVertex3f(1.0f, -1.0f, -1.0f);
+        //
+        //   GL.glEnd();
+        //
+        //   GL.glColor3f(0, 0.5f, 0.7f);
+        //   GL.glRotatef(90.0f, -1.0f, 0.0f,0.0f);
+        //   GLU.gluCylinder(obj, 0.1f, 0.1f, 2.0f, 32, 32);
+        //
+        //   GL.glFlush();
+        //
+        //  
+        // 
+        //   /*
+        //   GL.glColor3f(0, 0, 1);
+        //   GL.glVertex3f(-1, 1, 1);
+        //   GL.glVertex3f(1, 1, 1);
+        //   GL.glVertex3f(1, -1, 1);
+        //   GL.glVertex3f(-1, -1, 1);
+        //   */
+        //   GL.glColor3f(1.0f, 1.0f, 1.0f);
+        //   GL.glEnable(GL.GL_TEXTURE_2D);
+        //   GL.glVertex3f(1.0f, -1.0f, 1.0f);	    // bottom left of quad
+        //   GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
+        //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
+        //   GL.glEnd();
+        // 
+        //   /*
+        //   GL.glColor3f(0, 0, 1);
+        //   GL.glVertex3f(-1, 1, 1);
+        //   GL.glVertex3f(1, 1, 1);
+        //   GL.glVertex3f(1, -1, 1);
+        //   GL.glVertex3f(-1, -1, 1);
+        //   */
+        //   GL.glColor3f(1.0f, 1.0f, 1.0f);
+        //   GL.glEnable(GL.GL_TEXTURE_2D);
+        //   GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
+        //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
+        //   GL.glEnd();
+        // 
+        //   /*
+        //   GL.glColor3f(0, 0, 1);
+        //   GL.glVertex3f(-1, 1, 1);
+        //   GL.glVertex3f(1, 1, 1);
+        //   GL.glVertex3f(1, -1, 1);
+        //   GL.glVertex3f(-1, -1, 1);
+        //   */
+        //
+        //
+        //
+        //   GL.glColor3f(1.0f, 1.0f, 1.0f);
+        //   GL.glEnable(GL.GL_TEXTURE_2D);
         }
  
         public void Draw()
