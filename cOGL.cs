@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Threading;
 
 
 namespace OpenGL
@@ -76,32 +77,20 @@ GLUquadric obj;
             //GL.glVertex2f(-1, 1);
             //GL.glVertex2f(-1, -1);
 
-
-
-
-
-
             ////1 Gil
 
 
-            for (int i = 1; i < 5; i++)
-            {
-                GL.glColor3f(i % 2, i % 2, i %2);
 
-                GL.glPushMatrix();
-                GL.glBegin(GL.GL_QUADS);
-                GL.glVertex3f(0.0f, 0.0f, 0.0f);
-                GL.glVertex3f(0.0f, 1.0f, 0.0f);
-                GL.glVertex3f(1.0f, 1.0f, 0.0f);
-                GL.glVertex3f(1.0f, 0.0f, 0.0f);
-                GL.glEnd();
-                GL.glPopMatrix();
+            CreateBackCabin();
+
+            CreateFrontCabin();
+            
 
 
-                GL.glTranslatef(0, 0, 1);
-                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-            }
 
+
+
+            //GL.glFlush();
 
 
    // GL.glColor3f(1.0f, 0.0f, 0.0f);
@@ -385,13 +374,13 @@ GLUquadric obj;
             GL.glEnable(GL.GL_DEPTH_TEST);
             GL.glDepthFunc(GL.GL_LEQUAL);
 
-            GL.glViewport(0, 0, this.Width, this.Height);
+            GL.glViewport(-500, -400, 1920,1080);
            // GL.glViewport(50, 50, 200, 50);
             
             GL.glClearColor(0, 0.3f, 0, 0); 
 			GL.glMatrixMode ( GL.GL_PROJECTION );
 			GL.glLoadIdentity();
-			GLU.gluPerspective( 10,((double)Width) / Height, 1.0,1000.0);
+			GLU.gluPerspective( 50,((double)Width) / Height, 1.0,1000.0);
 			GL.glMatrixMode ( GL.GL_MODELVIEW );
 			GL.glLoadIdentity(); 
             InitTexture("example.bmp");
@@ -427,5 +416,143 @@ GLUquadric obj;
             image.UnlockBits(bitmapdata);
             image.Dispose();
         }
+
+
+
+
+       public void CreateBackCabin()
+        {
+            //Side of the Truck!
+            GL.glColor3f(1.0f, 0.0f, 0.0f);
+            for (int i = 0; i < 2; i++)
+            {
+                GL.glPushMatrix();
+                GL.glBegin(GL.GL_QUADS);
+
+                GL.glTexCoord2f(0.5f, 1.0f);
+                GL.glVertex3f(2.0f, 1.0f, 1.0f);
+
+                GL.glTexCoord2f(0.0f, 1.0f);
+                GL.glVertex3f(2.0f, 0.0f, 1.0f);
+
+                GL.glTexCoord2f(0.0f, 0.5f);
+                GL.glVertex3f(0.0f, 0.0f, 1.0f);
+
+                GL.glTexCoord2f(0.5f, 0.5f);
+                GL.glVertex3f(0.0f, 1.0f, 1.0f);
+                GL.glEnd();
+                GL.glPopMatrix();
+
+
+                GL.glTranslatef(0, 0, 1);
+                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+                GL.glTranslatef(0, 0, 2);
+                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            }
+
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+            //Front and back
+
+            GL.glColor3f(0.0f, 1.0f, 0.0f);
+            for (int i = 0; i < 2; i++)
+            {
+                //  GL.glColor3f(i % 2, i % 2, i %2);
+
+                GL.glPushMatrix();
+                GL.glBegin(GL.GL_QUADS);
+
+                GL.glTexCoord2f(0.5f, 1.0f);
+                GL.glVertex3f(1.0f, 1.0f, 2.0f);
+
+                GL.glTexCoord2f(0.0f, 1.0f);
+                GL.glVertex3f(1.0f, 0.0f, 2.0f);
+
+                GL.glTexCoord2f(0.0f, 0.5f);
+                GL.glVertex3f(0.0f, 0.0f, 2.0f);
+
+                GL.glTexCoord2f(0.5f, 0.5f);
+                GL.glVertex3f(0.0f, 1.0f, 2.0f);
+                GL.glEnd();
+                GL.glPopMatrix();
+
+
+                GL.glTranslatef(0, 0, 2);
+                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+                GL.glTranslatef(0, 0, 1);
+                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            }
+
+
+        }
+
+       public void CreateFrontCabin()
+       {
+           GL.glTranslatef(0, 0, 3f);
+           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+           GL.glColor3f(1.0f, 0.0f, 0.0f);
+           for (int i = 0; i < 2; i++)
+           {
+               GL.glPushMatrix();
+               GL.glBegin(GL.GL_QUADS);
+
+               GL.glTexCoord2f(0.5f, 1.0f);
+               GL.glVertex3f(0.7f, 1.0f, 1.0f);
+
+               GL.glTexCoord2f(0.0f, 1.0f);
+               GL.glVertex3f(0.7f, 0.0f, 1.0f);
+
+               GL.glTexCoord2f(0.0f, 0.5f);
+               GL.glVertex3f(0.0f, 0.0f, 1.0f);
+
+               GL.glTexCoord2f(0.5f, 0.5f);
+               GL.glVertex3f(0.0f, 1.0f, 1.0f);
+               GL.glEnd();
+               GL.glPopMatrix();
+
+
+               GL.glTranslatef(0, 0, 1);
+               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+               GL.glTranslatef(0, 0, 0.7f);
+               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+           }
+
+           GL.glTranslatef(0, 0, 1);
+           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+           //Front and back
+
+           GL.glColor3f(0.0f, 1.0f, 0.0f);
+           for (int i = 0; i < 2; i++)
+           {
+               //  GL.glColor3f(i % 2, i % 2, i %2);
+
+               GL.glPushMatrix();
+               GL.glBegin(GL.GL_QUADS);
+
+               GL.glTexCoord2f(0.5f, 1.0f);
+               GL.glVertex3f(1.0f, 1.0f, 0.7f);
+
+               GL.glTexCoord2f(0.0f, 1.0f);
+               GL.glVertex3f(1.0f, 0.0f, 0.7f);
+
+               GL.glTexCoord2f(0.0f, 0.5f);
+               GL.glVertex3f(0.0f, 0.0f, 0.7f);
+
+               GL.glTexCoord2f(0.5f, 0.5f);
+               GL.glVertex3f(0.0f, 1.0f, 0.7f);
+               GL.glEnd();
+               GL.glPopMatrix();
+
+
+               GL.glTranslatef(0, 0, 0.7f);
+               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+               GL.glTranslatef(0, 0, 1);
+               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+           }
+
+       }
     }
 }
