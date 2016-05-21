@@ -55,20 +55,20 @@ GLUquadric obj;
         protected void DrawAll()
         {
             //axes
-            GL.glBegin(GL.GL_LINES);
-            //x  RED
-            GL.glColor3f(1.0f, 0.0f, 0.0f);
-            GL.glVertex3f(0.0f, 0.0f, 0.0f);
-            GL.glVertex3f(3.0f, 0.0f, 0.0f);
-            //////y  GREEN 
-            GL.glColor3f(0.0f, 1.0f, 0.0f);
-            GL.glVertex3f(0.0f, 0.0f, 0.0f);
-            GL.glVertex3f(0.0f, 3.0f, 0.0f);
-            //////z  BLUE
-            GL.glColor3f(0.0f, 0.0f, 1.0f);
-            GL.glVertex3f(0.0f, 0.0f, 0.0f);
-            GL.glVertex3f(0.0f, 0.0f, 3.0f);
-            GL.glEnd();
+        //  GL.glBegin(GL.GL_LINES);
+        //  //x  RED
+        //  GL.glColor3f(1.0f, 0.0f, 0.0f);
+        //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
+        //  GL.glVertex3f(3.0f, 0.0f, 0.0f);
+        //  //////y  GREEN 
+        //  GL.glColor3f(0.0f, 1.0f, 0.0f);
+        //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
+        //  GL.glVertex3f(0.0f, 3.0f, 0.0f);
+        //  //////z  BLUE
+        //  GL.glColor3f(0.0f, 0.0f, 1.0f);
+        //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
+        //  GL.glVertex3f(0.0f, 0.0f, 3.0f);
+        //  GL.glEnd();
 
             //GL.glBegin(GL.GL_QUADS);
 
@@ -289,7 +289,7 @@ GLUquadric obj;
 
             GL.glTranslatef(TransparentA, TransparentB, TransparentC);						// Translate 6 Units Into The Screen
        
-            angle += 1.0f;
+            angle += 3.0f;
 
             GL.glRotatef(angle, 0.0f, 2.0f, 0.0f);
 
@@ -388,8 +388,9 @@ GLUquadric obj;
 			GLU.gluPerspective( 50,((double)Width) / Height, 1.0,1000.0);
 			GL.glMatrixMode ( GL.GL_MODELVIEW );
 			GL.glLoadIdentity(); 
-            InitTexture("example.bmp");
-            InitTexture("alon.bmp");
+          //  InitTexture("example.bmp");
+         //   InitTexture("alon.bmp");
+            InitTexture("truck.jpg");
 		}
         public uint[] texture;		// texture
 
@@ -428,22 +429,22 @@ GLUquadric obj;
        public void CreateBackCabin()
         {
             //Side of the Truck!
-            GL.glColor3f(1.0f, 0.0f, 0.0f);
+         //   GL.glColor3f(1.0f, 0.0f, 0.0f);
             for (int i = 0; i < 2; i++)
             {
                 GL.glPushMatrix();
                 GL.glBegin(GL.GL_QUADS);
 
-                GL.glTexCoord2f(0.5f, 1.0f);
+                GL.glTexCoord2f(0.276f, 0.512f);
                 GL.glVertex3f(2.0f, 1.0f, 1.0f);
 
-                GL.glTexCoord2f(0.0f, 1.0f);
+                GL.glTexCoord2f(0.546f, 0.512f);
                 GL.glVertex3f(2.0f, 0.0f, 1.0f);
 
-                GL.glTexCoord2f(0.0f, 0.5f);
+                GL.glTexCoord2f(0.546f, 0.709f);
                 GL.glVertex3f(0.0f, 0.0f, 1.0f);
 
-                GL.glTexCoord2f(0.5f, 0.5f);
+                GL.glTexCoord2f(0.276f, 0.709f);
                 GL.glVertex3f(0.0f, 1.0f, 1.0f);
                 GL.glEnd();
                 GL.glPopMatrix();
@@ -460,7 +461,7 @@ GLUquadric obj;
 
             //Front and back
 
-            GL.glColor3f(0.0f, 1.0f, 0.0f);
+          //  GL.glColor3f(0.0f, 1.0f, 0.0f);
             for (int i = 0; i < 2; i++)
             {
                 //  GL.glColor3f(i % 2, i % 2, i %2);
@@ -492,7 +493,7 @@ GLUquadric obj;
 
         }
 
-       public void CreateFrontCabin()
+       public void CreateFrontCabinOld()
        {
            GL.glTranslatef(0, 0, 3f);
            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
@@ -548,6 +549,74 @@ GLUquadric obj;
 
                GL.glTexCoord2f(0.5f, 0.5f);
                GL.glVertex3f(0.0f, 1.0f, 0.7f);
+               GL.glEnd();
+               GL.glPopMatrix();
+
+
+               GL.glTranslatef(0, 0, 0.7f);
+               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+               GL.glTranslatef(0, 0, 1);
+               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+           }
+
+       }
+
+       public void CreateFrontCabin()
+       {
+           GL.glTranslatef(0, 0, 2.8f);
+           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+       //    GL.glColor3f(1.0f, 0.0f, 0.0f);
+           for (int i = 0; i < 2; i++)
+           {
+               GL.glPushMatrix();
+               GL.glBegin(GL.GL_QUADS);
+
+               GL.glTexCoord2f(0.5f, 1.0f);
+               GL.glVertex3f(0.7f, 0.85f, 1.0f);
+
+               GL.glTexCoord2f(0.0f, 1.0f);
+               GL.glVertex3f(0.7f, 0.0f, 1.0f);
+
+               GL.glTexCoord2f(0.0f, 0.5f);
+               GL.glVertex3f(0.0f, 0.0f, 1.0f);
+
+               GL.glTexCoord2f(0.5f, 0.5f);
+               GL.glVertex3f(0.0f, 0.85f, 1.0f);
+               GL.glEnd();
+               GL.glPopMatrix();
+
+
+               GL.glTranslatef(0, 0, 1);
+               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+               GL.glTranslatef(0, 0, 0.7f);
+               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+           }
+
+           GL.glTranslatef(0, 0, 1);
+           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+           //Front and back
+
+        //   GL.glColor3f(0.0f, 1.0f, 0.0f);
+           for (int i = 0; i < 2; i++)
+           {
+               //  GL.glColor3f(i % 2, i % 2, i %2);
+
+               GL.glPushMatrix();
+               GL.glBegin(GL.GL_QUADS);
+
+               GL.glTexCoord2f(0.5f, 1.0f);
+               GL.glVertex3f(1.0f, 0.85f, 0.7f);
+
+               GL.glTexCoord2f(0.0f, 1.0f);
+               GL.glVertex3f(1.0f, 0.0f, 0.7f);
+
+               GL.glTexCoord2f(0.0f, 0.5f);
+               GL.glVertex3f(0.0f, 0.0f, 0.7f);
+
+               GL.glTexCoord2f(0.5f, 0.5f);
+               GL.glVertex3f(0.0f, 0.85f, 0.7f);
                GL.glEnd();
                GL.glPopMatrix();
 
