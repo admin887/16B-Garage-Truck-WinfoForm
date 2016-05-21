@@ -26,5 +26,25 @@ namespace Garage_Truck_WinfoForms
         {
             c.Draw();
         }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonLight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
