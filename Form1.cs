@@ -18,33 +18,14 @@ namespace Garage_Truck_WinfoForms
         public Form1()
         {
             InitializeComponent();
-            c = new cOGL(panel1);
+            c = new cOGL(panel2);
+
 
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             c.Draw();
-        }
-
-        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void buttonLight_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
