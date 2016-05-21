@@ -83,26 +83,47 @@ GLUquadric obj;
 
             ////1 Gil
 
-            GL.glColor3f(1.0f, 0.0f, 0.0f);
-            GL.glPushMatrix();
-            GL.glRotatef(0f, 1.0f, 0.0f, 0.0f);
-            GL.glBegin(GL.GL_QUADS);
-            GL.glVertex3f(0.0f, 0.0f, 0.0f);
-            GL.glVertex3f(0.0f, 1.0f, 0.0f);
-            GL.glVertex3f(1.0f, 1.0f, 0.0f);
-            GL.glVertex3f(1.0f, 0.0f, 0.0f);
-            GL.glEnd();
-            GL.glPopMatrix();
 
-            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-            GL.glColor3f(0.0f, 1.0f, 0.0f);
-            GL.glBegin(GL.GL_QUADS);
-            GL.glVertex3f(0.0f, 0.0f, 0.0f);
-            GL.glVertex3f(0.0f, 1.0f, 0.0f);
-            GL.glVertex3f(1.0f, 1.0f, 0.0f);
-            GL.glVertex3f(1.0f, 0.0f, 0.0f);
-            GL.glEnd();
+            for (int i = 1; i < 5; i++)
+            {
+                GL.glColor3f(i % 2, i % 2, i %2);
 
+                GL.glPushMatrix();
+                GL.glBegin(GL.GL_QUADS);
+                GL.glVertex3f(0.0f, 0.0f, 0.0f);
+                GL.glVertex3f(0.0f, 1.0f, 0.0f);
+                GL.glVertex3f(1.0f, 1.0f, 0.0f);
+                GL.glVertex3f(1.0f, 0.0f, 0.0f);
+                GL.glEnd();
+                GL.glPopMatrix();
+
+
+                GL.glTranslatef(0, 0, 1);
+                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            }
+
+
+
+   // GL.glColor3f(1.0f, 0.0f, 0.0f);
+   //
+   // GL.glPushMatrix();
+   // GL.glBegin(GL.GL_QUADS);
+   // GL.glVertex3f(0.0f, 0.0f, 0.0f);
+   // GL.glVertex3f(0.0f, 1.0f, 0.0f);
+   // GL.glVertex3f(1.0f, 1.0f, 0.0f);
+   // GL.glVertex3f(1.0f, 0.0f, 0.0f);
+   // GL.glEnd();
+   // GL.glPopMatrix();
+   //
+   // GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+   // GL.glColor3f(0.0f, 1.0f, 0.0f);
+   // GL.glBegin(GL.GL_QUADS);
+   // GL.glVertex3f(0.0f, 0.0f, 0.0f);
+   // GL.glVertex3f(0.0f, 1.0f, 0.0f);
+   // GL.glVertex3f(1.0f, 1.0f, 0.0f);
+   // GL.glVertex3f(1.0f, 0.0f, 0.0f);
+   // GL.glEnd();
+   //
            //////2 Gil
            //
            //GL.glColor3f(0, 0, 1);
@@ -370,7 +391,7 @@ GLUquadric obj;
             GL.glClearColor(0, 0.3f, 0, 0); 
 			GL.glMatrixMode ( GL.GL_PROJECTION );
 			GL.glLoadIdentity();
-			GLU.gluPerspective( 20.0,((double)Width) / Height, 1.0,1000.0);
+			GLU.gluPerspective( 10,((double)Width) / Height, 1.0,1000.0);
 			GL.glMatrixMode ( GL.GL_MODELVIEW );
 			GL.glLoadIdentity(); 
             InitTexture("example.bmp");

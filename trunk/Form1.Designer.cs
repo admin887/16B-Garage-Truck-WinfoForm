@@ -244,6 +244,7 @@
             this.buttonStart.TabIndex = 1;
             this.buttonStart.Text = "Start";
             this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -280,7 +281,7 @@
             this.buttonLight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonLight.Location = new System.Drawing.Point(3, 3);
             this.buttonLight.Name = "buttonLight";
-            this.buttonLight.Size = new System.Drawing.Size(60, 25);
+            this.buttonLight.Size = new System.Drawing.Size(60, 22);
             this.buttonLight.TabIndex = 0;
             this.buttonLight.Text = "Light";
             this.buttonLight.UseVisualStyleBackColor = true;
@@ -302,6 +303,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
