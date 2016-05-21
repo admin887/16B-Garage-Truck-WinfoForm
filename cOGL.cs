@@ -9,6 +9,8 @@ namespace OpenGL
 {
     class cOGL
     {
+        Thread rotateThread;
+        bool rotateFlag;
         Control p;
         int Width;
         int Height;
@@ -277,7 +279,6 @@ GLUquadric obj;
         //   GL.glColor3f(1.0f, 1.0f, 1.0f);
         //   GL.glEnable(GL.GL_TEXTURE_2D);
         }
- 
         public void Draw()
         {
             if (m_uint_DC == 0 || m_uint_RC == 0)
@@ -303,7 +304,11 @@ GLUquadric obj;
             WGL.wglSwapBuffers(m_uint_DC);
 
         }
-
+        public void rotate()
+        {
+            //Draw();
+            Console.WriteLine("Hello World");
+        }
 		protected virtual void InitializeGL()
 		{
 			m_uint_HWND = (uint)p.Handle.ToInt32();
@@ -354,7 +359,7 @@ GLUquadric obj;
 
         public void OnResize()
         {
-            Width = p.Width;
+            /*Width = p.Width;
             Height = p.Height;
 
             //!!!!!!!
@@ -362,9 +367,9 @@ GLUquadric obj;
             //!!!!!!!
             
             initRenderingGL();
-            Draw();
+            Draw();*/
         }
-
+        
         protected virtual void initRenderingGL()
 		{
 			if(m_uint_DC == 0 || m_uint_RC == 0)
