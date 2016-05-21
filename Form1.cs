@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using OpenGL;
 
@@ -27,5 +28,12 @@ namespace Garage_Truck_WinfoForms
         {
             c.Draw();
         }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+
+         
+        }
+
     }
 }
