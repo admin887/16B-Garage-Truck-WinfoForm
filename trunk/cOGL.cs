@@ -352,10 +352,10 @@ GLUquadric obj;
             GL.glViewport(0, 0, this.Width, this.Height);
            // GL.glViewport(50, 50, 200, 50);
             
-            GL.glClearColor(0.3f, 0, 0, 0); 
+            GL.glClearColor(0, 0.3f, 0, 0); 
 			GL.glMatrixMode ( GL.GL_PROJECTION );
 			GL.glLoadIdentity();
-			GLU.gluPerspective( 45.0,((double)Width) / Height, 1.0,1000.0);
+			GLU.gluPerspective( 20.0,((double)Width) / Height, 1.0,1000.0);
 			GL.glMatrixMode ( GL.GL_MODELVIEW );
 			GL.glLoadIdentity(); 
             InitTexture("example.bmp");
