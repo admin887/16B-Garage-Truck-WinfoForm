@@ -31,8 +31,6 @@ namespace Garage_Truck_WinfoForms
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-
-         
         }
 
     }
