@@ -18,12 +18,12 @@ namespace OpenGL
         uint m_uint_DC = 0;
         uint m_uint_RC = 0;
         float angle = 0.0f;
-GLUquadric obj;
-        public float TransparentA=0.0f, TransparentB=0.0f, TransparentC=-15.0f;
+        GLUquadric obj;
+        public float TransparentA = 0.0f, TransparentB = 0.0f, TransparentC = -15.0f;
 
         public cOGL(Control pb)
         {
-            p=pb;
+            p = pb;
             Width = p.Width;
             Height = p.Height;
             obj = GLU.gluNewQuadric();
@@ -36,39 +36,39 @@ GLUquadric obj;
         }
 
         public uint HWND
-		{
-			get{ return m_uint_HWND; }
-		}
-		
-      
+        {
+            get { return m_uint_HWND; }
+        }
+
+
 
         public uint DC
-		{
-			get{ return m_uint_DC;}
-		}
-		
+        {
+            get { return m_uint_DC; }
+        }
+
         public uint RC
-		{
-			get{ return m_uint_RC; }
-		}
+        {
+            get { return m_uint_RC; }
+        }
 
         protected void DrawAll()
         {
             //axes
-        //  GL.glBegin(GL.GL_LINES);
-        //  //x  RED
-        //  GL.glColor3f(1.0f, 0.0f, 0.0f);
-        //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
-        //  GL.glVertex3f(3.0f, 0.0f, 0.0f);
-        //  //////y  GREEN 
-        //  GL.glColor3f(0.0f, 1.0f, 0.0f);
-        //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
-        //  GL.glVertex3f(0.0f, 3.0f, 0.0f);
-        //  //////z  BLUE
-        //  GL.glColor3f(0.0f, 0.0f, 1.0f);
-        //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
-        //  GL.glVertex3f(0.0f, 0.0f, 3.0f);
-        //  GL.glEnd();
+            //  GL.glBegin(GL.GL_LINES);
+            //  //x  RED
+            //  GL.glColor3f(1.0f, 0.0f, 0.0f);
+            //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
+            //  GL.glVertex3f(3.0f, 0.0f, 0.0f);
+            //  //////y  GREEN 
+            //  GL.glColor3f(0.0f, 1.0f, 0.0f);
+            //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
+            //  GL.glVertex3f(0.0f, 3.0f, 0.0f);
+            //  //////z  BLUE
+            //  GL.glColor3f(0.0f, 0.0f, 1.0f);
+            //  GL.glVertex3f(0.0f, 0.0f, 0.0f);
+            //  GL.glVertex3f(0.0f, 0.0f, 3.0f);
+            //  GL.glEnd();
 
             //GL.glBegin(GL.GL_QUADS);
 
@@ -86,7 +86,7 @@ GLUquadric obj;
             CreateBackCabin();
 
             CreateFrontCabin();
-            
+
 
 
 
@@ -95,189 +95,189 @@ GLUquadric obj;
             //GL.glFlush();
 
 
-   // GL.glColor3f(1.0f, 0.0f, 0.0f);
-   //
-   // GL.glPushMatrix();
-   // GL.glBegin(GL.GL_QUADS);
-   // GL.glVertex3f(0.0f, 0.0f, 0.0f);
-   // GL.glVertex3f(0.0f, 1.0f, 0.0f);
-   // GL.glVertex3f(1.0f, 1.0f, 0.0f);
-   // GL.glVertex3f(1.0f, 0.0f, 0.0f);
-   // GL.glEnd();
-   // GL.glPopMatrix();
-   //
-   // GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-   // GL.glColor3f(0.0f, 1.0f, 0.0f);
-   // GL.glBegin(GL.GL_QUADS);
-   // GL.glVertex3f(0.0f, 0.0f, 0.0f);
-   // GL.glVertex3f(0.0f, 1.0f, 0.0f);
-   // GL.glVertex3f(1.0f, 1.0f, 0.0f);
-   // GL.glVertex3f(1.0f, 0.0f, 0.0f);
-   // GL.glEnd();
-   //
-           //////2 Gil
-           //
-           //GL.glColor3f(0, 0, 1);
-           //GL.glVertex3f(-1, 1, 1);
-           //GL.glVertex3f(1, 1, 1);
-           //GL.glVertex3f(1, -1, 1);
-           //GL.glVertex3f(-1, -1, 1);
-           //
-           //////3 Gil
-           //GL.glColor3f(1.0f, 0, 0);
-           //GL.glVertex3f(-1, -1, 1);
-           //GL.glVertex3f(-1, 1, 1);
-           //GL.glVertex3f(-1, 1, -1);
-           //GL.glVertex3f(-1, -1, -1);
-           //
-           //////4 Gil
-           //GL.glColor3f(0.5f, 0, 0);
-           //GL.glVertex3f(1, -1, 1);
-           //GL.glVertex3f(1, 1, 1);
-           //GL.glVertex3f(1, 1, -1);
-           //GL.glVertex3f(1, -1, -1);
-           //
-           //////5 Gil
-           //GL.glColor3f(0, 0.5f, 0);
-           //GL.glVertex3f(-1, -1, 1);
-           //GL.glVertex3f(1, -1, 1);
-           //GL.glVertex3f(1, -1, -1);
-           //GL.glVertex3f(-1, -1, -1);
-           //
-           //////6 Gil
-           //GL.glColor3f(0, 0.5f, 0);
-           //GL.glVertex3f(-1, 1, 1);
-           //GL.glVertex3f(1, 1, 1);
-           //GL.glVertex3f(1, 1, -1);
-           //GL.glVertex3f(-1, 1, -1);
-           //
-           //
-           //
-           //
-           //
-           //
-           ////roof 1
-           //GL.glColor3f(0, 0.5f, 0.5f);
-           //GL.glVertex3f(1, -1, 1); 
-           //GL.glVertex3f(0, -2, 0);
-           //GL.glVertex3f(1, -1, -1);
-           //GL.glVertex3f(1, -1, 1);
-           //
-           ////roof 2
-           //GL.glColor3f(0.5f, 0, 0.5f);
-           //GL.glVertex3f(-1, -1, 1);
-           //GL.glVertex3f(0, -2, 0);
-           //GL.glVertex3f(-1, -1, -1);
-           //GL.glVertex3f(-1, -1, 1);
-           //
-           ////roof 3
-           //GL.glColor3f(0.5f, 0.5f, 0);
-           //GL.glVertex3f(-1, -1, 1);
-           //GL.glVertex3f(0, -2, 0);
-           //GL.glVertex3f(1, -1, 1);
-           //GL.glVertex3f(-1, -1, 1);
-           //
-           ////roof 4
-           //GL.glColor3f(0.5f, 0.5f, 0.5f);
-           //GL.glVertex3f(1, -1, -1);
-           //GL.glVertex3f(0, -2, 0);
-           //GL.glVertex3f(-1, -1, -1);
-           //GL.glVertex3f(1, -1, -1);
+            // GL.glColor3f(1.0f, 0.0f, 0.0f);
+            //
+            // GL.glPushMatrix();
+            // GL.glBegin(GL.GL_QUADS);
+            // GL.glVertex3f(0.0f, 0.0f, 0.0f);
+            // GL.glVertex3f(0.0f, 1.0f, 0.0f);
+            // GL.glVertex3f(1.0f, 1.0f, 0.0f);
+            // GL.glVertex3f(1.0f, 0.0f, 0.0f);
+            // GL.glEnd();
+            // GL.glPopMatrix();
+            //
+            // GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            // GL.glColor3f(0.0f, 1.0f, 0.0f);
+            // GL.glBegin(GL.GL_QUADS);
+            // GL.glVertex3f(0.0f, 0.0f, 0.0f);
+            // GL.glVertex3f(0.0f, 1.0f, 0.0f);
+            // GL.glVertex3f(1.0f, 1.0f, 0.0f);
+            // GL.glVertex3f(1.0f, 0.0f, 0.0f);
+            // GL.glEnd();
+            //
+            //////2 Gil
+            //
+            //GL.glColor3f(0, 0, 1);
+            //GL.glVertex3f(-1, 1, 1);
+            //GL.glVertex3f(1, 1, 1);
+            //GL.glVertex3f(1, -1, 1);
+            //GL.glVertex3f(-1, -1, 1);
+            //
+            //////3 Gil
+            //GL.glColor3f(1.0f, 0, 0);
+            //GL.glVertex3f(-1, -1, 1);
+            //GL.glVertex3f(-1, 1, 1);
+            //GL.glVertex3f(-1, 1, -1);
+            //GL.glVertex3f(-1, -1, -1);
+            //
+            //////4 Gil
+            //GL.glColor3f(0.5f, 0, 0);
+            //GL.glVertex3f(1, -1, 1);
+            //GL.glVertex3f(1, 1, 1);
+            //GL.glVertex3f(1, 1, -1);
+            //GL.glVertex3f(1, -1, -1);
+            //
+            //////5 Gil
+            //GL.glColor3f(0, 0.5f, 0);
+            //GL.glVertex3f(-1, -1, 1);
+            //GL.glVertex3f(1, -1, 1);
+            //GL.glVertex3f(1, -1, -1);
+            //GL.glVertex3f(-1, -1, -1);
+            //
+            //////6 Gil
+            //GL.glColor3f(0, 0.5f, 0);
+            //GL.glVertex3f(-1, 1, 1);
+            //GL.glVertex3f(1, 1, 1);
+            //GL.glVertex3f(1, 1, -1);
+            //GL.glVertex3f(-1, 1, -1);
+            //
+            //
+            //
+            //
+            //
+            //
+            ////roof 1
+            //GL.glColor3f(0, 0.5f, 0.5f);
+            //GL.glVertex3f(1, -1, 1); 
+            //GL.glVertex3f(0, -2, 0);
+            //GL.glVertex3f(1, -1, -1);
+            //GL.glVertex3f(1, -1, 1);
+            //
+            ////roof 2
+            //GL.glColor3f(0.5f, 0, 0.5f);
+            //GL.glVertex3f(-1, -1, 1);
+            //GL.glVertex3f(0, -2, 0);
+            //GL.glVertex3f(-1, -1, -1);
+            //GL.glVertex3f(-1, -1, 1);
+            //
+            ////roof 3
+            //GL.glColor3f(0.5f, 0.5f, 0);
+            //GL.glVertex3f(-1, -1, 1);
+            //GL.glVertex3f(0, -2, 0);
+            //GL.glVertex3f(1, -1, 1);
+            //GL.glVertex3f(-1, -1, 1);
+            //
+            ////roof 4
+            //GL.glColor3f(0.5f, 0.5f, 0.5f);
+            //GL.glVertex3f(1, -1, -1);
+            //GL.glVertex3f(0, -2, 0);
+            //GL.glVertex3f(-1, -1, -1);
+            //GL.glVertex3f(1, -1, -1);
 
 
-           
+
 
             //GL.glEnd();
 
-           
 
-        //   GL.glBegin(GL.GL_QUADS);
-        //
-        //   GL.glTexCoord2f(0.5f, 0.5f);			// top right of texture
-        //   GL.glVertex3f(-1.0f, 1.0f, -1.0f);		// top right of quad
-        //   GL.glTexCoord2f(0.0f, 0.5f);			// top left of texture
-        //   GL.glVertex3f(1.0f, 1.0f, -1.0f);		// top left of quad
-        //   GL.glTexCoord2f(0.0f, 0.0f);			// bottom left of texture
-        //   GL.glVertex3f(1.0f, -1.0f, -1.0f);	    // bottom left of quad
-        //   GL.glTexCoord2f(0.5f, 0.0f);			// bottom right of texture
-        //   GL.glVertex3f(-1.0f, -1.0f, -1.0f);		// bottom right of quad
-        //
-        //   GL.glTexCoord2f(0.5f, 1.0f);			
-        //   GL.glVertex3f(1.0f, 1.0f, 1.0f);		
-        //   GL.glTexCoord2f(0.0f, 1.0f);			
-        //   GL.glVertex3f(-1.0f, 1.0f, 1.0f);      
-        //   GL.glTexCoord2f(0.0f, 0.5f);			
-        //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);	   
-        //   GL.glTexCoord2f(0.5f, 0.5f);			
-        //   GL.glVertex3f(1.0f, -1.0f, 1.0f);      
-        //
-        //   GL.glTexCoord2f(1.0f, 0.5f);			
-        //   GL.glVertex3f(-1.0f, 1.0f, 1.0f);
-        //   GL.glTexCoord2f(0.5f, 0.5f);			
-        //   GL.glVertex3f(-1.0f, 1.0f, -1.0f);
-        //   GL.glTexCoord2f(0.5f, 0.0f);		
-        //   GL.glVertex3f(-1.0f, -1.0f, -1.0f);
-        //   GL.glTexCoord2f(1.0f, 0.0f);			
-        //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);
-        //
-        //   GL.glTexCoord2f(1.0f, 1.0f);
-        //   GL.glVertex3f(1.0f, 1.0f, -1.0f);
-        //   GL.glTexCoord2f(0.5f, 1.0f);
-        //   GL.glVertex3f(1.0f, 1.0f, 1.0f);
-        //   GL.glTexCoord2f(0.5f, 0.5f);
-        //   GL.glVertex3f(1.0f, -1.0f, 1.0f);
-        //   GL.glTexCoord2f(1.0f, 0.5f);
-        //   GL.glVertex3f(1.0f, -1.0f, -1.0f);
-        //
-        //   GL.glEnd();
-        //
-        //   GL.glColor3f(0, 0.5f, 0.7f);
-        //   GL.glRotatef(90.0f, -1.0f, 0.0f,0.0f);
-        //   GLU.gluCylinder(obj, 0.1f, 0.1f, 2.0f, 32, 32);
-        //
-        //   GL.glFlush();
-        //
-        //  
-        // 
-        //   /*
-        //   GL.glColor3f(0, 0, 1);
-        //   GL.glVertex3f(-1, 1, 1);
-        //   GL.glVertex3f(1, 1, 1);
-        //   GL.glVertex3f(1, -1, 1);
-        //   GL.glVertex3f(-1, -1, 1);
-        //   */
-        //   GL.glColor3f(1.0f, 1.0f, 1.0f);
-        //   GL.glEnable(GL.GL_TEXTURE_2D);
-        //   GL.glVertex3f(1.0f, -1.0f, 1.0f);	    // bottom left of quad
-        //   GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
-        //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
-        //   GL.glEnd();
-        // 
-        //   /*
-        //   GL.glColor3f(0, 0, 1);
-        //   GL.glVertex3f(-1, 1, 1);
-        //   GL.glVertex3f(1, 1, 1);
-        //   GL.glVertex3f(1, -1, 1);
-        //   GL.glVertex3f(-1, -1, 1);
-        //   */
-        //   GL.glColor3f(1.0f, 1.0f, 1.0f);
-        //   GL.glEnable(GL.GL_TEXTURE_2D);
-        //   GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
-        //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
-        //   GL.glEnd();
-        // 
-        //   /*
-        //   GL.glColor3f(0, 0, 1);
-        //   GL.glVertex3f(-1, 1, 1);
-        //   GL.glVertex3f(1, 1, 1);
-        //   GL.glVertex3f(1, -1, 1);
-        //   GL.glVertex3f(-1, -1, 1);
-        //   */
-        //
-        //
-        //
-        //   GL.glColor3f(1.0f, 1.0f, 1.0f);
-        //   GL.glEnable(GL.GL_TEXTURE_2D);
+
+            //   GL.glBegin(GL.GL_QUADS);
+            //
+            //   GL.glTexCoord2f(0.5f, 0.5f);			// top right of texture
+            //   GL.glVertex3f(-1.0f, 1.0f, -1.0f);		// top right of quad
+            //   GL.glTexCoord2f(0.0f, 0.5f);			// top left of texture
+            //   GL.glVertex3f(1.0f, 1.0f, -1.0f);		// top left of quad
+            //   GL.glTexCoord2f(0.0f, 0.0f);			// bottom left of texture
+            //   GL.glVertex3f(1.0f, -1.0f, -1.0f);	    // bottom left of quad
+            //   GL.glTexCoord2f(0.5f, 0.0f);			// bottom right of texture
+            //   GL.glVertex3f(-1.0f, -1.0f, -1.0f);		// bottom right of quad
+            //
+            //   GL.glTexCoord2f(0.5f, 1.0f);			
+            //   GL.glVertex3f(1.0f, 1.0f, 1.0f);		
+            //   GL.glTexCoord2f(0.0f, 1.0f);			
+            //   GL.glVertex3f(-1.0f, 1.0f, 1.0f);      
+            //   GL.glTexCoord2f(0.0f, 0.5f);			
+            //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);	   
+            //   GL.glTexCoord2f(0.5f, 0.5f);			
+            //   GL.glVertex3f(1.0f, -1.0f, 1.0f);      
+            //
+            //   GL.glTexCoord2f(1.0f, 0.5f);			
+            //   GL.glVertex3f(-1.0f, 1.0f, 1.0f);
+            //   GL.glTexCoord2f(0.5f, 0.5f);			
+            //   GL.glVertex3f(-1.0f, 1.0f, -1.0f);
+            //   GL.glTexCoord2f(0.5f, 0.0f);		
+            //   GL.glVertex3f(-1.0f, -1.0f, -1.0f);
+            //   GL.glTexCoord2f(1.0f, 0.0f);			
+            //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);
+            //
+            //   GL.glTexCoord2f(1.0f, 1.0f);
+            //   GL.glVertex3f(1.0f, 1.0f, -1.0f);
+            //   GL.glTexCoord2f(0.5f, 1.0f);
+            //   GL.glVertex3f(1.0f, 1.0f, 1.0f);
+            //   GL.glTexCoord2f(0.5f, 0.5f);
+            //   GL.glVertex3f(1.0f, -1.0f, 1.0f);
+            //   GL.glTexCoord2f(1.0f, 0.5f);
+            //   GL.glVertex3f(1.0f, -1.0f, -1.0f);
+            //
+            //   GL.glEnd();
+            //
+            //   GL.glColor3f(0, 0.5f, 0.7f);
+            //   GL.glRotatef(90.0f, -1.0f, 0.0f,0.0f);
+            //   GLU.gluCylinder(obj, 0.1f, 0.1f, 2.0f, 32, 32);
+            //
+            //   GL.glFlush();
+            //
+            //  
+            // 
+            //   /*
+            //   GL.glColor3f(0, 0, 1);
+            //   GL.glVertex3f(-1, 1, 1);
+            //   GL.glVertex3f(1, 1, 1);
+            //   GL.glVertex3f(1, -1, 1);
+            //   GL.glVertex3f(-1, -1, 1);
+            //   */
+            //   GL.glColor3f(1.0f, 1.0f, 1.0f);
+            //   GL.glEnable(GL.GL_TEXTURE_2D);
+            //   GL.glVertex3f(1.0f, -1.0f, 1.0f);	    // bottom left of quad
+            //   GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
+            //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
+            //   GL.glEnd();
+            // 
+            //   /*
+            //   GL.glColor3f(0, 0, 1);
+            //   GL.glVertex3f(-1, 1, 1);
+            //   GL.glVertex3f(1, 1, 1);
+            //   GL.glVertex3f(1, -1, 1);
+            //   GL.glVertex3f(-1, -1, 1);
+            //   */
+            //   GL.glColor3f(1.0f, 1.0f, 1.0f);
+            //   GL.glEnable(GL.GL_TEXTURE_2D);
+            //   GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
+            //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
+            //   GL.glEnd();
+            // 
+            //   /*
+            //   GL.glColor3f(0, 0, 1);
+            //   GL.glVertex3f(-1, 1, 1);
+            //   GL.glVertex3f(1, 1, 1);
+            //   GL.glVertex3f(1, -1, 1);
+            //   GL.glVertex3f(-1, -1, 1);
+            //   */
+            //
+            //
+            //
+            //   GL.glColor3f(1.0f, 1.0f, 1.0f);
+            //   GL.glEnable(GL.GL_TEXTURE_2D);
         }
         public void Draw()
         {
@@ -288,14 +288,14 @@ GLUquadric obj;
             GL.glLoadIdentity();
 
             GL.glTranslatef(TransparentA, TransparentB, TransparentC);						// Translate 6 Units Into The Screen
-       
+
             angle += 3.0f;
 
             GL.glRotatef(angle, 0.0f, 2.0f, 0.0f);
 
             //Bitmap bitmap = new Bitmap("example.jpg");
 
-        
+
 
             DrawAll();
 
@@ -309,49 +309,49 @@ GLUquadric obj;
             //Draw();
             Console.WriteLine("Hello World");
         }
-		protected virtual void InitializeGL()
-		{
-			m_uint_HWND = (uint)p.Handle.ToInt32();
-			m_uint_DC   = WGL.GetDC(m_uint_HWND);
+        protected virtual void InitializeGL()
+        {
+            m_uint_HWND = (uint)p.Handle.ToInt32();
+            m_uint_DC = WGL.GetDC(m_uint_HWND);
 
             // Not doing the following WGL.wglSwapBuffers() on the DC will
-			// result in a failure to subsequently create the RC.
-			WGL.wglSwapBuffers(m_uint_DC);
+            // result in a failure to subsequently create the RC.
+            WGL.wglSwapBuffers(m_uint_DC);
 
-			WGL.PIXELFORMATDESCRIPTOR pfd = new WGL.PIXELFORMATDESCRIPTOR();
-			WGL.ZeroPixelDescriptor(ref pfd);
-			pfd.nVersion        = 1; 
-			pfd.dwFlags         = (WGL.PFD_DRAW_TO_WINDOW |  WGL.PFD_SUPPORT_OPENGL |  WGL.PFD_DOUBLEBUFFER); 
-			pfd.iPixelType      = (byte)(WGL.PFD_TYPE_RGBA);
-			pfd.cColorBits      = 32;
-			pfd.cDepthBits      = 32;
-			pfd.iLayerType      = (byte)(WGL.PFD_MAIN_PLANE);
+            WGL.PIXELFORMATDESCRIPTOR pfd = new WGL.PIXELFORMATDESCRIPTOR();
+            WGL.ZeroPixelDescriptor(ref pfd);
+            pfd.nVersion = 1;
+            pfd.dwFlags = (WGL.PFD_DRAW_TO_WINDOW | WGL.PFD_SUPPORT_OPENGL | WGL.PFD_DOUBLEBUFFER);
+            pfd.iPixelType = (byte)(WGL.PFD_TYPE_RGBA);
+            pfd.cColorBits = 32;
+            pfd.cDepthBits = 32;
+            pfd.iLayerType = (byte)(WGL.PFD_MAIN_PLANE);
 
-			int pixelFormatIndex = 0;
-			pixelFormatIndex = WGL.ChoosePixelFormat(m_uint_DC, ref pfd);
-			if(pixelFormatIndex == 0)
-			{
-				MessageBox.Show("Unable to retrieve pixel format");
-				return;
-			}
+            int pixelFormatIndex = 0;
+            pixelFormatIndex = WGL.ChoosePixelFormat(m_uint_DC, ref pfd);
+            if (pixelFormatIndex == 0)
+            {
+                MessageBox.Show("Unable to retrieve pixel format");
+                return;
+            }
 
-			if(WGL.SetPixelFormat(m_uint_DC,pixelFormatIndex,ref pfd) == 0)
-			{
-				MessageBox.Show("Unable to set pixel format");
-				return;
-			}
-			//Create rendering context
-			m_uint_RC = WGL.wglCreateContext(m_uint_DC);
-			if(m_uint_RC == 0)
-			{
-				MessageBox.Show("Unable to get rendering context");
-				return;
-			}
-			if(WGL.wglMakeCurrent(m_uint_DC,m_uint_RC) == 0)
-			{
-				MessageBox.Show("Unable to make rendering context current");
-				return;
-			}
+            if (WGL.SetPixelFormat(m_uint_DC, pixelFormatIndex, ref pfd) == 0)
+            {
+                MessageBox.Show("Unable to set pixel format");
+                return;
+            }
+            //Create rendering context
+            m_uint_RC = WGL.wglCreateContext(m_uint_DC);
+            if (m_uint_RC == 0)
+            {
+                MessageBox.Show("Unable to get rendering context");
+                return;
+            }
+            if (WGL.wglMakeCurrent(m_uint_DC, m_uint_RC) == 0)
+            {
+                MessageBox.Show("Unable to make rendering context current");
+                return;
+            }
 
 
             initRenderingGL();
@@ -369,30 +369,30 @@ GLUquadric obj;
             initRenderingGL();
             Draw();*/
         }
-        
+
         protected virtual void initRenderingGL()
-		{
-			if(m_uint_DC == 0 || m_uint_RC == 0)
-				return;
-			if(this.Width == 0 || this.Height == 0)
-				return;
+        {
+            if (m_uint_DC == 0 || m_uint_RC == 0)
+                return;
+            if (this.Width == 0 || this.Height == 0)
+                return;
             GL.glEnable(GL.GL_DEPTH_TEST);
             GL.glDepthFunc(GL.GL_LEQUAL);
 
-            GL.glViewport(-500, -400, 1920,1080);
-           // GL.glViewport(50, 50, 200, 50);
-            
-            GL.glClearColor(0, 0.3f, 0, 0); 
-			GL.glMatrixMode ( GL.GL_PROJECTION );
-			GL.glLoadIdentity();
-			GLU.gluPerspective( 50,((double)Width) / Height, 1.0,1000.0);
-			GL.glMatrixMode ( GL.GL_MODELVIEW );
-			GL.glLoadIdentity(); 
-          //  InitTexture("example.bmp");
-         //   InitTexture("alon.bmp");
-         //   InitTexture("truck.jpg");
-      //      InitTexture("1.jpg");
-		}
+            GL.glViewport(-500, -400, 1920, 1080);
+            // GL.glViewport(50, 50, 200, 50);
+
+            GL.glClearColor(0, 0.3f, 0, 0);
+            GL.glMatrixMode(GL.GL_PROJECTION);
+            GL.glLoadIdentity();
+            GLU.gluPerspective(50, ((double)Width) / Height, 1.0, 1000.0);
+            GL.glMatrixMode(GL.GL_MODELVIEW);
+            GL.glLoadIdentity();
+            //  InitTexture("example.bmp");
+            //   InitTexture("alon.bmp");
+            //   InitTexture("truck.jpg");
+            //      InitTexture("1.jpg");
+        }
         public uint[] texture;		// texture
 
         void InitTexture(string imageBMPfile)
@@ -427,214 +427,253 @@ GLUquadric obj;
 
 
 
-       public void CreateBackCabin()
+        public void CreateBackCabin()
         {
-            //Side of the Truck!
-         //   GL.glColor3f(1.0f, 0.0f, 0.0f);
+
+            //-----------------------------------------------
+            //Drawing The front Cabin
+            //-----------------------------------------------
+
            
-            for (int i = 1; i < 3; i++)
-            {
-                InitTexture(i+".jpg");
+            InitTexture(Texture.Back.k_LeftSide);
 
-                GL.glPushMatrix();
-                GL.glBegin(GL.GL_QUADS);
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
 
-                GL.glTexCoord2f(1,1);
-                GL.glVertex3f(2.0f, 1.0f, 1.0f);
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(2.0f, 1.0f, 1.0f);
 
-                GL.glTexCoord2f(1,0);
-                GL.glVertex3f(2.0f, 0.0f, 1.0f);
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(2.0f, 0.0f, 1.0f);
 
-                GL.glTexCoord2f(0,0);
-                GL.glVertex3f(0.0f, 0.0f, 1.0f);
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(0.0f, 0.0f, 1.0f);
 
-                GL.glTexCoord2f(0,1);
-                GL.glVertex3f(0.0f, 1.0f, 1.0f);
-                GL.glEnd();
-                GL.glPopMatrix();
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(0.0f, 1.0f, 1.0f);
+            GL.glEnd();
+            GL.glPopMatrix();
 
 
-                GL.glTranslatef(0, 0, 1);
-                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-                GL.glTranslatef(0, 0, 2);
-                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-            }
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 0, 2);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+
+
+
+           
+            InitTexture(Texture.Back.k_RightSide);
+
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(2.0f, 1.0f, 1.0f);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(2.0f, 0.0f, 1.0f);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(0.0f, 0.0f, 1.0f);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(0.0f, 1.0f, 1.0f);
+            GL.glEnd();
+            GL.glPopMatrix();
+
+
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 0, 2);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+
+
+            //Rotating for The 2 second sides
+
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+
+
+            //Drawing The LeftSide  
+
+            InitTexture(Texture.Back.k_FrontSide);
+
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(1.0f, 1.0f, 2.0f);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(1.0f, 0.0f, 2.0f);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(0.0f, 0.0f, 2.0f);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(0.0f, 1.0f, 2.0f);
+            GL.glEnd();
+            GL.glPopMatrix();
+
+
+            GL.glTranslatef(0, 0, 2);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+
+
+            //Drawing The Right Side
+            InitTexture(Texture.Back.k_BackSide);
+
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(1.0f, 1.0f, 2.0f);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(1.0f, 0.0f, 2.0f);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(0.0f, 0.0f, 2.0f);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(0.0f, 1.0f, 2.0f);
+            GL.glEnd();
+            GL.glPopMatrix();
+
+
+            GL.glTranslatef(0, 0, 2);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+        }
+
+        public void CreateFrontCabin()
+        {
+            GL.glTranslatef(0, 0, 2.6f);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+            InitTexture(Texture.Front.k_LeftSide);
+
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(0.7f, 0.85f, 1.0f);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(0.7f, 0.0f, 1.0f);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(0.0f, 0.0f, 1.0f);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(0.0f, 0.85f, 1.0f);
+            GL.glEnd();
+            GL.glPopMatrix();
+
+
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 0, 0.7f);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+
+
+            InitTexture(Texture.Front.k_RightSide);
+
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(0.7f, 0.85f, 1.0f);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(0.7f, 0.0f, 1.0f);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(0.0f, 0.0f, 1.0f);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(0.0f, 0.85f, 1.0f);
+            GL.glEnd();
+            GL.glPopMatrix();
+
+
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 0, 0.7f);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+         
+           
+
+
+
 
             GL.glTranslatef(0, 0, 1);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
 
             //Front and back
 
-          //  GL.glColor3f(0.0f, 1.0f, 0.0f);
-            for (int i = 0; i < 2; i++)
-            {
-                //  GL.glColor3f(i % 2, i % 2, i %2);
-                InitTexture("back.jpg");
+            //   GL.glColor3f(0.0f, 1.0f, 0.0f);
+            InitTexture(Texture.Front.k_BackSide);
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
 
-                GL.glPushMatrix();
-                GL.glBegin(GL.GL_QUADS);
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(1.0f, 0.85f, 0.7f);
 
-                GL.glTexCoord2f(0, 0);
-                GL.glVertex3f(1.0f, 1.0f, 2.0f);
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(1.0f, 0.0f, 0.7f);
 
-                GL.glTexCoord2f(0,1);
-                GL.glVertex3f(1.0f, 0.0f, 2.0f);
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(0.0f, 0.0f, 0.7f);
 
-                GL.glTexCoord2f(1,1);
-                GL.glVertex3f(0.0f, 0.0f, 2.0f);
-
-                GL.glTexCoord2f(1,0);
-                GL.glVertex3f(0.0f, 1.0f, 2.0f);
-                GL.glEnd();
-                GL.glPopMatrix();
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(0.0f, 0.85f, 0.7f);
+            GL.glEnd();
+            GL.glPopMatrix();
 
 
-                GL.glTranslatef(0, 0, 2);
-                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-                GL.glTranslatef(0, 0, 1);
-                GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-            }
+            GL.glTranslatef(0, 0, 0.7f);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
 
+
+
+
+
+            InitTexture(Texture.Front.k_FrontSide);
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(1.0f, 0.85f, 0.7f);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(1.0f, 0.0f, 0.7f);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(0.0f, 0.0f, 0.7f);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(0.0f, 0.85f, 0.7f);
+            GL.glEnd();
+            GL.glPopMatrix();
+
+
+            GL.glTranslatef(0, 0, 0.7f);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 0, 1);
+            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
 
         }
-
-       public void CreateFrontCabinOld()
-       {
-           GL.glTranslatef(0, 0, 3f);
-           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-
-           GL.glColor3f(1.0f, 0.0f, 0.0f);
-           for (int i = 0; i < 2; i++)
-           {
-               GL.glPushMatrix();
-               GL.glBegin(GL.GL_QUADS);
-
-               GL.glTexCoord2f(0.5f, 1.0f);
-               GL.glVertex3f(0.7f, 1.0f, 1.0f);
-
-               GL.glTexCoord2f(0.0f, 1.0f);
-               GL.glVertex3f(0.7f, 0.0f, 1.0f);
-
-               GL.glTexCoord2f(0.0f, 0.5f);
-               GL.glVertex3f(0.0f, 0.0f, 1.0f);
-
-               GL.glTexCoord2f(0.5f, 0.5f);
-               GL.glVertex3f(0.0f, 1.0f, 1.0f);
-               GL.glEnd();
-               GL.glPopMatrix();
-
-
-               GL.glTranslatef(0, 0, 1);
-               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-               GL.glTranslatef(0, 0, 0.7f);
-               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-           }
-
-           GL.glTranslatef(0, 0, 1);
-           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-
-           //Front and back
-
-           GL.glColor3f(0.0f, 1.0f, 0.0f);
-           for (int i = 0; i < 2; i++)
-           {
-               //  GL.glColor3f(i % 2, i % 2, i %2);
-
-               GL.glPushMatrix();
-               GL.glBegin(GL.GL_QUADS);
-
-               GL.glTexCoord2f(0.5f, 1.0f);
-               GL.glVertex3f(1.0f, 1.0f, 0.7f);
-
-               GL.glTexCoord2f(0.0f, 1.0f);
-               GL.glVertex3f(1.0f, 0.0f, 0.7f);
-
-               GL.glTexCoord2f(0.0f, 0.5f);
-               GL.glVertex3f(0.0f, 0.0f, 0.7f);
-
-               GL.glTexCoord2f(0.5f, 0.5f);
-               GL.glVertex3f(0.0f, 1.0f, 0.7f);
-               GL.glEnd();
-               GL.glPopMatrix();
-
-
-               GL.glTranslatef(0, 0, 0.7f);
-               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-               GL.glTranslatef(0, 0, 1);
-               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-           }
-
-       }
-
-       public void CreateFrontCabin()
-       {
-           GL.glTranslatef(0, 0, 2.6f);
-           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-
-       //    GL.glColor3f(1.0f, 0.0f, 0.0f);
-
-           for (int i = 1; i < 3; i++)
-           {
-               InitTexture("side"+i+".jpg");
-
-               GL.glPushMatrix();
-               GL.glBegin(GL.GL_QUADS);
-
-               GL.glTexCoord2f(1, 0);
-               GL.glVertex3f(0.7f, 0.85f, 1.0f);
-
-               GL.glTexCoord2f(1,1);
-               GL.glVertex3f(0.7f, 0.0f, 1.0f);
-
-               GL.glTexCoord2f(0,1);
-               GL.glVertex3f(0.0f, 0.0f, 1.0f);
-
-               GL.glTexCoord2f(0,0);
-               GL.glVertex3f(0.0f, 0.85f, 1.0f);
-               GL.glEnd();
-               GL.glPopMatrix();
-
-
-               GL.glTranslatef(0, 0, 1);
-               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-               GL.glTranslatef(0, 0, 0.7f);
-               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-           }
-
-           GL.glTranslatef(0, 0, 1);
-           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-
-           //Front and back
-
-        //   GL.glColor3f(0.0f, 1.0f, 0.0f);
-           for (int i = 0; i < 2; i++)
-           {
-               //  GL.glColor3f(i % 2, i % 2, i %2);
-               InitTexture("front.jpg");
-               GL.glPushMatrix();
-               GL.glBegin(GL.GL_QUADS);
-
-               GL.glTexCoord2f(1, 0);
-               GL.glVertex3f(1.0f, 0.85f, 0.7f);
-
-               GL.glTexCoord2f(1, 1);
-               GL.glVertex3f(1.0f, 0.0f, 0.7f);
-
-               GL.glTexCoord2f(0, 1);
-               GL.glVertex3f(0.0f, 0.0f, 0.7f);
-
-               GL.glTexCoord2f(0, 0);
-               GL.glVertex3f(0.0f, 0.85f, 0.7f);
-               GL.glEnd();
-               GL.glPopMatrix();
-
-
-               GL.glTranslatef(0, 0, 0.7f);
-               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-               GL.glTranslatef(0, 0, 1);
-               GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-           }
-
-       }
     }
 }
