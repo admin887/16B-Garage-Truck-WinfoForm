@@ -11,6 +11,7 @@ namespace Texture
         public const string k_BackSide = @"Texture\Front_Back.jpg";
         public const string k_RightSide = @"Texture\Front_Right.jpg";
         public const string k_LeftSide = @"Texture\Front_Left.jpg";
+        public const string k_FrontRightWheel = @"Texture\Wheel1.jpg";
 
         private Front() { }
     }
