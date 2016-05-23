@@ -11,11 +11,11 @@ using OpenGL;
 
 namespace Garage_Truck_WinfoForms
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         cOGL c;
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             c = new cOGL(panel2);
