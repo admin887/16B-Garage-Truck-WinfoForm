@@ -390,7 +390,8 @@ GLUquadric obj;
 			GL.glLoadIdentity(); 
           //  InitTexture("example.bmp");
          //   InitTexture("alon.bmp");
-            InitTexture("truck.jpg");
+         //   InitTexture("truck.jpg");
+      //      InitTexture("1.jpg");
 		}
         public uint[] texture;		// texture
 
@@ -430,21 +431,24 @@ GLUquadric obj;
         {
             //Side of the Truck!
          //   GL.glColor3f(1.0f, 0.0f, 0.0f);
-            for (int i = 0; i < 2; i++)
+           
+            for (int i = 1; i < 3; i++)
             {
+                InitTexture(i+".jpg");
+
                 GL.glPushMatrix();
                 GL.glBegin(GL.GL_QUADS);
 
-                GL.glTexCoord2f(0.276f, 0.512f);
+                GL.glTexCoord2f(1,1);
                 GL.glVertex3f(2.0f, 1.0f, 1.0f);
 
-                GL.glTexCoord2f(0.546f, 0.512f);
+                GL.glTexCoord2f(1,0);
                 GL.glVertex3f(2.0f, 0.0f, 1.0f);
 
-                GL.glTexCoord2f(0.546f, 0.709f);
+                GL.glTexCoord2f(0,0);
                 GL.glVertex3f(0.0f, 0.0f, 1.0f);
 
-                GL.glTexCoord2f(0.276f, 0.709f);
+                GL.glTexCoord2f(0,1);
                 GL.glVertex3f(0.0f, 1.0f, 1.0f);
                 GL.glEnd();
                 GL.glPopMatrix();
@@ -465,20 +469,21 @@ GLUquadric obj;
             for (int i = 0; i < 2; i++)
             {
                 //  GL.glColor3f(i % 2, i % 2, i %2);
+                InitTexture("back.jpg");
 
                 GL.glPushMatrix();
                 GL.glBegin(GL.GL_QUADS);
 
-                GL.glTexCoord2f(0.5f, 1.0f);
+                GL.glTexCoord2f(0, 0);
                 GL.glVertex3f(1.0f, 1.0f, 2.0f);
 
-                GL.glTexCoord2f(0.0f, 1.0f);
+                GL.glTexCoord2f(0,1);
                 GL.glVertex3f(1.0f, 0.0f, 2.0f);
 
-                GL.glTexCoord2f(0.0f, 0.5f);
+                GL.glTexCoord2f(1,1);
                 GL.glVertex3f(0.0f, 0.0f, 2.0f);
 
-                GL.glTexCoord2f(0.5f, 0.5f);
+                GL.glTexCoord2f(1,0);
                 GL.glVertex3f(0.0f, 1.0f, 2.0f);
                 GL.glEnd();
                 GL.glPopMatrix();
@@ -563,25 +568,28 @@ GLUquadric obj;
 
        public void CreateFrontCabin()
        {
-           GL.glTranslatef(0, 0, 2.8f);
+           GL.glTranslatef(0, 0, 2.6f);
            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
 
        //    GL.glColor3f(1.0f, 0.0f, 0.0f);
-           for (int i = 0; i < 2; i++)
+
+           for (int i = 1; i < 3; i++)
            {
+               InitTexture("side"+i+".jpg");
+
                GL.glPushMatrix();
                GL.glBegin(GL.GL_QUADS);
 
-               GL.glTexCoord2f(0.5f, 1.0f);
+               GL.glTexCoord2f(1, 0);
                GL.glVertex3f(0.7f, 0.85f, 1.0f);
 
-               GL.glTexCoord2f(0.0f, 1.0f);
+               GL.glTexCoord2f(1,1);
                GL.glVertex3f(0.7f, 0.0f, 1.0f);
 
-               GL.glTexCoord2f(0.0f, 0.5f);
+               GL.glTexCoord2f(0,1);
                GL.glVertex3f(0.0f, 0.0f, 1.0f);
 
-               GL.glTexCoord2f(0.5f, 0.5f);
+               GL.glTexCoord2f(0,0);
                GL.glVertex3f(0.0f, 0.85f, 1.0f);
                GL.glEnd();
                GL.glPopMatrix();
@@ -602,20 +610,20 @@ GLUquadric obj;
            for (int i = 0; i < 2; i++)
            {
                //  GL.glColor3f(i % 2, i % 2, i %2);
-
+               InitTexture("front.jpg");
                GL.glPushMatrix();
                GL.glBegin(GL.GL_QUADS);
 
-               GL.glTexCoord2f(0.5f, 1.0f);
+               GL.glTexCoord2f(1, 0);
                GL.glVertex3f(1.0f, 0.85f, 0.7f);
 
-               GL.glTexCoord2f(0.0f, 1.0f);
+               GL.glTexCoord2f(1, 1);
                GL.glVertex3f(1.0f, 0.0f, 0.7f);
 
-               GL.glTexCoord2f(0.0f, 0.5f);
+               GL.glTexCoord2f(0, 1);
                GL.glVertex3f(0.0f, 0.0f, 0.7f);
 
-               GL.glTexCoord2f(0.5f, 0.5f);
+               GL.glTexCoord2f(0, 0);
                GL.glVertex3f(0.0f, 0.85f, 0.7f);
                GL.glEnd();
                GL.glPopMatrix();
