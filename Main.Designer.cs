@@ -159,18 +159,26 @@
             // scrool2
             // 
             this.scrool2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scrool2.LargeChange = 1;
             this.scrool2.Location = new System.Drawing.Point(0, 126);
+            this.scrool2.Maximum = 360;
             this.scrool2.Name = "scrool2";
             this.scrool2.Size = new System.Drawing.Size(104, 23);
             this.scrool2.TabIndex = 3;
+            this.scrool2.ValueChanged += new System.EventHandler(this.scrool2_ValueChanged);
+            this.scrool2.Leave += new System.EventHandler(this.scrool2_Leave);
             // 
             // scroll1
             // 
             this.scroll1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scroll1.LargeChange = 1;
             this.scroll1.Location = new System.Drawing.Point(0, 103);
+            this.scroll1.Maximum = 360;
             this.scroll1.Name = "scroll1";
             this.scroll1.Size = new System.Drawing.Size(104, 23);
             this.scroll1.TabIndex = 2;
+            this.scroll1.ValueChanged += new System.EventHandler(this.scroll1_ValueChanged);
+            this.scroll1.Leave += new System.EventHandler(this.scroll1_Leave);
             // 
             // scroll5
             // 
@@ -300,20 +308,26 @@
             this.tableLayoutPanel4.SetRowSpan(this.panel2, 2);
             this.panel2.Size = new System.Drawing.Size(547, 311);
             this.panel2.TabIndex = 1;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel2.MouseHover += new System.EventHandler(this.panel2_MouseHover);
+            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
+            this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseUp);
+            this.panel2.Move += new System.EventHandler(this.panel2_Move);
             // 
             // timer1
             // 
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 357);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "Main";
+            this.Text = "Main Model Viewer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
