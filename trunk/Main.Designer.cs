@@ -151,10 +151,13 @@
             // scrool3
             // 
             this.scrool3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scrool3.LargeChange = 1;
             this.scrool3.Location = new System.Drawing.Point(0, 149);
+            this.scrool3.Maximum = 360;
             this.scrool3.Name = "scrool3";
             this.scrool3.Size = new System.Drawing.Size(104, 23);
             this.scrool3.TabIndex = 4;
+            this.scrool3.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scrool3_Scroll);
             // 
             // scrool2
             // 

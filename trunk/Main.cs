@@ -88,14 +88,14 @@ namespace Garage_Truck_WinfoForms
         private void scroll1_ValueChanged(object sender, EventArgs e)
         {
 
-            c.Draw(c.angle = scroll1.Value, scroll1.Value, scrool2.Value, 0);
+            c.Draw(c.angle = scroll1.Value, scroll1.Value, scrool2.Value, scrool3.Value);
         //    scrool2.Value = scroll1.Value;
             
         }
 
         private void scrool2_ValueChanged(object sender, EventArgs e)
         {
-            c.Draw(c.angle = scrool2.Value, scroll1.Value, scrool2.Value, 0);
+            c.Draw(c.angle = scrool2.Value, scroll1.Value, scrool2.Value, scrool3.Value);
 
          //   scroll1.Value = scrool2.Value;
         }
@@ -109,6 +109,12 @@ namespace Garage_Truck_WinfoForms
         private void scrool2_Leave(object sender, EventArgs e)
         {
             scrool2.Maximum = scrool2.Value * 2;
+        }
+
+        private void scrool3_Scroll(object sender, ScrollEventArgs e)
+        {
+            c.Draw(c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scrool3.Value);
+
         }
 
     }
