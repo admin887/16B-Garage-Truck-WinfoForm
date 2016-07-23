@@ -544,7 +544,30 @@ namespace OpenGL
         {
             GL.glTranslatef(0, 0, 2f);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-            
+
+            for (float i = 0; i < 2; i++)
+            {
+                InitTexture(Texture.Back.k_BackLeftWheel);
+                GL.glPushMatrix();
+                GL.glTranslatef(-0.5f, -0.4f, -0.55f+i*1.1f);
+                GL.glEnable(GL.GL_BLEND);
+                GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
+                GL.glBegin(GL.GL_QUADS);
+
+                GL.glTexCoord2f(1, 1);
+                GL.glVertex3f(1f, 0.65f, 0.5f);
+
+                GL.glTexCoord2f(1, 0);
+                GL.glVertex3f(1f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 0);
+                GL.glVertex3f(0.0f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 1);
+                GL.glVertex3f(0.0f, 0.65f, 0.5f);
+                GL.glEnd();
+                GL.glPopMatrix();
+            }
             for (int i = 1; i < 3; i++)
             {
                 GL.glBegin(GL.GL_SPHERE_MAP);
@@ -586,6 +609,29 @@ namespace OpenGL
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
             GL.glTranslatef(1.6f, 0, 1.5f);
             GL.glRotatef(-90f, 0.0f, 1.0f, 0.0f);
+            for (float i = 0; i < 2; i++)
+            {
+                InitTexture(Texture.Front.k_FrontLeftWheel);
+                GL.glPushMatrix();
+                GL.glTranslatef(-0.5f, -0.4f, -0.55f + i * 1.1f);
+                GL.glEnable(GL.GL_BLEND);
+                GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
+                GL.glBegin(GL.GL_QUADS);
+
+                GL.glTexCoord2f(1, 1);
+                GL.glVertex3f(1f, 0.65f, 0.5f);
+
+                GL.glTexCoord2f(1, 0);
+                GL.glVertex3f(1f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 0);
+                GL.glVertex3f(0.0f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 1);
+                GL.glVertex3f(0.0f, 0.65f, 0.5f);
+                GL.glEnd();
+                GL.glPopMatrix();
+            }
             for (int i = 1; i < 3; i++)
             {
                 GL.glBegin(GL.GL_SPHERE_MAP);
