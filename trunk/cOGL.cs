@@ -52,7 +52,7 @@ namespace OpenGL
             get { return m_uint_RC; }
         }
 
-        public  void DrawAll()
+        public  void DrawAll(float backCabinLiftingAngle)
         {
             //axes
             //  GL.glBegin(GL.GL_LINES);
@@ -86,16 +86,16 @@ namespace OpenGL
             float[,] ground = new float[3, 3];
 
 
-          //  MakeShadowMatrix(ground);
+            //  MakeShadowMatrix(ground);
 
 
-
-            CreateBackCabin();
 
             CreateFrontCabin();
-
+            CreateChassis();
             CreateBackWheels();
             CreateFrontWheels();
+         
+            CreateBackCabin(backCabinLiftingAngle);
 
 
 
@@ -288,8 +288,7 @@ namespace OpenGL
             //   GL.glColor3f(1.0f, 1.0f, 1.0f);
             //   GL.glEnable(GL.GL_TEXTURE_2D);
         }
-
-        public void Draw(float i_angle,float x, float y, float z)
+        public void Draw(float i_angle,float x, float y, float z,float backCabinLiftingAngle)
         {
             if (m_uint_DC == 0 || m_uint_RC == 0)
                 return;
@@ -307,7 +306,7 @@ namespace OpenGL
 
 
 
-            DrawAll();
+            DrawAll(backCabinLiftingAngle);
 
             GL.glFlush();
 
@@ -424,7 +423,7 @@ namespace OpenGL
 
         public void Draw()
         {
-            Draw(angle + 3.0f, 0.0f, 2.0f, 0.0f);
+            Draw(angle + 3.0f, 0.0f, 2.0f, 0.0f,0.0f);
 
         }
        protected virtual void InitializeGL()
@@ -624,45 +623,59 @@ namespace OpenGL
 
         }
 
-
-
-       public void CreateBackCabin()
+        public void CreateChassis()
         {
-
-            //-----------------------------------------------
-            //Drawing The front Cabin
-            //-----------------------------------------------
-
-           
-            InitTexture(Texture.Back.k_LeftSide);
-
             GL.glPushMatrix();
-            GL.glBegin(GL.GL_QUADS);
-
-            GL.glTexCoord2f(1, 1);
-            GL.glVertex3f(2.0f, 1.0f, 1.0f);
-
-            GL.glTexCoord2f(1, 0);
-            GL.glVertex3f(2.0f, 0.0f, 1.0f);
-
-            GL.glTexCoord2f(0, 0);
-            GL.glVertex3f(0.0f, 0.0f, 1.0f);
-
-            GL.glTexCoord2f(0, 1);
-            GL.glVertex3f(0.0f, 1.0f, 1.0f);
+            GL.glTranslatef(0.5f, -0.4f, 1.3f);
+            GL.glBegin(GL.GL_POLYGON);
+            GL.glVertex3d(-0.5f, 0.5f, -0.5f);
+            GL.glVertex3d(-0.5f, 0.5f, 0.5f);
+            GL.glVertex3d(0.5f, 0.5f, 0.5f);
+            GL.glVertex3d(0.5f, 0.5f, -0.5f);
             GL.glEnd();
             GL.glPopMatrix();
 
+        }
 
-            GL.glTranslatef(0, 0, 1);
-            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-            GL.glTranslatef(0, 0, 2);
-            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+       public void CreateBackCabin(float backCabinLiftingAngle)
+        {
 
+            //-----------------------------------------------
+            //Drawing The back Cabin
 
+            //-----------------------------------------------
+            GL.glTranslatef(-2, 0, -1.6f);
+            GL.glRotatef(backCabinLiftingAngle / 3, 0.0f, 0.0f, 0.1f);
+            GL.glTranslatef(backCabinLiftingAngle / 200, backCabinLiftingAngle / 1000, 0);
+            GL.glPushMatrix();
+            GL.glTranslatef(-0.275f, 0, 0);
+            
+            InitTexture(Texture.Back.k_LeftSide);
+            
+             GL.glPushMatrix();
+             GL.glBegin(GL.GL_QUADS);
+            
+             GL.glTexCoord2f(1, 1);
+             GL.glVertex3f(2.0f, 1.0f, 1.0f);
+            
+             GL.glTexCoord2f(1, 0);
+             GL.glVertex3f(2.0f, 0.0f, 1.0f);
+            
+             GL.glTexCoord2f(0, 0);
+             GL.glVertex3f(0.0f, 0.0f, 1.0f);
+            
+             GL.glTexCoord2f(0, 1);
+             GL.glVertex3f(0.0f, 1.0f, 1.0f);
+             GL.glEnd();
+             GL.glPopMatrix();
+            
+            
+             GL.glTranslatef(0, 0, 1);
+             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+             GL.glTranslatef(0, 0, 2);
+             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+         
 
-
-           
             InitTexture(Texture.Back.k_RightSide);
 
             GL.glPushMatrix();
@@ -687,17 +700,12 @@ namespace OpenGL
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
             GL.glTranslatef(0, 0, 2);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-
-
-
             //Rotating for The 2 second sides
 
             GL.glTranslatef(0, 0, 1);
-            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glRotatef(90, 0.0f, 1.0f, 0.0f);
 
-
-
-            //Drawing The LeftSide  
+            //Drawing The FrontSide  
 
             InitTexture(Texture.Back.k_FrontSide);
 
@@ -723,10 +731,7 @@ namespace OpenGL
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
             GL.glTranslatef(0, 0, 1);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-
-
-
-            //Drawing The Right Side
+            //Drawing The BackSide
             InitTexture(Texture.Back.k_BackSide);
 
             GL.glPushMatrix();
@@ -749,14 +754,16 @@ namespace OpenGL
 
             GL.glTranslatef(0, 0, 2);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
             GL.glTranslatef(0, 0, 1);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glPopMatrix();
         }
 
         public void CreateFrontCabin()
         {
-            GL.glTranslatef(0, 0, 2.6f);
-            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            GL.glTranslatef(0, 1, 2.6f);
+            //GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
 
             InitTexture(Texture.Front.k_LeftSide);
 
