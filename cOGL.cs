@@ -544,6 +544,7 @@ namespace OpenGL
         {
             GL.glTranslatef(0, 0, 2f);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+            
             for (int i = 1; i < 3; i++)
             {
                 GL.glBegin(GL.GL_SPHERE_MAP);
