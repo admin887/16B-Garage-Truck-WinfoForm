@@ -89,7 +89,6 @@ namespace OpenGL
             //  MakeShadowMatrix(ground);
 
 
-
             CreateFrontCabin();
             CreateChassis();
             CreateBackWheels();
@@ -637,6 +636,55 @@ namespace OpenGL
 
         }
 
+       public void CreateGarbageCube()
+        {
+
+            //Face 1
+            double x=0.2;
+            GL.glBegin(GL.GL_QUADS);
+
+            GL.glTranslatef(3f, 3f, 3f);
+                //Face1
+                GL.glVertex3d(-x, x, x); // vertex[0]
+                GL.glVertex3d(x, x, x); // vertex[1]
+                GL.glVertex3d(x, -x, x); // vertex[2]
+                GL.glVertex3d(-x, -x, x); // vertex[3]
+                //Face2
+                GL.glVertex3d(-x, x, -x); // vertex[4]
+                GL.glVertex3d(x, x, -x); // vertex[5]
+                GL.glVertex3d(x, -x, -x); // vertex[6]
+                GL.glVertex3d(-x, -x, -x); // vertex[7]
+                //Face3
+                GL.glVertex3d(-x, x, x);
+                GL.glVertex3d(-x, -x, x);
+                GL.glVertex3d(-x, -x, -x);
+                GL.glVertex3d(-x, x, -x);
+                //Face4
+                GL.glVertex3d(x, -x, x);
+                GL.glVertex3d(x, -x, -x);
+                GL.glVertex3d(x, x, -x);
+                GL.glVertex3d(x, x, x);
+                //Face5
+                GL.glVertex3d(-x, -x, x);
+                GL.glVertex3d(-x, -x, -x);
+                GL.glVertex3d(x, -x, -x);
+                GL.glVertex3d(x, -x, x);
+                //Face6
+                GL.glVertex3d(-x, x, x);
+                GL.glVertex3d(-x, x, -x);
+                GL.glVertex3d(x, x, -x);
+                GL.glVertex3d(x, x, x);
+        
+            //Face2
+            /*GL.glBegin(GL.GL_POLYGON);
+            GL.glVertex3d(-0.1f, 0.1f, -0.1f);
+            GL.glVertex3d(-0.1f, 0.1f, 0.1f);
+            GL.glVertex3d(0.1f, 0.1f, 0.1f);
+            GL.glVertex3d(0.1f, 0.1f, -0.1f);*/
+            GL.glEnd();
+            GL.glPopMatrix();
+        }
+
        public void CreateBackCabin(float backCabinLiftingAngle)
         {
 
@@ -758,6 +806,17 @@ namespace OpenGL
             GL.glTranslatef(0, 0, 1);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
             GL.glPopMatrix();
+            if(backCabinLiftingAngle>=90)
+            {
+                GL.glPushMatrix();
+                for (int i = 0; i < 10; i++)
+                {
+                    GL.glRotatef(-backCabinLiftingAngle /70, 0, 0, 1f);
+                    GL.glTranslatef(-0.6f, 0.2f, 0.1f);
+                    CreateGarbageCube();
+                }
+                GL.glPopMatrix();
+            }
         }
 
         public void CreateFrontCabin()
