@@ -88,14 +88,14 @@ namespace Garage_Truck_WinfoForms
         private void scroll1_ValueChanged(object sender, EventArgs e)
         {
 
-            c.Draw(c.angle = scroll1.Value, scroll1.Value, scrool2.Value, scrool3.Value);
+            c.Draw(c.angle = scroll1.Value, scroll1.Value, scrool2.Value, scrool3.Value,scroll4.Value);
         //    scrool2.Value = scroll1.Value;
             
         }
 
         private void scrool2_ValueChanged(object sender, EventArgs e)
         {
-            c.Draw(c.angle = scrool2.Value, scroll1.Value, scrool2.Value, scrool3.Value);
+            c.Draw(c.angle = scrool2.Value, scroll1.Value, scrool2.Value, scrool3.Value,scroll4.Value);
 
          //   scroll1.Value = scrool2.Value;
         }
@@ -113,9 +113,23 @@ namespace Garage_Truck_WinfoForms
 
         private void scrool3_Scroll(object sender, ScrollEventArgs e)
         {
-            c.Draw(c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scrool3.Value);
+            c.Draw(c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scrool3.Value,scroll4.Value);
 
         }
 
+        private void scroll1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void scroll4_Scroll(object sender, ScrollEventArgs e)
+        {
+            c.Draw(c.angle = scroll4.Value, scroll1.Value, scrool2.Value, scrool3.Value,0);
+        }
+
+        private void scroll5_Scroll(object sender, ScrollEventArgs e)
+        {
+            c.Draw(c.angle = scroll4.Value, scroll1.Value, scrool2.Value, scrool3.Value, scroll5.Value);
+        }
     }
 }

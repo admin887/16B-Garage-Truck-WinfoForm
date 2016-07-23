@@ -147,6 +147,7 @@
             this.scroll4.Name = "scroll4";
             this.scroll4.Size = new System.Drawing.Size(104, 23);
             this.scroll4.TabIndex = 5;
+            this.scroll4.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scroll4_Scroll);
             // 
             // scrool3
             // 
@@ -180,6 +181,7 @@
             this.scroll1.Name = "scroll1";
             this.scroll1.Size = new System.Drawing.Size(104, 23);
             this.scroll1.TabIndex = 2;
+            this.scroll1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scroll1_Scroll);
             this.scroll1.ValueChanged += new System.EventHandler(this.scroll1_ValueChanged);
             this.scroll1.Leave += new System.EventHandler(this.scroll1_Leave);
             // 
@@ -190,6 +192,7 @@
             this.scroll5.Name = "scroll5";
             this.scroll5.Size = new System.Drawing.Size(104, 23);
             this.scroll5.TabIndex = 6;
+            this.scroll5.Scroll += new System.Windows.Forms.ScrollEventHandler(this.scroll5_Scroll);
             // 
             // scroll6
             // 
