@@ -549,11 +549,31 @@ namespace OpenGL
             {
                 InitTexture(Texture.Back.k_BackLeftWheel);
                 GL.glPushMatrix();
-                GL.glTranslatef(-0.5f, -0.4f, -0.55f+i*1.1f);
+                GL.glTranslatef(-0.5f, -0.4f, -0.55f+i*0.3f);
                 GL.glEnable(GL.GL_BLEND);
-                GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
-                GL.glBegin(GL.GL_QUADS);
+                GL.glBlendFunc(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA);
+                GL.glBegin(GL.GL_POLYGON);
 
+                GL.glTexCoord2f(1, 1);
+                GL.glVertex3f(1f, 0.65f, 0.5f);
+
+                GL.glTexCoord2f(1, 0);
+                GL.glVertex3f(1f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 0);
+                GL.glVertex3f(0.0f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 1);
+                GL.glVertex3f(0.0f, 0.65f, 0.5f);
+                GL.glEnd();
+                GL.glPopMatrix();
+            }
+            for (float i = 0; i < 2; i++)
+            {
+                InitTexture(Texture.Back.k_BackRightWheel);
+                GL.glPushMatrix();
+                GL.glTranslatef(-0.5f, -0.4f, +0.3f + i * 0.3f);
+                GL.glBegin(GL.GL_QUADS);
                 GL.glTexCoord2f(1, 1);
                 GL.glVertex3f(1f, 0.65f, 0.5f);
 
@@ -618,6 +638,49 @@ namespace OpenGL
                 GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
                 GL.glBegin(GL.GL_QUADS);
 
+                GL.glTexCoord2f(1, 1);
+                GL.glVertex3f(1f, 0.65f, 0.5f);
+
+                GL.glTexCoord2f(1, 0);
+                GL.glVertex3f(1f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 0);
+                GL.glVertex3f(0.0f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 1);
+                GL.glVertex3f(0.0f, 0.65f, 0.5f);
+                GL.glEnd();
+                GL.glPopMatrix();
+            }
+            for (float i = 0; i < 2; i++)
+            {
+                InitTexture(Texture.Front.k_FrontLeftWheel);
+                GL.glPushMatrix();
+                GL.glTranslatef(-0.5f, -0.4f, -0.55f + i * 0.3f);
+                GL.glEnable(GL.GL_BLEND);
+                GL.glBlendFunc(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA);
+                GL.glBegin(GL.GL_POLYGON);
+
+                GL.glTexCoord2f(1, 1);
+                GL.glVertex3f(1f, 0.65f, 0.5f);
+
+                GL.glTexCoord2f(1, 0);
+                GL.glVertex3f(1f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 0);
+                GL.glVertex3f(0.0f, 0.0f, 0.5f);
+
+                GL.glTexCoord2f(0, 1);
+                GL.glVertex3f(0.0f, 0.65f, 0.5f);
+                GL.glEnd();
+                GL.glPopMatrix();
+            }
+            for (float i = 0; i < 2; i++)
+            {
+                InitTexture(Texture.Front.k_FrontRightWheel);
+                GL.glPushMatrix();
+                GL.glTranslatef(-0.5f, -0.4f, +0.3f + i * 0.3f);
+                GL.glBegin(GL.GL_QUADS);
                 GL.glTexCoord2f(1, 1);
                 GL.glVertex3f(1f, 0.65f, 0.5f);
 
