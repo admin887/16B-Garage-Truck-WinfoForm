@@ -88,7 +88,9 @@ namespace OpenGL
 
             //  MakeShadowMatrix(ground);
 
-
+            createRoad();
+            createGrass();
+            createTop();
             CreateFrontCabin();
             CreateChassis();
             CreateBackWheels();
@@ -539,7 +541,132 @@ namespace OpenGL
             image.UnlockBits(bitmapdata);
             image.Dispose();
         }
+        public void createGrass()
+        {
+            int width = 240;
+            int height = 200;
+            int length = 240;
 
+            //start in this coordinates
+            int x = 10;
+            int y = -3;
+            int z = 7;
+
+            //center the square
+            x = x - width / 2;
+            y = y - height / 2;
+            z = z - length / 2;
+            InitTexture(Texture.Terrain.k_Grass);
+            GL.glEnable(GL.GL_TEXTURE_2D);
+            GL.glPushMatrix();
+            GL.glTranslatef(0, 0.5f, 0);
+            GL.glBegin(GL.GL_QUADS);
+            GL.glNormal3d(1, 1, 1);
+            GL.glTexCoord2f(16.0f, 0.0f); GL.glVertex3d(x, -0.2f, z);
+            GL.glNormal3d(1, 1, -1);
+            GL.glTexCoord2f(16.0f, 16.0f); GL.glVertex3d(x, -0.2f, z + length);
+            GL.glNormal3d(-1, 1, -1);
+            GL.glTexCoord2f(0.0f, 16.0f); GL.glVertex3d(x + width, -0.2f, z + length);
+            GL.glNormal3d(-1, 1, 1);
+            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, -0.2f, z);
+            GL.glEnd();
+            GL.glPopMatrix();
+        }
+        public void createTop()
+        {
+            int width = 240;
+            int height = 200;
+            int length = 240;
+
+            //start in this coordinates
+            int x = 10;
+            int y = -3;
+            int z = 7;
+
+            //center the square
+            x = x - width / 2;
+            y = y - height / 2;
+            z = z - length / 2;
+            GL.glEnable(GL.GL_TEXTURE_2D);
+            InitTexture(Texture.Terrain.k_Top);
+
+            //start drawing quads
+            GL.glPushMatrix();
+            GL.glBegin(GL.GL_QUADS);
+            GL.glRotatef(90, 0, 1, 0);
+            GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x + width, y, z);
+            GL.glNormal3d(-1, 1, 1);
+            GL.glNormal3d(-1, -1, 1);
+            GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x + width, y + height, z);
+            GL.glNormal3d(1, -1, 1);
+            GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x, y + height, z);
+            GL.glNormal3d(1, 1, 1);
+            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x, y, z);
+      
+            GL.glEnd();
+            GL.glPopMatrix();
+
+            GL.glEnable(GL.GL_TEXTURE_2D);
+            InitTexture(Texture.Terrain.k_Top);
+            GL.glBegin(GL.GL_QUADS);
+            GL.glNormal3d(1, 1, -1);
+            GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x, y, z + length);
+            GL.glNormal3d(1, -1, -1);
+            GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x, y + height, z + length);
+            GL.glNormal3d(-1, -1, -1);
+            GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x + width, y + height, z + length);
+            GL.glNormal3d(-1, 1, -1);
+            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, y, z + length);
+            GL.glEnd();
+
+            GL.glEnable(GL.GL_TEXTURE_2D);
+            InitTexture(Texture.Terrain.k_Top);
+            GL.glBegin(GL.GL_QUADS);
+            GL.glNormal3d(1, -1, 1);
+            GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x, y + height, z);
+            GL.glNormal3d(1, -1, -1);
+            GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x, y + height, z + length);
+            GL.glNormal3d(1, 1, -1);
+            GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x, y, z + length);
+            GL.glNormal3d(1, 1, 1);
+            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x, y, z);
+            GL.glEnd();
+
+            GL.glEnable(GL.GL_TEXTURE_2D);
+            InitTexture(Texture.Terrain.k_Top);
+            GL.glBegin(GL.GL_QUADS);
+            GL.glNormal3d(-1, 1, 1);
+            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, y, z);
+            GL.glNormal3d(-1, 1, -1);
+            GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x + width, y, z + length);
+            GL.glNormal3d(-1, -1, -1);
+            GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x + width, y + height, z + length);
+            GL.glNormal3d(-1, -1, 1);
+            GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x + width, y + height, z);
+            GL.glEnd();
+        }
+        public void createRoad()
+        {
+            InitTexture(Texture.Terrain.k_Asfalt);
+            GL.glEnable(GL.GL_TEXTURE_2D);
+           // GL.glBindTexture(GL.GL_TEXTURE_2D, texturaAsfalto);
+            GL.glPushMatrix();
+            GL.glTranslatef(-10, 0.5f, 4.5f);
+            GL.glRotatef(90, 0, 1, 0);
+            int count = 0;
+            for (int y = 0; y < 40; y++)// this for loop draws the road
+            {
+                GL.glBegin(GL.GL_QUADS);
+                GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3f(-0.8f, 0, count);
+                GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3f(-0.8f, 0, count + 10);
+                GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3f(3.8f, 0, count + 10);
+                GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3f(3.8f, 0, count);
+                GL.glEnd();
+                count += 10;
+            }
+
+            GL.glPopMatrix();
+        }
         public void CreateBackWheels()
         {
             GL.glTranslatef(0, 0, 2f);

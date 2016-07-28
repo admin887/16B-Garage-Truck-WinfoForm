@@ -5,6 +5,12 @@ using System.Text;
 
 namespace Texture
 {
+    public class Terrain
+    {
+        public const string k_Asfalt = @"Texture\asfalto.jpg";
+        public const string k_Grass = @"Texture\grass.jpg";
+        public const string k_Top = @"Texture\top.jpg";
+    }
     public class Front
     {
         public const string k_FrontSide = @"Texture\Front_front.jpg";
