@@ -44,13 +44,14 @@
             this.scroll8 = new System.Windows.Forms.HScrollBar();
             this.scroll9 = new System.Windows.Forms.HScrollBar();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonStop = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonLight = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1.Tick += new System.EventHandler(this.tmrPaint_Tick);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -234,7 +235,7 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.buttonStop, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonReset, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonStart, 1, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 313);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -244,16 +245,18 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(98, 35);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
-            // buttonStop
+            // buttonReset
             // 
-            this.buttonStop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonStop.Location = new System.Drawing.Point(3, 3);
-            this.buttonStop.Name = "buttonStop";
-            this.buttonStop.Size = new System.Drawing.Size(43, 29);
-            this.buttonStop.TabIndex = 0;
-            this.buttonStop.Text = "Stop";
-            this.buttonStop.UseVisualStyleBackColor = true;
-            this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
+            this.buttonReset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonReset.Location = new System.Drawing.Point(3, 3);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(43, 29);
+            this.buttonReset.TabIndex = 0;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonStop_Click);
+            this.buttonReset.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
+            this.buttonReset.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
             // 
             // buttonStart
             // 
@@ -322,7 +325,8 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1;
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 2;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main
@@ -335,6 +339,8 @@
             this.Name = "Main";
             this.Text = "Main Model Viewer";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Main_KeyUp);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -362,13 +368,13 @@
         private System.Windows.Forms.HScrollBar scroll8;
         private System.Windows.Forms.HScrollBar scroll9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button buttonStop;
+        private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button buttonLight;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer timer1;
     }
 }
 
