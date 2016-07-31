@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Threading;
-
+using Garage_Truck_WinfoForms;
 
 namespace OpenGL
 {
@@ -17,6 +17,10 @@ namespace OpenGL
         uint m_uint_HWND = 0;
         uint m_uint_DC = 0;
         uint m_uint_RC = 0;
+        float m_speed;
+        float m_travelDistance;
+        float m_cameraMoving;
+        float m_cameraRotate;
        public float angle = 0.0f;
         GLUquadric obj;
         public float TransparentA = 0.0f, TransparentB = 0.0f, TransparentC = -15.0f;
@@ -24,6 +28,8 @@ namespace OpenGL
         public cOGL(Control pb)
         {
             p = pb;
+            m_cameraMoving = 0;
+            m_cameraMoving = 0;
             Width = p.Width;
             Height = p.Height;
             obj = GLU.gluNewQuadric();
@@ -52,7 +58,7 @@ namespace OpenGL
             get { return m_uint_RC; }
         }
 
-        public  void DrawAll(float backCabinLiftingAngle)
+        public  void DrawAll(int eCarMove,float backCabinLiftingAngle)
         {
             //axes
             //  GL.glBegin(GL.GL_LINES);
@@ -87,17 +93,53 @@ namespace OpenGL
 
 
             //  MakeShadowMatrix(ground);
-
+            GL.glTranslatef(0, -2, 0);
             createRoad();
             createGrass();
             createGarbage();
             createTop();
+            if ((eCarMove==0 || Garage_Truck_WinfoForms.Main.moving==1) && m_travelDistance < 80)
+            {
+                if (m_travelDistance < 80)
+                    m_travelDistance += m_speed;
+                else
+                    m_travelDistance = 80;
+                GL.glTranslatef(-m_travelDistance, 0, 0);
+                m_speed += 0.2f;
+            }
+            else if (( Garage_Truck_WinfoForms.Main.moving == -1) && m_travelDistance > 0)
+            {
+                if (m_travelDistance < 0)
+                    m_travelDistance = 0;
+                else
+                    m_travelDistance -= m_speed;
+                GL.glTranslatef(-m_travelDistance, 0, 0);
+                m_speed += 0.2f;
+            }
+            else
+            {
+                if (m_travelDistance < 0)
+                    m_travelDistance = 0;
+                GL.glTranslatef(-m_travelDistance, 0, 0);
+            }
+                
+
+            Console.WriteLine(m_travelDistance);
+
+            if (eCarMove==1)
+            {
+                m_speed = 0;
+                m_travelDistance = 0;
+            }
             CreateFrontCabin();
             CreateChassis();
             CreateBackWheels();
             CreateFrontWheels();
-         
-            CreateBackCabin(backCabinLiftingAngle);
+            if(m_travelDistance==0)
+                CreateBackCabin(backCabinLiftingAngle);
+            else
+                CreateBackCabin(0);
+
 
 
 
@@ -290,7 +332,10 @@ namespace OpenGL
             //   GL.glColor3f(1.0f, 1.0f, 1.0f);
             //   GL.glEnable(GL.GL_TEXTURE_2D);
         }
-        public void Draw(float i_angle,float x, float y, float z,float backCabinLiftingAngle)
+        public void MoveTheTruck()
+        { 
+}
+        public void Draw(float i_angle1,float i_angle2,float i_angle3,float x, float y,float backCabinLiftingAngle,int eMoveTruck)
         {
             if (m_uint_DC == 0 || m_uint_RC == 0)
                 return;
@@ -299,16 +344,32 @@ namespace OpenGL
             GL.glLoadIdentity();
 
             GL.glTranslatef(TransparentA, TransparentB, TransparentC);						// Translate 6 Units Into The Screen
-
-            angle = i_angle;
-
-            GL.glRotatef(angle, x, y, z);
-
+            if (Main.cam == Main.eCameraMovig.Forward)
+            {
+                m_cameraMoving += 0.35f;
+            }
+            else if (Main.cam == Main.eCameraMovig.Backward)
+            {
+                m_cameraMoving -= 0.35f;
+            }
+            else if(Main.cam == Main.eCameraMovig.Right)
+            {
+                m_cameraRotate += 1f;
+            }
+            else if (Main.cam == Main.eCameraMovig.Left)
+            {
+                m_cameraRotate -= 1f;
+            }
+            GL.glTranslatef(0, 0, m_cameraMoving);
+            GL.glRotatef(m_cameraRotate, 0, 1, 0);
+            GL.glRotatef(i_angle1, x, y, 1);
+            GL.glRotatef(i_angle2, 1, y, x);
+            GL.glRotatef(i_angle3, x, 1, y);
             //Bitmap bitmap = new Bitmap("example.jpg");
 
 
 
-            DrawAll(backCabinLiftingAngle);
+            DrawAll(eMoveTruck, backCabinLiftingAngle);
 
             GL.glFlush();
 
@@ -425,7 +486,7 @@ namespace OpenGL
 
         public void Draw()
         {
-            Draw(angle + 3.0f, 0.0f, 2.0f, 0.0f,0.0f);
+            //Draw(angle + 3.0f, 2.0f,0, 2.0f, 0.0f,0.0f,2);
 
         }
        protected virtual void InitializeGL()
@@ -561,7 +622,7 @@ namespace OpenGL
             InitTexture(Texture.Terrain.k_Garbage);
             GL.glEnable(GL.GL_TEXTURE_2D);
             GL.glPushMatrix();
-            GL.glTranslatef(-1.8f, 0.55f, -6);
+            GL.glTranslatef(-1.9f, 0.55f, -4);
             GL.glBegin(GL.GL_QUADS);
             GL.glNormal3d(1, 1, 1);
             GL.glTexCoord2f(16.0f, 0.0f); GL.glVertex3d(x, -0.2f, z);
@@ -920,7 +981,7 @@ namespace OpenGL
             GL.glTranslatef(0, 0, 0);
 
 
-            InitTexture(Texture.Terrain.k_Garbage);
+            InitTexture(Texture.Terrain.k_Garbage1);
 
             GL.glBegin(GL.GL_QUADS);
 
@@ -1127,7 +1188,7 @@ namespace OpenGL
                 GL.glPushMatrix();
                 for (int i = 0; i < 10; i++)
                 {
-                    GL.glRotatef(-backCabinLiftingAngle /70, 0, 0, 1f);
+                    GL.glRotatef(-backCabinLiftingAngle /60, 0, 0, 1f);
                     GL.glTranslatef(-0.6f, 0.2f, 0.1f);
                     CreateGarbageCube();
                 }
