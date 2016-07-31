@@ -90,6 +90,7 @@ namespace OpenGL
 
             createRoad();
             createGrass();
+            createGarbage();
             createTop();
             CreateFrontCabin();
             CreateChassis();
@@ -541,6 +542,38 @@ namespace OpenGL
             image.UnlockBits(bitmapdata);
             image.Dispose();
         }
+
+        public void createGarbage()
+        {
+            int width = 10;
+            int height = 10;
+            int length = 10;
+
+            //start in this coordinates
+            int x = 10;
+            int y = -3;
+            int z = 7;
+
+            //center the square
+            x = x - width / 2;
+            y = y - height / 2;
+            z = z - length / 2;
+            InitTexture(Texture.Terrain.k_Garbage);
+            GL.glEnable(GL.GL_TEXTURE_2D);
+            GL.glPushMatrix();
+            GL.glTranslatef(-1.8f, 0.55f, -6);
+            GL.glBegin(GL.GL_QUADS);
+            GL.glNormal3d(1, 1, 1);
+            GL.glTexCoord2f(16.0f, 0.0f); GL.glVertex3d(x, -0.2f, z);
+            GL.glNormal3d(1, 1, -1);
+            GL.glTexCoord2f(16.0f, 16.0f); GL.glVertex3d(x, -0.2f, z + length);
+            GL.glNormal3d(-1, 1, -1);
+            GL.glTexCoord2f(0.0f, 16.0f); GL.glVertex3d(x + width, -0.2f, z + length);
+            GL.glNormal3d(-1, 1, 1);
+            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, -0.2f, z);
+            GL.glEnd();
+            GL.glPopMatrix();
+        }
         public void createGrass()
         {
             int width = 240;
@@ -651,18 +684,18 @@ namespace OpenGL
             GL.glEnable(GL.GL_TEXTURE_2D);
            // GL.glBindTexture(GL.GL_TEXTURE_2D, texturaAsfalto);
             GL.glPushMatrix();
-            GL.glTranslatef(-10, 0.5f, 4.5f);
+            GL.glTranslatef(-97, 0.5f, 4.5f);
             GL.glRotatef(90, 0, 1, 0);
             int count = 0;
-            for (int y = 0; y < 40; y++)// this for loop draws the road
+            for (int y = 0; y < 20; y++)// this for loop draws the road
             {
                 GL.glBegin(GL.GL_QUADS);
                 GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3f(-0.8f, 0, count);
-                GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3f(-0.8f, 0, count + 10);
-                GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3f(3.8f, 0, count + 10);
+                GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3f(-0.8f, 0, count + 5);
+                GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3f(3.8f, 0, count + 5);
                 GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3f(3.8f, 0, count);
                 GL.glEnd();
-                count += 10;
+                count +=  5;
             }
 
             GL.glPopMatrix();
@@ -674,12 +707,14 @@ namespace OpenGL
 
             for (float i = 0; i < 2; i++)
             {
-                InitTexture(Texture.Back.k_BackLeftWheel);
                 GL.glPushMatrix();
                 GL.glTranslatef(-0.5f, -0.4f, -0.55f+i*0.3f);
+
+                InitTexture(Texture.Back.k_BackLeftWheel);
+                GL.glEnable(GL.GL_TEXTURE_2D);
                 GL.glEnable(GL.GL_BLEND);
-                GL.glBlendFunc(GL.GL_ONE, GL.GL_ONE_MINUS_SRC_ALPHA);
-                GL.glBegin(GL.GL_POLYGON);
+                GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
+                GL.glBegin(GL.GL_QUADS);
 
                 GL.glTexCoord2f(1, 1);
                 GL.glVertex3f(1f, 0.65f, 0.5f);
@@ -878,48 +913,92 @@ namespace OpenGL
 
             //Face 1
             double x=0.2;
+            float doubleX = (float)x;
+
+            GL.glPushMatrix();
+
+            GL.glTranslatef(0, 0, 0);
+
+
+            InitTexture(Texture.Terrain.k_Garbage);
+
             GL.glBegin(GL.GL_QUADS);
 
-            GL.glTranslatef(3f, 3f, 3f);
-                //Face1
-                GL.glVertex3d(-x, x, x); // vertex[0]
-                GL.glVertex3d(x, x, x); // vertex[1]
-                GL.glVertex3d(x, -x, x); // vertex[2]
-                GL.glVertex3d(-x, -x, x); // vertex[3]
-                //Face2
-                GL.glVertex3d(-x, x, -x); // vertex[4]
-                GL.glVertex3d(x, x, -x); // vertex[5]
-                GL.glVertex3d(x, -x, -x); // vertex[6]
-                GL.glVertex3d(-x, -x, -x); // vertex[7]
-                //Face3
-                GL.glVertex3d(-x, x, x);
-                GL.glVertex3d(-x, -x, x);
-                GL.glVertex3d(-x, -x, -x);
-                GL.glVertex3d(-x, x, -x);
-                //Face4
-                GL.glVertex3d(x, -x, x);
-                GL.glVertex3d(x, -x, -x);
-                GL.glVertex3d(x, x, -x);
-                GL.glVertex3d(x, x, x);
-                //Face5
-                GL.glVertex3d(-x, -x, x);
-                GL.glVertex3d(-x, -x, -x);
-                GL.glVertex3d(x, -x, -x);
-                GL.glVertex3d(x, -x, x);
-                //Face6
-                GL.glVertex3d(-x, x, x);
-                GL.glVertex3d(-x, x, -x);
-                GL.glVertex3d(x, x, -x);
-                GL.glVertex3d(x, x, x);
-        
-            //Face2
-            /*GL.glBegin(GL.GL_POLYGON);
-            GL.glVertex3d(-0.1f, 0.1f, -0.1f);
-            GL.glVertex3d(-0.1f, 0.1f, 0.1f);
-            GL.glVertex3d(0.1f, 0.1f, 0.1f);
-            GL.glVertex3d(0.1f, 0.1f, -0.1f);*/
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(-doubleX, doubleX, doubleX);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(doubleX, doubleX, doubleX);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(doubleX, -doubleX, doubleX);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(-doubleX, -doubleX, doubleX);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(-doubleX, doubleX, -doubleX);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(doubleX, doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(doubleX, -doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(-doubleX, -doubleX, -doubleX);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(-doubleX, doubleX, doubleX);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(-doubleX, -doubleX, doubleX);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(-doubleX, -doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(-doubleX, doubleX, -doubleX);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(doubleX, -doubleX, -doubleX);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(doubleX, -doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(doubleX, doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(doubleX, doubleX, doubleX);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(-doubleX, -doubleX, doubleX);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(-doubleX, -doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(doubleX, -doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(-doubleX, -doubleX, doubleX);
+
+            GL.glTexCoord2f(1, 1);
+            GL.glVertex3f(-doubleX, doubleX, doubleX);
+
+            GL.glTexCoord2f(1, 0);
+            GL.glVertex3f(-doubleX, doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 0);
+            GL.glVertex3f(doubleX, doubleX, -doubleX);
+
+            GL.glTexCoord2f(0, 1);
+            GL.glVertex3f(doubleX, doubleX, doubleX);
+
             GL.glEnd();
             GL.glPopMatrix();
+           
         }
 
        public void CreateBackCabin(float backCabinLiftingAngle)
