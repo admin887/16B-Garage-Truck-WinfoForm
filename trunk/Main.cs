@@ -27,7 +27,8 @@ namespace Garage_Truck_WinfoForms
             Forward,
             Backward,
             Right,
-            Left
+            Left,
+            Reset
         }
         public static eCameraMovig cam;
         private bool isTruckMoving;
@@ -64,6 +65,7 @@ namespace Garage_Truck_WinfoForms
         {
             c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, (int)eCarMoving.Reset);
             //timer1.Enabled = false;
+            cam = eCameraMovig.Reset;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

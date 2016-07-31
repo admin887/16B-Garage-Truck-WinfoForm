@@ -354,11 +354,16 @@ namespace OpenGL
             }
             else if(Main.cam == Main.eCameraMovig.Right)
             {
-                m_cameraRotate += 1f;
+                m_cameraRotate += 3f;
             }
             else if (Main.cam == Main.eCameraMovig.Left)
             {
-                m_cameraRotate -= 1f;
+                m_cameraRotate -= 3f;
+            }
+            else if (Main.cam == Main.eCameraMovig.Reset)
+            {
+                m_cameraMoving = 0;
+                m_cameraRotate = 0;
             }
             GL.glTranslatef(0, 0, m_cameraMoving);
             GL.glRotatef(m_cameraRotate, 0, 1, 0);
