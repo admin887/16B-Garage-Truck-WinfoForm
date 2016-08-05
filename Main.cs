@@ -43,6 +43,17 @@ namespace Garage_Truck_WinfoForms
         {
             InitializeComponent();
             c = new cOGL(panel2);
+
+            this.scrollList = new List<System.Windows.Forms.HScrollBar>();
+            this.scrollList.Add(scroll1);
+            this.scrollList.Add(scrool2);
+            this.scrollList.Add(scrool3);
+            this.scrollList.Add(scroll4);
+            this.scrollList.Add(scroll5);
+            this.scrollList.Add(scroll6);
+            this.scrollList.Add(scroll7);
+            this.scrollList.Add(scroll8);
+            this.scrollList.Add(scroll9);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
