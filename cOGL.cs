@@ -94,6 +94,7 @@ namespace OpenGL
 
             //  MakeShadowMatrix(ground);
             GL.glTranslatef(0, -2, 0);
+            GL.glEnable(GL.GL_TEXTURE_2D);
             createRoad();
             createGrass();
             createGarbage();
@@ -135,202 +136,10 @@ namespace OpenGL
             CreateChassis();
             CreateBackWheels();
             CreateFrontWheels();
-            if(m_travelDistance==0)
-                CreateBackCabin(backCabinLiftingAngle);
-            else
-                CreateBackCabin(0);
-
-
-
-
-
-
-            //GL.glFlush();
-
-
-            // GL.glColor3f(1.0f, 0.0f, 0.0f);
-            //
-            // GL.glPushMatrix();
-            // GL.glBegin(GL.GL_QUADS);
-            // GL.glVertex3f(0.0f, 0.0f, 0.0f);
-            // GL.glVertex3f(0.0f, 1.0f, 0.0f);
-            // GL.glVertex3f(1.0f, 1.0f, 0.0f);
-            // GL.glVertex3f(1.0f, 0.0f, 0.0f);
-            // GL.glEnd();
-            // GL.glPopMatrix();
-            //
-            // GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-            // GL.glColor3f(0.0f, 1.0f, 0.0f);
-            // GL.glBegin(GL.GL_QUADS);
-            // GL.glVertex3f(0.0f, 0.0f, 0.0f);
-            // GL.glVertex3f(0.0f, 1.0f, 0.0f);
-            // GL.glVertex3f(1.0f, 1.0f, 0.0f);
-            // GL.glVertex3f(1.0f, 0.0f, 0.0f);
-            // GL.glEnd();
-            //
-            //////2 Gil
-            //
-            //GL.glColor3f(0, 0, 1);
-            //GL.glVertex3f(-1, 1, 1);
-            //GL.glVertex3f(1, 1, 1);
-            //GL.glVertex3f(1, -1, 1);
-            //GL.glVertex3f(-1, -1, 1);
-            //
-            //////3 Gil
-            //GL.glColor3f(1.0f, 0, 0);
-            //GL.glVertex3f(-1, -1, 1);
-            //GL.glVertex3f(-1, 1, 1);
-            //GL.glVertex3f(-1, 1, -1);
-            //GL.glVertex3f(-1, -1, -1);
-            //
-            //////4 Gil
-            //GL.glColor3f(0.5f, 0, 0);
-            //GL.glVertex3f(1, -1, 1);
-            //GL.glVertex3f(1, 1, 1);
-            //GL.glVertex3f(1, 1, -1);
-            //GL.glVertex3f(1, -1, -1);
-            //
-            //////5 Gil
-            //GL.glColor3f(0, 0.5f, 0);
-            //GL.glVertex3f(-1, -1, 1);
-            //GL.glVertex3f(1, -1, 1);
-            //GL.glVertex3f(1, -1, -1);
-            //GL.glVertex3f(-1, -1, -1);
-            //
-            //////6 Gil
-            //GL.glColor3f(0, 0.5f, 0);
-            //GL.glVertex3f(-1, 1, 1);
-            //GL.glVertex3f(1, 1, 1);
-            //GL.glVertex3f(1, 1, -1);
-            //GL.glVertex3f(-1, 1, -1);
-            //
-            //
-            //
-            //
-            //
-            //
-            ////roof 1
-            //GL.glColor3f(0, 0.5f, 0.5f);
-            //GL.glVertex3f(1, -1, 1); 
-            //GL.glVertex3f(0, -2, 0);
-            //GL.glVertex3f(1, -1, -1);
-            //GL.glVertex3f(1, -1, 1);
-            //
-            ////roof 2
-            //GL.glColor3f(0.5f, 0, 0.5f);
-            //GL.glVertex3f(-1, -1, 1);
-            //GL.glVertex3f(0, -2, 0);
-            //GL.glVertex3f(-1, -1, -1);
-            //GL.glVertex3f(-1, -1, 1);
-            //
-            ////roof 3
-            //GL.glColor3f(0.5f, 0.5f, 0);
-            //GL.glVertex3f(-1, -1, 1);
-            //GL.glVertex3f(0, -2, 0);
-            //GL.glVertex3f(1, -1, 1);
-            //GL.glVertex3f(-1, -1, 1);
-            //
-            ////roof 4
-            //GL.glColor3f(0.5f, 0.5f, 0.5f);
-            //GL.glVertex3f(1, -1, -1);
-            //GL.glVertex3f(0, -2, 0);
-            //GL.glVertex3f(-1, -1, -1);
-            //GL.glVertex3f(1, -1, -1);
-
-
-
-
-            //GL.glEnd();
-
-
-
-            //   GL.glBegin(GL.GL_QUADS);
-            //
-            //   GL.glTexCoord2f(0.5f, 0.5f);			// top right of texture
-            //   GL.glVertex3f(-1.0f, 1.0f, -1.0f);		// top right of quad
-            //   GL.glTexCoord2f(0.0f, 0.5f);			// top left of texture
-            //   GL.glVertex3f(1.0f, 1.0f, -1.0f);		// top left of quad
-            //   GL.glTexCoord2f(0.0f, 0.0f);			// bottom left of texture
-            //   GL.glVertex3f(1.0f, -1.0f, -1.0f);	    // bottom left of quad
-            //   GL.glTexCoord2f(0.5f, 0.0f);			// bottom right of texture
-            //   GL.glVertex3f(-1.0f, -1.0f, -1.0f);		// bottom right of quad
-            //
-            //   GL.glTexCoord2f(0.5f, 1.0f);			
-            //   GL.glVertex3f(1.0f, 1.0f, 1.0f);		
-            //   GL.glTexCoord2f(0.0f, 1.0f);			
-            //   GL.glVertex3f(-1.0f, 1.0f, 1.0f);      
-            //   GL.glTexCoord2f(0.0f, 0.5f);			
-            //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);	   
-            //   GL.glTexCoord2f(0.5f, 0.5f);			
-            //   GL.glVertex3f(1.0f, -1.0f, 1.0f);      
-            //
-            //   GL.glTexCoord2f(1.0f, 0.5f);			
-            //   GL.glVertex3f(-1.0f, 1.0f, 1.0f);
-            //   GL.glTexCoord2f(0.5f, 0.5f);			
-            //   GL.glVertex3f(-1.0f, 1.0f, -1.0f);
-            //   GL.glTexCoord2f(0.5f, 0.0f);		
-            //   GL.glVertex3f(-1.0f, -1.0f, -1.0f);
-            //   GL.glTexCoord2f(1.0f, 0.0f);			
-            //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);
-            //
-            //   GL.glTexCoord2f(1.0f, 1.0f);
-            //   GL.glVertex3f(1.0f, 1.0f, -1.0f);
-            //   GL.glTexCoord2f(0.5f, 1.0f);
-            //   GL.glVertex3f(1.0f, 1.0f, 1.0f);
-            //   GL.glTexCoord2f(0.5f, 0.5f);
-            //   GL.glVertex3f(1.0f, -1.0f, 1.0f);
-            //   GL.glTexCoord2f(1.0f, 0.5f);
-            //   GL.glVertex3f(1.0f, -1.0f, -1.0f);
-            //
-            //   GL.glEnd();
-            //
-            //   GL.glColor3f(0, 0.5f, 0.7f);
-            //   GL.glRotatef(90.0f, -1.0f, 0.0f,0.0f);
-            //   GLU.gluCylinder(obj, 0.1f, 0.1f, 2.0f, 32, 32);
-            //
-            //   GL.glFlush();
-            //
-            //  
-            // 
-            //   /*
-            //   GL.glColor3f(0, 0, 1);
-            //   GL.glVertex3f(-1, 1, 1);
-            //   GL.glVertex3f(1, 1, 1);
-            //   GL.glVertex3f(1, -1, 1);
-            //   GL.glVertex3f(-1, -1, 1);
-            //   */
-            //   GL.glColor3f(1.0f, 1.0f, 1.0f);
-            //   GL.glEnable(GL.GL_TEXTURE_2D);
-            //   GL.glVertex3f(1.0f, -1.0f, 1.0f);	    // bottom left of quad
-            //   GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
-            //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
-            //   GL.glEnd();
-            // 
-            //   /*
-            //   GL.glColor3f(0, 0, 1);
-            //   GL.glVertex3f(-1, 1, 1);
-            //   GL.glVertex3f(1, 1, 1);
-            //   GL.glVertex3f(1, -1, 1);
-            //   GL.glVertex3f(-1, -1, 1);
-            //   */
-            //   GL.glColor3f(1.0f, 1.0f, 1.0f);
-            //   GL.glEnable(GL.GL_TEXTURE_2D);
-            //   GL.glTexCoord2f(1.0f,0.0f );			// bottom right of texture
-            //   GL.glVertex3f(-1.0f, -1.0f, 1.0f);		// bottom right of quad
-            //   GL.glEnd();
-            // 
-            //   /*
-            //   GL.glColor3f(0, 0, 1);
-            //   GL.glVertex3f(-1, 1, 1);
-            //   GL.glVertex3f(1, 1, 1);
-            //   GL.glVertex3f(1, -1, 1);
-            //   GL.glVertex3f(-1, -1, 1);
-            //   */
-            //
-            //
-            //
-            //   GL.glColor3f(1.0f, 1.0f, 1.0f);
-            //   GL.glEnable(GL.GL_TEXTURE_2D);
+           if(m_travelDistance==0)
+               CreateBackCabin(backCabinLiftingAngle);
+           else
+               CreateBackCabin(0);
         }
         public void MoveTheTruck()
         { 
@@ -542,19 +351,6 @@ namespace OpenGL
             initRenderingGL();
         }
 
-        public void OnResize()
-        {
-            /*Width = p.Width;
-            Height = p.Height;
-
-            //!!!!!!!
-            GL.glViewport(0, 0, Width, Height);
-            //!!!!!!!
-            
-            initRenderingGL();
-            Draw();*/
-        }
-
         protected virtual void initRenderingGL()
         {
             if (m_uint_DC == 0 || m_uint_RC == 0)
@@ -565,7 +361,6 @@ namespace OpenGL
             GL.glDepthFunc(GL.GL_LEQUAL);
 
             GL.glViewport(-500, -400, 1920, 1080);
-            // GL.glViewport(50, 50, 200, 50);
 
             GL.glClearColor(0, 0.3f, 0, 0);
             GL.glMatrixMode(GL.GL_PROJECTION);
@@ -573,283 +368,49 @@ namespace OpenGL
             GLU.gluPerspective(50, ((double)Width) / Height, 1.0, 1000.0);
             GL.glMatrixMode(GL.GL_MODELVIEW);
             GL.glLoadIdentity();
-            //  InitTexture("example.bmp");
-            //   InitTexture("alon.bmp");
-            //   InitTexture("truck.jpg");
-            //      InitTexture("1.jpg");
+
+            //Loading only once!
+            GenerateTextures();
+
         }
-        public uint[] texture;		// texture
 
         void InitTexture(string imageBMPfile)
         {
-            GL.glEnable(GL.GL_TEXTURE_2D);
-
-            texture = new uint[1];		// storage for texture
-
-            Bitmap image = new Bitmap(imageBMPfile);
-            image.RotateFlip(RotateFlipType.RotateNoneFlipY); //Y axis in Windows is directed downwards, while in OpenGL-upwards
-            System.Drawing.Imaging.BitmapData bitmapdata;
-            Rectangle rect = new Rectangle(0, 0, image.Width, image.Height);
-
-            bitmapdata = image.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadOnly,
-                System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
-            GL.glGenTextures(1, texture);
-            GL.glBindTexture(GL.GL_TEXTURE_2D, texture[0]);
-            //  VN-in order to use System.Drawing.Imaging.BitmapData Scan0 I've added overloaded version to
-            //  OpenGL.cs
-            //  [DllImport(GL_DLL, EntryPoint = "glTexImage2D")]
-            //  public static extern void glTexImage2D(uint target, int level, int internalformat, int width, int height, int border, uint format, uint type, IntPtr pixels);
-            GL.glTexImage2D(GL.GL_TEXTURE_2D, 0, (int)GL.GL_RGB8, image.Width, image.Height,
-                0, GL.GL_BGR_EXT, GL.GL_UNSIGNED_byte, bitmapdata.Scan0);
-            GL.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MIN_FILTER, (int)GL.GL_LINEAR);		// Linear Filtering
-            GL.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAG_FILTER, (int)GL.GL_LINEAR);		// Linear Filtering
-
-            image.UnlockBits(bitmapdata);
-            image.Dispose();
         }
+   //  void InitTexture(string imageBMPfile)
+   //  {
+   //      GL.glEnable(GL.GL_TEXTURE_2D);
+   //
+   //      Textures = new uint[1];		// storage for texture
+   //
+   //      Bitmap image = new Bitmap(imageBMPfile);
+   //      image.RotateFlip(RotateFlipType.RotateNoneFlipY); //Y axis in Windows is directed downwards, while in OpenGL-upwards
+   //      System.Drawing.Imaging.BitmapData bitmapdata;
+   //      Rectangle rect = new Rectangle(0, 0, image.Width, image.Height);
+   //
+   //      bitmapdata = image.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadOnly,
+   //          System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+   //
+   //      GL.glGenTextures(1, Textures);
+   //      GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[0]);
+   //      //  VN-in order to use System.Drawing.Imaging.BitmapData Scan0 I've added overloaded version to
+   //      //  OpenGL.cs
+   //      //  [DllImport(GL_DLL, EntryPoint = "glTexImage2D")]
+   //      //  public static extern void glTexImage2D(uint target, int level, int internalformat, int width, int height, int border, uint format, uint type, IntPtr pixels);
+   //      GL.glTexImage2D(GL.GL_TEXTURE_2D, 0, (int)GL.GL_RGB8, image.Width, image.Height,
+   //          0, GL.GL_BGR_EXT, GL.GL_UNSIGNED_byte, bitmapdata.Scan0);
+   //      GL.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MIN_FILTER, (int)GL.GL_LINEAR);		// Linear Filtering
+   //      GL.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAG_FILTER, (int)GL.GL_LINEAR);		// Linear Filtering
+   //
+   //      image.UnlockBits(bitmapdata);
+   //      image.Dispose();
+   //  }
 
-        public void createGarbage()
-        {
-            int width = 10;
-            int height = 10;
-            int length = 10;
-
-            //start in this coordinates
-            int x = 10;
-            int y = -3;
-            int z = 7;
-
-            //center the square
-            x = x - width / 2;
-            y = y - height / 2;
-            z = z - length / 2;
-            InitTexture(Texture.Terrain.k_Garbage);
-            GL.glEnable(GL.GL_TEXTURE_2D);
-            GL.glPushMatrix();
-            GL.glTranslatef(-1.9f, 0.55f, -4);
-            GL.glBegin(GL.GL_QUADS);
-            GL.glNormal3d(1, 1, 1);
-            GL.glTexCoord2f(16.0f, 0.0f); GL.glVertex3d(x, -0.2f, z);
-            GL.glNormal3d(1, 1, -1);
-            GL.glTexCoord2f(16.0f, 16.0f); GL.glVertex3d(x, -0.2f, z + length);
-            GL.glNormal3d(-1, 1, -1);
-            GL.glTexCoord2f(0.0f, 16.0f); GL.glVertex3d(x + width, -0.2f, z + length);
-            GL.glNormal3d(-1, 1, 1);
-            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, -0.2f, z);
-            GL.glEnd();
-            GL.glPopMatrix();
-        }
-        public void createGrass()
-        {
-            int width = 240;
-            int height = 200;
-            int length = 240;
-
-            //start in this coordinates
-            int x = 10;
-            int y = -3;
-            int z = 7;
-
-            //center the square
-            x = x - width / 2;
-            y = y - height / 2;
-            z = z - length / 2;
-            InitTexture(Texture.Terrain.k_Grass);
-            GL.glEnable(GL.GL_TEXTURE_2D);
-            GL.glPushMatrix();
-            GL.glTranslatef(0, 0.5f, 0);
-            GL.glBegin(GL.GL_QUADS);
-            GL.glNormal3d(1, 1, 1);
-            GL.glTexCoord2f(16.0f, 0.0f); GL.glVertex3d(x, -0.2f, z);
-            GL.glNormal3d(1, 1, -1);
-            GL.glTexCoord2f(16.0f, 16.0f); GL.glVertex3d(x, -0.2f, z + length);
-            GL.glNormal3d(-1, 1, -1);
-            GL.glTexCoord2f(0.0f, 16.0f); GL.glVertex3d(x + width, -0.2f, z + length);
-            GL.glNormal3d(-1, 1, 1);
-            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, -0.2f, z);
-            GL.glEnd();
-            GL.glPopMatrix();
-        }
-        public void createTop()
-        {
-            int width = 240;
-            int height = 200;
-            int length = 240;
-
-            //start in this coordinates
-            int x = 10;
-            int y = -3;
-            int z = 7;
-
-            //center the square
-            x = x - width / 2;
-            y = y - height / 2;
-            z = z - length / 2;
-            GL.glEnable(GL.GL_TEXTURE_2D);
-            InitTexture(Texture.Terrain.k_Top);
-
-            //start drawing quads
-            GL.glPushMatrix();
-            GL.glBegin(GL.GL_QUADS);
-            GL.glRotatef(90, 0, 1, 0);
-            GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x + width, y, z);
-            GL.glNormal3d(-1, 1, 1);
-            GL.glNormal3d(-1, -1, 1);
-            GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x + width, y + height, z);
-            GL.glNormal3d(1, -1, 1);
-            GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x, y + height, z);
-            GL.glNormal3d(1, 1, 1);
-            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x, y, z);
+        
       
-            GL.glEnd();
-            GL.glPopMatrix();
-
-            GL.glEnable(GL.GL_TEXTURE_2D);
-            InitTexture(Texture.Terrain.k_Top);
-            GL.glBegin(GL.GL_QUADS);
-            GL.glNormal3d(1, 1, -1);
-            GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x, y, z + length);
-            GL.glNormal3d(1, -1, -1);
-            GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x, y + height, z + length);
-            GL.glNormal3d(-1, -1, -1);
-            GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x + width, y + height, z + length);
-            GL.glNormal3d(-1, 1, -1);
-            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, y, z + length);
-            GL.glEnd();
-
-            GL.glEnable(GL.GL_TEXTURE_2D);
-            InitTexture(Texture.Terrain.k_Top);
-            GL.glBegin(GL.GL_QUADS);
-            GL.glNormal3d(1, -1, 1);
-            GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x, y + height, z);
-            GL.glNormal3d(1, -1, -1);
-            GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x, y + height, z + length);
-            GL.glNormal3d(1, 1, -1);
-            GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x, y, z + length);
-            GL.glNormal3d(1, 1, 1);
-            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x, y, z);
-            GL.glEnd();
-
-            GL.glEnable(GL.GL_TEXTURE_2D);
-            InitTexture(Texture.Terrain.k_Top);
-            GL.glBegin(GL.GL_QUADS);
-            GL.glNormal3d(-1, 1, 1);
-            GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, y, z);
-            GL.glNormal3d(-1, 1, -1);
-            GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x + width, y, z + length);
-            GL.glNormal3d(-1, -1, -1);
-            GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x + width, y + height, z + length);
-            GL.glNormal3d(-1, -1, 1);
-            GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x + width, y + height, z);
-            GL.glEnd();
-        }
-        public void createRoad()
-        {
-            InitTexture(Texture.Terrain.k_Asfalt);
-            GL.glEnable(GL.GL_TEXTURE_2D);
-           // GL.glBindTexture(GL.GL_TEXTURE_2D, texturaAsfalto);
-            GL.glPushMatrix();
-            GL.glTranslatef(-97, 0.5f, 4.5f);
-            GL.glRotatef(90, 0, 1, 0);
-            int count = 0;
-            for (int y = 0; y < 20; y++)// this for loop draws the road
-            {
-                GL.glBegin(GL.GL_QUADS);
-                GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3f(-0.8f, 0, count);
-                GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3f(-0.8f, 0, count + 5);
-                GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3f(3.8f, 0, count + 5);
-                GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3f(3.8f, 0, count);
-                GL.glEnd();
-                count +=  5;
-            }
-
-            GL.glPopMatrix();
-        }
-        public void CreateBackWheels()
-        {
-            GL.glTranslatef(0, 0, 2f);
-            GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
-
-            for (float i = 0; i < 2; i++)
-            {
-                GL.glPushMatrix();
-                GL.glTranslatef(-0.5f, -0.4f, -0.55f+i*0.3f);
-
-                InitTexture(Texture.Back.k_BackLeftWheel);
-                GL.glEnable(GL.GL_TEXTURE_2D);
-                GL.glEnable(GL.GL_BLEND);
-                GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
-                GL.glBegin(GL.GL_QUADS);
-
-                GL.glTexCoord2f(1, 1);
-                GL.glVertex3f(1f, 0.65f, 0.5f);
-
-                GL.glTexCoord2f(1, 0);
-                GL.glVertex3f(1f, 0.0f, 0.5f);
-
-                GL.glTexCoord2f(0, 0);
-                GL.glVertex3f(0.0f, 0.0f, 0.5f);
-
-                GL.glTexCoord2f(0, 1);
-                GL.glVertex3f(0.0f, 0.65f, 0.5f);
-                GL.glEnd();
-                GL.glPopMatrix();
-            }
-            for (float i = 0; i < 2; i++)
-            {
-                InitTexture(Texture.Back.k_BackRightWheel);
-                GL.glPushMatrix();
-                GL.glTranslatef(-0.5f, -0.4f, +0.3f + i * 0.3f);
-                GL.glBegin(GL.GL_QUADS);
-                GL.glTexCoord2f(1, 1);
-                GL.glVertex3f(1f, 0.65f, 0.5f);
-
-                GL.glTexCoord2f(1, 0);
-                GL.glVertex3f(1f, 0.0f, 0.5f);
-
-                GL.glTexCoord2f(0, 0);
-                GL.glVertex3f(0.0f, 0.0f, 0.5f);
-
-                GL.glTexCoord2f(0, 1);
-                GL.glVertex3f(0.0f, 0.65f, 0.5f);
-                GL.glEnd();
-                GL.glPopMatrix();
-            }
-            for (int i = 1; i < 3; i++)
-            {
-                GL.glBegin(GL.GL_SPHERE_MAP);
-                GLU.gluCylinder(obj, 0.3f, 0.3f, 0.2f, 25, 25);
-                GL.glEnd();
-
-                float x1, y1, z1, x2, y2, z2;
-                double angle;
-                double radius = 0.3f;
-
-                x1 = 0f;
-                y1 = 0f;
-                z1 = 0.2f;
-
-
-                GL.glBegin(GL.GL_TRIANGLE_FAN);
-
-                GL.glVertex3f(x1, y1, z1);
-                for (int j = 0; j < 2; j++)
-                {
-                    GL.glTranslatef(0,0,-0.3f*j);
-                    for (angle = 0.0f; angle < 2 * 3.14159 + 1; angle += 0.1f)
-                    {
-                        x2 = +(float)(System.Math.Sin(angle) * radius);
-                        y2 = y1 + (float)(System.Math.Cos(angle) * radius);
-                        z2 = z1;
-                        GL.glVertex3f(x2, y2, z2);
-                    }
-                }
-                GL.glEnd();
-                GL.glTranslatef(0, 0, 0 + 0.8f);
-            }
-
-        }
+       
+        
+       
 
         public void CreateFrontWheels()
         {
@@ -859,7 +420,8 @@ namespace OpenGL
             GL.glRotatef(-90f, 0.0f, 1.0f, 0.0f);
             for (float i = 0; i < 2; i++)
             {
-                InitTexture(Texture.Front.k_FrontLeftWheel);
+              //  InitTexture(Texture.Front.k_FrontLeftWheel);
+                GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[15]);
                 GL.glPushMatrix();
                 GL.glTranslatef(-0.5f, -0.4f, -0.55f + i * 1.1f);
                 GL.glEnable(GL.GL_BLEND);
@@ -882,7 +444,8 @@ namespace OpenGL
             }
             for (float i = 0; i < 2; i++)
             {
-                InitTexture(Texture.Front.k_FrontLeftWheel);
+              //  InitTexture(Texture.Front.k_FrontLeftWheel);
+                GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[16]);
                 GL.glPushMatrix();
                 GL.glTranslatef(-0.5f, -0.4f, -0.55f + i * 0.3f);
                 GL.glEnable(GL.GL_BLEND);
@@ -960,113 +523,12 @@ namespace OpenGL
 
         }
 
-        public void CreateChassis()
-        {
-            GL.glPushMatrix();
-            GL.glTranslatef(0.5f, -0.4f, 1.3f);
-            GL.glBegin(GL.GL_POLYGON);
-            GL.glVertex3d(-0.5f, 0.5f, -0.5f);
-            GL.glVertex3d(-0.5f, 0.5f, 0.5f);
-            GL.glVertex3d(0.5f, 0.5f, 0.5f);
-            GL.glVertex3d(0.5f, 0.5f, -0.5f);
-            GL.glEnd();
-            GL.glPopMatrix();
+     
 
-        }
-
-       public void CreateGarbageCube()
-        {
-
-            //Face 1
-            double x=0.2;
-            float doubleX = (float)x;
-
-            GL.glPushMatrix();
-
-            GL.glTranslatef(0, 0, 0);
+     
 
 
-            InitTexture(Texture.Terrain.k_Garbage1);
-
-            GL.glBegin(GL.GL_QUADS);
-
-            GL.glTexCoord2f(1, 1);
-            GL.glVertex3f(-doubleX, doubleX, doubleX);
-
-            GL.glTexCoord2f(1, 0);
-            GL.glVertex3f(doubleX, doubleX, doubleX);
-
-            GL.glTexCoord2f(0, 0);
-            GL.glVertex3f(doubleX, -doubleX, doubleX);
-
-            GL.glTexCoord2f(0, 1);
-            GL.glVertex3f(-doubleX, -doubleX, doubleX);
-
-            GL.glTexCoord2f(1, 1);
-            GL.glVertex3f(-doubleX, doubleX, -doubleX);
-
-            GL.glTexCoord2f(1, 0);
-            GL.glVertex3f(doubleX, doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 0);
-            GL.glVertex3f(doubleX, -doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 1);
-            GL.glVertex3f(-doubleX, -doubleX, -doubleX);
-
-            GL.glTexCoord2f(1, 1);
-            GL.glVertex3f(-doubleX, doubleX, doubleX);
-
-            GL.glTexCoord2f(1, 0);
-            GL.glVertex3f(-doubleX, -doubleX, doubleX);
-
-            GL.glTexCoord2f(0, 0);
-            GL.glVertex3f(-doubleX, -doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 1);
-            GL.glVertex3f(-doubleX, doubleX, -doubleX);
-
-            GL.glTexCoord2f(1, 1);
-            GL.glVertex3f(doubleX, -doubleX, -doubleX);
-
-            GL.glTexCoord2f(1, 0);
-            GL.glVertex3f(doubleX, -doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 0);
-            GL.glVertex3f(doubleX, doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 1);
-            GL.glVertex3f(doubleX, doubleX, doubleX);
-
-            GL.glTexCoord2f(1, 1);
-            GL.glVertex3f(-doubleX, -doubleX, doubleX);
-
-            GL.glTexCoord2f(1, 0);
-            GL.glVertex3f(-doubleX, -doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 0);
-            GL.glVertex3f(doubleX, -doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 1);
-            GL.glVertex3f(-doubleX, -doubleX, doubleX);
-
-            GL.glTexCoord2f(1, 1);
-            GL.glVertex3f(-doubleX, doubleX, doubleX);
-
-            GL.glTexCoord2f(1, 0);
-            GL.glVertex3f(-doubleX, doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 0);
-            GL.glVertex3f(doubleX, doubleX, -doubleX);
-
-            GL.glTexCoord2f(0, 1);
-            GL.glVertex3f(doubleX, doubleX, doubleX);
-
-            GL.glEnd();
-            GL.glPopMatrix();
-           
-        }
-
+       #region Loading Once
        public void CreateBackCabin(float backCabinLiftingAngle)
         {
 
@@ -1080,7 +542,8 @@ namespace OpenGL
             GL.glPushMatrix();
             GL.glTranslatef(-0.275f, 0, 0);
             
-            InitTexture(Texture.Back.k_LeftSide);
+           // InitTexture(Texture.Back.k_LeftSide);
+            GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[4]);
             
              GL.glPushMatrix();
              GL.glBegin(GL.GL_QUADS);
@@ -1106,7 +569,8 @@ namespace OpenGL
              GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
          
 
-            InitTexture(Texture.Back.k_RightSide);
+        //    InitTexture(Texture.Back.k_RightSide);
+            GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[5]);
 
             GL.glPushMatrix();
             GL.glBegin(GL.GL_QUADS);
@@ -1137,7 +601,8 @@ namespace OpenGL
 
             //Drawing The FrontSide  
 
-            InitTexture(Texture.Back.k_FrontSide);
+           // InitTexture(Texture.Back.k_FrontSide);
+            GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[6]);
 
             GL.glPushMatrix();
             GL.glBegin(GL.GL_QUADS);
@@ -1162,7 +627,8 @@ namespace OpenGL
             GL.glTranslatef(0, 0, 1);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
             //Drawing The BackSide
-            InitTexture(Texture.Back.k_BackSide);
+           // InitTexture(Texture.Back.k_BackSide);
+            GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[7]);
 
             GL.glPushMatrix();
             GL.glBegin(GL.GL_QUADS);
@@ -1200,13 +666,15 @@ namespace OpenGL
                 GL.glPopMatrix();
             }
         }
-
-        public void CreateFrontCabin()
+       public void CreateFrontCabin()
         {
             GL.glTranslatef(0, 1, 2.6f);
             //GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
 
-            InitTexture(Texture.Front.k_LeftSide);
+          //  InitTexture(Texture.Front.k_LeftSide);
+
+            GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[0]);
+            
 
             GL.glPushMatrix();
             GL.glBegin(GL.GL_QUADS);
@@ -1233,7 +701,8 @@ namespace OpenGL
 
 
 
-            InitTexture(Texture.Front.k_RightSide);
+          //  InitTexture(Texture.Front.k_RightSide);
+            GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[1]);
 
             GL.glPushMatrix();
             GL.glBegin(GL.GL_QUADS);
@@ -1269,7 +738,9 @@ namespace OpenGL
             //Front and back
 
             //   GL.glColor3f(0.0f, 1.0f, 0.0f);
-            InitTexture(Texture.Front.k_BackSide);
+         //   InitTexture(Texture.Front.k_BackSide);
+
+            GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[2]);
             GL.glPushMatrix();
             GL.glBegin(GL.GL_QUADS);
 
@@ -1297,7 +768,8 @@ namespace OpenGL
 
 
 
-            InitTexture(Texture.Front.k_FrontSide);
+            //InitTexture(Texture.Front.k_FrontSide);
+            GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[3]);
             GL.glPushMatrix();
             GL.glBegin(GL.GL_QUADS);
 
@@ -1322,5 +794,429 @@ namespace OpenGL
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
 
         }
+       public void createRoad()
+       {
+           // InitTexture(Texture.Terrain.k_Asfalt);
+           GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[8]);
+           // GL.glEnable(GL.GL_TEXTURE_2D);
+           // GL.glBindTexture(GL.GL_TEXTURE_2D, texturaAsfalto);
+           GL.glPushMatrix();
+           GL.glTranslatef(-97, 0.5f, 4.5f);
+           GL.glRotatef(90, 0, 1, 0);
+           int count = 0;
+           for (int y = 0; y < 20; y++)// this for loop draws the road
+           {
+               GL.glBegin(GL.GL_QUADS);
+               GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3f(-0.8f, 0, count);
+               GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3f(-0.8f, 0, count + 5);
+               GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3f(3.8f, 0, count + 5);
+               GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3f(3.8f, 0, count);
+               GL.glEnd();
+               count += 5;
+           }
+
+           GL.glPopMatrix();
+       }
+       public void createGrass()
+       {
+           int width = 240;
+           int height = 200;
+           int length = 240;
+
+           //start in this coordinates
+           int x = 10;
+           int y = -3;
+           int z = 7;
+
+           //center the square
+           x = x - width / 2;
+           y = y - height / 2;
+           z = z - length / 2;
+           GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[9]);
+           GL.glEnable(GL.GL_TEXTURE_2D);
+           GL.glPushMatrix();
+           GL.glTranslatef(0, 0.5f, 0);
+           GL.glBegin(GL.GL_QUADS);
+           GL.glNormal3d(1, 1, 1);
+           GL.glTexCoord2f(16.0f, 0.0f); GL.glVertex3d(x, -0.2f, z);
+           GL.glNormal3d(1, 1, -1);
+           GL.glTexCoord2f(16.0f, 16.0f); GL.glVertex3d(x, -0.2f, z + length);
+           GL.glNormal3d(-1, 1, -1);
+           GL.glTexCoord2f(0.0f, 16.0f); GL.glVertex3d(x + width, -0.2f, z + length);
+           GL.glNormal3d(-1, 1, 1);
+           GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, -0.2f, z);
+           GL.glEnd();
+           GL.glPopMatrix();
+       }
+       public void createGarbage()
+       {
+           int width = 10;
+           int height = 10;
+           int length = 10;
+
+           //start in this coordinates
+           int x = 10;
+           int y = -3;
+           int z = 7;
+
+           //center the square
+           x = x - width / 2;
+           y = y - height / 2;
+           z = z - length / 2;
+           //  InitTexture(Texture.Terrain.k_Garbage);
+           GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[10]);
+           GL.glEnable(GL.GL_TEXTURE_2D);
+           GL.glPushMatrix();
+           GL.glTranslatef(-1.9f, 0.55f, -4);
+           GL.glBegin(GL.GL_QUADS);
+           GL.glNormal3d(1, 1, 1);
+           GL.glTexCoord2f(16.0f, 0.0f); GL.glVertex3d(x, -0.2f, z);
+           GL.glNormal3d(1, 1, -1);
+           GL.glTexCoord2f(16.0f, 16.0f); GL.glVertex3d(x, -0.2f, z + length);
+           GL.glNormal3d(-1, 1, -1);
+           GL.glTexCoord2f(0.0f, 16.0f); GL.glVertex3d(x + width, -0.2f, z + length);
+           GL.glNormal3d(-1, 1, 1);
+           GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, -0.2f, z);
+           GL.glEnd();
+           GL.glPopMatrix();
+       }
+       public void CreateChassis()
+       {
+           GL.glPushMatrix();
+           GL.glTranslatef(0.5f, -0.4f, 1.3f);
+           GL.glBegin(GL.GL_POLYGON);
+           GL.glVertex3d(-0.5f, 0.5f, -0.5f);
+           GL.glVertex3d(-0.5f, 0.5f, 0.5f);
+           GL.glVertex3d(0.5f, 0.5f, 0.5f);
+           GL.glVertex3d(0.5f, 0.5f, -0.5f);
+           GL.glEnd();
+           GL.glPopMatrix();
+
+       }
+       public void CreateBackWheels()
+       {
+           GL.glTranslatef(0, 0, 2f);
+           GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
+
+           for (float i = 0; i < 2; i++)
+           {
+               GL.glPushMatrix();
+               GL.glTranslatef(-0.5f, -0.4f, -0.55f + i * 0.3f);
+
+               // InitTexture(Texture.Back.k_BackLeftWheel);
+
+               GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[12]);
+               GL.glEnable(GL.GL_TEXTURE_2D);
+               GL.glEnable(GL.GL_BLEND);
+               GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
+               GL.glBegin(GL.GL_QUADS);
+
+               GL.glTexCoord2f(1, 1);
+               GL.glVertex3f(1f, 0.65f, 0.5f);
+
+               GL.glTexCoord2f(1, 0);
+               GL.glVertex3f(1f, 0.0f, 0.5f);
+
+               GL.glTexCoord2f(0, 0);
+               GL.glVertex3f(0.0f, 0.0f, 0.5f);
+
+               GL.glTexCoord2f(0, 1);
+               GL.glVertex3f(0.0f, 0.65f, 0.5f);
+               GL.glEnd();
+               GL.glPopMatrix();
+           }
+           for (float i = 0; i < 2; i++)
+           {
+               //   InitTexture(Texture.Back.k_BackRightWheel);
+               GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[13]);
+               GL.glPushMatrix();
+               GL.glTranslatef(-0.5f, -0.4f, +0.3f + i * 0.3f);
+               GL.glBegin(GL.GL_QUADS);
+               GL.glTexCoord2f(1, 1);
+               GL.glVertex3f(1f, 0.65f, 0.5f);
+
+               GL.glTexCoord2f(1, 0);
+               GL.glVertex3f(1f, 0.0f, 0.5f);
+
+               GL.glTexCoord2f(0, 0);
+               GL.glVertex3f(0.0f, 0.0f, 0.5f);
+
+               GL.glTexCoord2f(0, 1);
+               GL.glVertex3f(0.0f, 0.65f, 0.5f);
+               GL.glEnd();
+               GL.glPopMatrix();
+           }
+           for (int i = 1; i < 3; i++)
+           {
+               GL.glBegin(GL.GL_SPHERE_MAP);
+               GLU.gluCylinder(obj, 0.3f, 0.3f, 0.2f, 25, 25);
+               GL.glEnd();
+
+               float x1, y1, z1, x2, y2, z2;
+               double angle;
+               double radius = 0.3f;
+
+               x1 = 0f;
+               y1 = 0f;
+               z1 = 0.2f;
+
+
+               GL.glBegin(GL.GL_TRIANGLE_FAN);
+
+               GL.glVertex3f(x1, y1, z1);
+               for (int j = 0; j < 2; j++)
+               {
+                   GL.glTranslatef(0, 0, -0.3f * j);
+                   for (angle = 0.0f; angle < 2 * 3.14159 + 1; angle += 0.1f)
+                   {
+                       x2 = +(float)(System.Math.Sin(angle) * radius);
+                       y2 = y1 + (float)(System.Math.Cos(angle) * radius);
+                       z2 = z1;
+                       GL.glVertex3f(x2, y2, z2);
+                   }
+               }
+               GL.glEnd();
+               GL.glTranslatef(0, 0, 0 + 0.8f);
+           }
+
+       }
+       public void createTop()
+       {
+           int width = 240;
+           int height = 200;
+           int length = 240;
+
+           //start in this coordinates
+           int x = 10;
+           int y = -3;
+           int z = 7;
+
+           //center the square
+           x = x - width / 2;
+           y = y - height / 2;
+           z = z - length / 2;
+           GL.glEnable(GL.GL_TEXTURE_2D);
+           //  InitTexture(Texture.Terrain.k_Top);
+           GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[11]);
+
+           //start drawing quads
+           GL.glPushMatrix();
+           GL.glBegin(GL.GL_QUADS);
+           GL.glRotatef(90, 0, 1, 0);
+           GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x + width, y, z);
+           GL.glNormal3d(-1, 1, 1);
+           GL.glNormal3d(-1, -1, 1);
+           GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x + width, y + height, z);
+           GL.glNormal3d(1, -1, 1);
+           GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x, y + height, z);
+           GL.glNormal3d(1, 1, 1);
+           GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x, y, z);
+
+           GL.glEnd();
+           GL.glPopMatrix();
+
+           GL.glEnable(GL.GL_TEXTURE_2D);
+           InitTexture(Texture.Terrain.k_Top);
+           GL.glBegin(GL.GL_QUADS);
+           GL.glNormal3d(1, 1, -1);
+           GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x, y, z + length);
+           GL.glNormal3d(1, -1, -1);
+           GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x, y + height, z + length);
+           GL.glNormal3d(-1, -1, -1);
+           GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x + width, y + height, z + length);
+           GL.glNormal3d(-1, 1, -1);
+           GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, y, z + length);
+           GL.glEnd();
+
+           GL.glEnable(GL.GL_TEXTURE_2D);
+           InitTexture(Texture.Terrain.k_Top);
+           GL.glBegin(GL.GL_QUADS);
+           GL.glNormal3d(1, -1, 1);
+           GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x, y + height, z);
+           GL.glNormal3d(1, -1, -1);
+           GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x, y + height, z + length);
+           GL.glNormal3d(1, 1, -1);
+           GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x, y, z + length);
+           GL.glNormal3d(1, 1, 1);
+           GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x, y, z);
+           GL.glEnd();
+
+           GL.glEnable(GL.GL_TEXTURE_2D);
+           InitTexture(Texture.Terrain.k_Top);
+           GL.glBegin(GL.GL_QUADS);
+           GL.glNormal3d(-1, 1, 1);
+           GL.glTexCoord2f(0.0f, 0.0f); GL.glVertex3d(x + width, y, z);
+           GL.glNormal3d(-1, 1, -1);
+           GL.glTexCoord2f(1.0f, 0.0f); GL.glVertex3d(x + width, y, z + length);
+           GL.glNormal3d(-1, -1, -1);
+           GL.glTexCoord2f(1.0f, 1.0f); GL.glVertex3d(x + width, y + height, z + length);
+           GL.glNormal3d(-1, -1, 1);
+           GL.glTexCoord2f(0.0f, 1.0f); GL.glVertex3d(x + width, y + height, z);
+           GL.glEnd();
+       }
+       public void CreateGarbageCube()
+       {
+
+           //Face 1
+           double x = 0.2;
+           float doubleX = (float)x;
+
+           GL.glPushMatrix();
+
+           GL.glTranslatef(0, 0, 0);
+
+
+           //  InitTexture(Texture.Terrain.k_Garbage1);
+           GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[14]);
+
+           GL.glBegin(GL.GL_QUADS);
+
+           GL.glTexCoord2f(1, 1);
+           GL.glVertex3f(-doubleX, doubleX, doubleX);
+
+           GL.glTexCoord2f(1, 0);
+           GL.glVertex3f(doubleX, doubleX, doubleX);
+
+           GL.glTexCoord2f(0, 0);
+           GL.glVertex3f(doubleX, -doubleX, doubleX);
+
+           GL.glTexCoord2f(0, 1);
+           GL.glVertex3f(-doubleX, -doubleX, doubleX);
+
+           GL.glTexCoord2f(1, 1);
+           GL.glVertex3f(-doubleX, doubleX, -doubleX);
+
+           GL.glTexCoord2f(1, 0);
+           GL.glVertex3f(doubleX, doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 0);
+           GL.glVertex3f(doubleX, -doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 1);
+           GL.glVertex3f(-doubleX, -doubleX, -doubleX);
+
+           GL.glTexCoord2f(1, 1);
+           GL.glVertex3f(-doubleX, doubleX, doubleX);
+
+           GL.glTexCoord2f(1, 0);
+           GL.glVertex3f(-doubleX, -doubleX, doubleX);
+
+           GL.glTexCoord2f(0, 0);
+           GL.glVertex3f(-doubleX, -doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 1);
+           GL.glVertex3f(-doubleX, doubleX, -doubleX);
+
+           GL.glTexCoord2f(1, 1);
+           GL.glVertex3f(doubleX, -doubleX, -doubleX);
+
+           GL.glTexCoord2f(1, 0);
+           GL.glVertex3f(doubleX, -doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 0);
+           GL.glVertex3f(doubleX, doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 1);
+           GL.glVertex3f(doubleX, doubleX, doubleX);
+
+           GL.glTexCoord2f(1, 1);
+           GL.glVertex3f(-doubleX, -doubleX, doubleX);
+
+           GL.glTexCoord2f(1, 0);
+           GL.glVertex3f(-doubleX, -doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 0);
+           GL.glVertex3f(doubleX, -doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 1);
+           GL.glVertex3f(-doubleX, -doubleX, doubleX);
+
+           GL.glTexCoord2f(1, 1);
+           GL.glVertex3f(-doubleX, doubleX, doubleX);
+
+           GL.glTexCoord2f(1, 0);
+           GL.glVertex3f(-doubleX, doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 0);
+           GL.glVertex3f(doubleX, doubleX, -doubleX);
+
+           GL.glTexCoord2f(0, 1);
+           GL.glVertex3f(doubleX, doubleX, doubleX);
+
+           GL.glEnd();
+           GL.glPopMatrix();
+
+       }
+       #endregion
+
+
+
+
+
+       public uint[] Textures = new uint[17];		// texture
+        void GenerateTextures()
+        {
+            GL.glGenTextures(17, Textures);
+            string[] imagesName = { Texture.Front.k_LeftSide,  //0
+                                    Texture.Front.k_RightSide, //1
+                                    Texture.Front.k_BackSide,  //2
+                                    Texture.Front.k_FrontSide, //3
+                                    Texture.Back.k_LeftSide,   //4
+                                    Texture.Back.k_RightSide,  //5
+                                    Texture.Back.k_FrontSide,  //6
+                                    Texture.Back.k_BackSide,   //7
+                                    Texture.Terrain.k_Asfalt,  //8
+                                    Texture.Terrain.k_Grass,   //9
+                                    Texture.Terrain.k_Garbage, //10
+                                    Texture.Terrain.k_Top,     //11
+                                    Texture.Back.k_BackLeftWheel, //12
+                                    Texture.Back.k_BackRightWheel, //13
+                                    Texture.Terrain.k_Garbage, //14
+                                    Texture.Front.k_FrontLeftWheel, //15
+                                    Texture.Front.k_FrontLeftWheel, //16
+
+                                  };
+                                //    "earth.bmp", "env.bmp" };
+            for (int i = 0; i < 17; i++)
+            {
+                Bitmap image = new Bitmap(imagesName[i]);
+                image.RotateFlip(RotateFlipType.RotateNoneFlipY); //Y axis in Windows is directed downwards, while in OpenGL-upwards
+                System.Drawing.Imaging.BitmapData bitmapdata;
+                Rectangle rect = new Rectangle(0, 0, image.Width, image.Height);
+
+                bitmapdata = image.LockBits(rect, System.Drawing.Imaging.ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+                GL.glBindTexture(GL.GL_TEXTURE_2D, Textures[i]);
+                //2D for XYZ
+                //The level-of-detail number. Level 0 is the base image level
+                //The number of color components in the texture. 
+                //Must be 1, 2, 3, or 4, or one of the following 
+                //    symbolic constants: 
+                //                GL_ALPHA, GL_ALPHA4, 
+                //                GL_ALPHA8, GL_ALPHA12, GL_ALPHA16, GL_LUMINANCE, GL_LUMINANCE4, 
+                //                GL_LUMINANCE8, GL_LUMINANCE12, GL_LUMINANCE16, GL_LUMINANCE_ALPHA, 
+                //                GL_LUMINANCE4_ALPHA4, GL_LUMINANCE6_ALPHA2, GL_LUMINANCE8_ALPHA8, 
+                //                GL_LUMINANCE12_ALPHA4, GL_LUMINANCE12_ALPHA12, GL_LUMINANCE16_ALPHA16, 
+                //                GL_INTENSITY, GL_INTENSITY4, GL_INTENSITY8, GL_INTENSITY12, 
+                //                GL_INTENSITY16, GL_R3_G3_B2, GL_RGB, GL_RGB4, GL_RGB5, GL_RGB8, 
+                //                GL_RGB10, GL_RGB12, GL_RGB16, GL_RGBA, GL_RGBA2, GL_RGBA4, GL_RGB5_A1, 
+                //                GL_RGBA8, GL_RGB10_A2, GL_RGBA12, or GL_RGBA16.
+
+
+                GL.glTexImage2D(GL.GL_TEXTURE_2D, 0, (int)GL.GL_RGB8, image.Width, image.Height,
+                    //The width of the border. Must be either 0 or 1.
+                    //The format of the pixel data
+                    //The data type of the pixel data
+                    //A pointer to the image data in memory
+                                                              0, GL.GL_BGR_EXT, GL.GL_UNSIGNED_byte, bitmapdata.Scan0);
+                GL.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MIN_FILTER, (int)GL.GL_LINEAR);
+                GL.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAG_FILTER, (int)GL.GL_LINEAR);
+
+                image.UnlockBits(bitmapdata);
+                image.Dispose();
+            }
+        }
+
+
     }
 }
