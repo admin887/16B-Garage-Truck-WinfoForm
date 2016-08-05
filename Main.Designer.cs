@@ -1,4 +1,6 @@
-﻿namespace Garage_Truck_WinfoForms
+﻿using System.Collections.Generic;
+
+namespace Garage_Truck_WinfoForms
 {
     partial class Main
     {
@@ -43,6 +45,16 @@
             this.scroll7 = new System.Windows.Forms.HScrollBar();
             this.scroll8 = new System.Windows.Forms.HScrollBar();
             this.scroll9 = new System.Windows.Forms.HScrollBar();
+            this.scrollList = new List<System.Windows.Forms.HScrollBar>();
+            this.scrollList.Add(scroll1);
+            this.scrollList.Add(scrool2);
+            this.scrollList.Add(scrool3);
+            this.scrollList.Add(scroll4);
+            this.scrollList.Add(scroll5);
+            this.scrollList.Add(scroll6);
+            this.scrollList.Add(scroll7);
+            this.scrollList.Add(scroll8);
+            this.scrollList.Add(scroll9);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonReset = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -51,7 +63,6 @@
             this.buttonLight = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer1.Tick += new System.EventHandler(this.tmrPaint_Tick);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -130,6 +141,7 @@
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click_1);
             // 
             // buttonLoad
             // 
@@ -140,6 +152,7 @@
             this.buttonLoad.TabIndex = 1;
             this.buttonLoad.Text = "Load";
             this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click_1);
             // 
             // scroll4
             // 

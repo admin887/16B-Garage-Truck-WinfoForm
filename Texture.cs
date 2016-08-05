@@ -11,6 +11,7 @@ namespace Texture
         public const string k_Grass = @"Texture\grass.jpg";
         public const string k_Top = @"Texture\top.jpg";
         public const string k_Garbage = @"Texture\garbage.png";
+        public const string k_Garbage1 = @"Texture\garbage1.jpg";
     }
     public class Front
     {

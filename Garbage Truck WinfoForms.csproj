@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cOGL.cs" />
+    <Compile Include="Load.cs" />
+    <Compile Include="Save.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -74,6 +76,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

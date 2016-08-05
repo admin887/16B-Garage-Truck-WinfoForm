@@ -1174,6 +1174,7 @@ namespace OpenGL
                                     Texture.Terrain.k_Garbage, //14
                                     Texture.Front.k_FrontLeftWheel, //15
                                     Texture.Front.k_FrontLeftWheel, //16
+                                    Texture.Terrain.k_Garbage1//17
 
                                   };
                                 //    "earth.bmp", "env.bmp" };

@@ -30,6 +30,7 @@ namespace Garage_Truck_WinfoForms
             Left,
             Reset
         }
+        public List<HScrollBar> scrollList { get; set; }
         public static eCameraMovig cam;
         private bool isTruckMoving;
         cOGL c;
@@ -199,6 +200,28 @@ namespace Garage_Truck_WinfoForms
             c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, (int)eCarMoving.DoNothing);
 
             //GL.glFlush();
+        }
+
+        private void buttonSave_Click_1(object sender, EventArgs e)
+        {
+            List<int> a = new List<int>();
+            foreach (HScrollBar h in scrollList)
+            {
+                a.Add(h.Value);
+            }
+            Save.Instance.SaveList(a);
+        }
+
+        private void buttonLoad_Click_1(object sender, EventArgs e)
+        {
+            List<int> l = Garage_Truck_WinfoForms.Load.Instance.LoadList();
+            int i = 0;
+            foreach (float f in l)
+            {
+                scrollList[i].Value = (int)f;
+                i++;
+            }
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, (int)eCarMoving.DoNothing);
         }
     }
 }
