@@ -24,9 +24,25 @@ namespace OpenGL
        public float angle = 0.0f;
         GLUquadric obj;
         public float TransparentA = 0.0f, TransparentB = 0.0f, TransparentC = -15.0f;
+        float[,] ground = new float[3, 3];
+        public float[] pos = new float[4];
+        float[] cubeXform = new float[16];
 
         public cOGL(Control pb)
         {
+            ground[1, 0] = 1;
+            ground[1, 1] = 1;
+            ground[1, 2] = -0.3f;
+
+            ground[0, 0] = 0;
+            ground[0, 1] = 1;
+            ground[0, 2] = -0.3f;
+
+            ground[2, 0] = 1;
+            ground[2, 1] = 0;
+            ground[2, 2] = -0.3f;
+
+
             p = pb;
             m_cameraMoving = 0;
             m_cameraMoving = 0;
@@ -87,59 +103,89 @@ namespace OpenGL
 
             ////1 Gil
 
-            float[] pos = new float[4];
+          
+          GL.glPushMatrix();
+          //!!!!!!!!!!!!    		
 
-            float[,] ground = new float[3, 3];
+          GL.glRotatef(90f, 1.0f, 0.0f, 0.0f);
+        
+
+          MakeShadowMatrix(ground);
+          GL.glMultMatrixf(cubeXform);
+         
+          DrawObjects(eCarMove, backCabinLiftingAngle,true);
+         
 
 
-            //  MakeShadowMatrix(ground);
-            GL.glTranslatef(0, -2, 0);
+
+
+            GL.glTranslatef(0, -10, 0);
             GL.glEnable(GL.GL_TEXTURE_2D);
-            createRoad();
-            createGrass();
-            createGarbage();
-            createTop();
-            if ((eCarMove==0 || Garage_Truck_WinfoForms.Main.moving==1) && m_travelDistance < 80)
-            {
-                if (m_travelDistance < 80)
-                    m_travelDistance += m_speed;
-                else
-                    m_travelDistance = 80;
-                GL.glTranslatef(-m_travelDistance, 0, 0);
-                m_speed += 0.2f;
-            }
-            else if (( Garage_Truck_WinfoForms.Main.moving == -1) && m_travelDistance > 0)
-            {
-                if (m_travelDistance < 0)
-                    m_travelDistance = 0;
-                else
-                    m_travelDistance -= m_speed;
-                GL.glTranslatef(-m_travelDistance, 0, 0);
-                m_speed += 0.2f;
-            }
-            else
-            {
-                if (m_travelDistance < 0)
-                    m_travelDistance = 0;
-                GL.glTranslatef(-m_travelDistance, 0, 0);
-            }
-                
 
-            Console.WriteLine(m_travelDistance);
+            //!!!!!!!!!!!!!
+            GL.glPopMatrix();
+            //!!!!!!!!!!!!!
 
-            if (eCarMove==1)
+            DrawLight();
+          
+
+
+            DrawObjects(eCarMove, backCabinLiftingAngle,false);
+        }
+
+        private void DrawObjects(int eCarMove, float backCabinLiftingAngle, bool isForShades)
+        {
+            if (!isForShades)
             {
-                m_speed = 0;
-                m_travelDistance = 0;
+                createRoad();
+                createGrass();
+                createGarbage();
+                createTop();
+                if ((eCarMove == 0 || Garage_Truck_WinfoForms.Main.moving == 1) && m_travelDistance < 80)
+                {
+                    if (m_travelDistance < 80)
+                        m_travelDistance += m_speed;
+                    else
+                        m_travelDistance = 80;
+                    GL.glTranslatef(-m_travelDistance, 0, 0);
+                    m_speed += 0.2f;
+                }
+                else if ((Garage_Truck_WinfoForms.Main.moving == -1) && m_travelDistance > 0)
+                {
+                    if (m_travelDistance < 0)
+                        m_travelDistance = 0;
+                    else
+                        m_travelDistance -= m_speed;
+                    GL.glTranslatef(-m_travelDistance, 0, 0);
+                    m_speed += 0.2f;
+                }
+                else
+                {
+                    if (m_travelDistance < 0)
+                        m_travelDistance = 0;
+                    GL.glTranslatef(-m_travelDistance, 0, 0);
+                }
+
+
+                Console.WriteLine(m_travelDistance);
+
+                if (eCarMove == 1)
+                {
+                    m_speed = 0;
+                    m_travelDistance = 0;
+                }
             }
+
             CreateFrontCabin();
             CreateChassis();
             CreateBackWheels();
             CreateFrontWheels();
-           if(m_travelDistance==0)
-               CreateBackCabin(backCabinLiftingAngle);
-           else
-               CreateBackCabin(0);
+
+            if (m_travelDistance == 0)
+                CreateBackCabin(backCabinLiftingAngle);
+            else
+                CreateBackCabin(0);
+
         }
         public void MoveTheTruck()
         { 
@@ -193,7 +239,7 @@ namespace OpenGL
 
 
 
-/*
+
 
         const int x = 0;
         const int y = 1;
@@ -290,7 +336,7 @@ namespace OpenGL
             vector[1] /= length;
             vector[2] /= length;
         }
-*/
+       
 
 
 
@@ -300,7 +346,10 @@ namespace OpenGL
 
         public void Draw()
         {
-            //Draw(angle + 3.0f, 2.0f,0, 2.0f, 0.0f,0.0f,2);
+        //    Draw(angle + 3.0f, 2.0f,0, 2.0f, 0.0f,0.0f,2);
+
+           
+
 
         }
        protected virtual void InitializeGL()
@@ -654,6 +703,11 @@ namespace OpenGL
             GL.glTranslatef(0, 0, 1);
             GL.glRotatef(90f, 0.0f, 1.0f, 0.0f);
             GL.glPopMatrix();
+
+            float[] Zbuf = new float[Width * Height];
+            
+
+
             if(backCabinLiftingAngle>=90)
             {
                 GL.glPushMatrix();
@@ -1217,6 +1271,30 @@ namespace OpenGL
                 image.Dispose();
             }
         }
+
+      void DrawLight()
+      {
+          
+       //   pos[0] = 5; pos[1] = 5; pos[2] = 5; pos[3] = 1;
+          GL.glLightfv(GL.GL_LIGHT0, GL.GL_POSITION, pos);
+          GL.glDisable(GL.GL_LIGHTING);
+
+          GL.glDisable(GL.GL_LIGHTING);
+          GL.glTranslatef(pos[0], pos[1], pos[2]);
+          //Yellow Light source
+          GL.glColor3f(1, 1, 0);
+          GLUT.glutSolidSphere(0.05, 8, 8);
+          GL.glTranslatef(-pos[0], -pos[1], -pos[2]);
+          //projection line from source to plane
+          GL.glBegin(GL.GL_LINES);
+          GL.glColor3d(0.5, 0.5, 0);
+          GL.glVertex3d(pos[0], pos[1], ground[0, 2] - 0.01);
+          GL.glVertex3d(pos[0], pos[1], pos[2]);
+          GL.glEnd();
+
+
+          GL.glColor3f(1, 1, 1);
+      }
 
 
     }
