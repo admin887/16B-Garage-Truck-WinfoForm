@@ -54,6 +54,8 @@ namespace Garage_Truck_WinfoForms
             this.scrollList.Add(scroll7);
             this.scrollList.Add(scroll8);
             this.scrollList.Add(scroll9);
+
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -85,10 +87,7 @@ namespace Garage_Truck_WinfoForms
             c.Draw();
         }
 
-        private void scroll9_Scroll(object sender, ScrollEventArgs e)
-        {
-            timer1.Interval = scroll9.Value;
-        }
+       
 
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
@@ -232,7 +231,34 @@ namespace Garage_Truck_WinfoForms
                 scrollList[i].Value = (int)f;
                 i++;
             }
+            c.pos[0] = scroll7.Value;
+            c.pos[1] = scroll8.Value;
+            c.pos[2] = scroll9.Value;
+
             c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, (int)eCarMoving.DoNothing);
+        }
+
+        private void scroll7_Scroll(object sender, ScrollEventArgs e)
+        {
+            c.pos[0] = scroll7.Value;
+            c.pos[1] = scroll8.Value;
+            c.pos[2] = scroll9.Value;
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, (int)eCarMoving.DoNothing);
+        }
+
+        private void scroll8_Scroll(object sender, ScrollEventArgs e)
+        {
+            c.pos[0] = scroll7.Value;
+            c.pos[1] = scroll8.Value;
+            c.pos[2] = scroll9.Value;
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, (int)eCarMoving.DoNothing);
+        }
+        private void scroll9_Scroll(object sender, ScrollEventArgs e)
+        {
+            c.pos[0] = scroll7.Value;
+            c.pos[1] = scroll8.Value;
+            c.pos[2] = scroll9.Value;
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, (int)eCarMoving.DoNothing);
         }
     }
 }
