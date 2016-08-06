@@ -18,7 +18,7 @@ namespace OpenGL
         uint m_uint_DC = 0;
         uint m_uint_RC = 0;
         float m_speed;
-        float m_travelDistance;
+        float m_garbageDistance;
         float m_cameraMoving;
         float m_cameraRotate;
        public float angle = 0.0f;
@@ -48,6 +48,7 @@ namespace OpenGL
             m_cameraMoving = 0;
             Width = p.Width;
             Height = p.Height;
+            m_garbageDistance = -0.6f;
             obj = GLU.gluNewQuadric();
             InitializeGL();
         }
@@ -74,7 +75,7 @@ namespace OpenGL
             get { return m_uint_RC; }
         }
 
-        public  void DrawAll(int eCarMove,float backCabinLiftingAngle)
+        public  void DrawAll(float moveCar,float backCabinLiftingAngle)
         {
             //axes
             //  GL.glBegin(GL.GL_LINES);
@@ -113,7 +114,7 @@ namespace OpenGL
           MakeShadowMatrix(ground);
           GL.glMultMatrixf(cubeXform);
          
-          DrawObjects(eCarMove, backCabinLiftingAngle,true);
+          DrawObjects(moveCar,backCabinLiftingAngle,true);
          
 
 
@@ -130,10 +131,10 @@ namespace OpenGL
           
 
 
-            DrawObjects(eCarMove, backCabinLiftingAngle,false);
+            DrawObjects(moveCar, backCabinLiftingAngle,false);
         }
 
-        private void DrawObjects(int eCarMove, float backCabinLiftingAngle, bool isForShades)
+        private void DrawObjects(float carMove, float backCabinLiftingAngle, bool isForShades)
         {
             if (!isForShades)
             {
@@ -141,39 +142,7 @@ namespace OpenGL
                 createGrass();
                 createGarbage();
                 createTop();
-                if ((eCarMove == 0 || Garage_Truck_WinfoForms.Main.moving == 1) && m_travelDistance < 80)
-                {
-                    if (m_travelDistance < 80)
-                        m_travelDistance += m_speed;
-                    else
-                        m_travelDistance = 80;
-                    GL.glTranslatef(-m_travelDistance, 0, 0);
-                    m_speed += 0.2f;
-                }
-                else if ((Garage_Truck_WinfoForms.Main.moving == -1) && m_travelDistance > 0)
-                {
-                    if (m_travelDistance < 0)
-                        m_travelDistance = 0;
-                    else
-                        m_travelDistance -= m_speed;
-                    GL.glTranslatef(-m_travelDistance, 0, 0);
-                    m_speed += 0.2f;
-                }
-                else
-                {
-                    if (m_travelDistance < 0)
-                        m_travelDistance = 0;
-                    GL.glTranslatef(-m_travelDistance, 0, 0);
-                }
-
-
-                Console.WriteLine(m_travelDistance);
-
-                if (eCarMove == 1)
-                {
-                    m_speed = 0;
-                    m_travelDistance = 0;
-                }
+                GL.glTranslatef(-carMove , 0, 0);
             }
 
             CreateFrontCabin();
@@ -181,7 +150,7 @@ namespace OpenGL
             CreateBackWheels();
             CreateFrontWheels();
 
-            if (m_travelDistance == 0)
+            if (carMove == 0)
                 CreateBackCabin(backCabinLiftingAngle);
             else
                 CreateBackCabin(0);
@@ -190,7 +159,7 @@ namespace OpenGL
         public void MoveTheTruck()
         { 
 }
-        public void Draw(float i_angle1,float i_angle2,float i_angle3,float x, float y,float backCabinLiftingAngle,int eMoveTruck)
+        public void Draw(float i_angle1,float i_angle2,float i_angle3,float x, float y,float backCabinLiftingAngle,float moveCar)
         {
             if (m_uint_DC == 0 || m_uint_RC == 0)
                 return;
@@ -229,7 +198,7 @@ namespace OpenGL
 
 
 
-            DrawAll(eMoveTruck, backCabinLiftingAngle);
+            DrawAll(moveCar, backCabinLiftingAngle);
 
             GL.glFlush();
 
@@ -711,13 +680,18 @@ namespace OpenGL
             if(backCabinLiftingAngle>=90)
             {
                 GL.glPushMatrix();
-                for (int i = 0; i < 10; i++)
+                GL.glRotatef(-backCabinLiftingAngle /60, 0, 0, 1f);
+                if(m_garbageDistance<2f)
                 {
-                    GL.glRotatef(-backCabinLiftingAngle /60, 0, 0, 1f);
-                    GL.glTranslatef(-0.6f, 0.2f, 0.1f);
-                    CreateGarbageCube();
+                    m_garbageDistance += 0.1f;
                 }
+                GL.glTranslatef(-m_garbageDistance, 0.2f, 0.5f);
+                CreateGarbageCube();
                 GL.glPopMatrix();
+            }
+            else
+            {
+                m_garbageDistance = -0.6f;
             }
         }
        public void CreateFrontCabin()
@@ -1112,7 +1086,7 @@ namespace OpenGL
        {
 
            //Face 1
-           double x = 0.2;
+           double x = 0.5f;
            float doubleX = (float)x;
 
            GL.glPushMatrix();

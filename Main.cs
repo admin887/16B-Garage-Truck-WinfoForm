@@ -72,12 +72,12 @@ namespace Garage_Truck_WinfoForms
         {
             for (int i = 0; i < 30; i++)
             {
-                c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value,0, (int)eCarMoving.Move);
+                c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value,0, scroll5.Value);
             }
         }
         private void buttonStop_Click(object sender, EventArgs e)
         {
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, (int)eCarMoving.Reset);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
             //timer1.Enabled = false;
             cam = eCameraMovig.Reset;
         }
@@ -127,12 +127,12 @@ namespace Garage_Truck_WinfoForms
 
         private void scroll1_ValueChanged(object sender, EventArgs e)
         {
-            c.Draw(c.angle = scroll1.Value,c.angle=scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value,scroll4.Value, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value,c.angle=scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value,scroll4.Value, scroll5.Value);
         }
 
         private void scrool2_ValueChanged(object sender, EventArgs e)
         {
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
 
             //   scroll1.Value = scrool2.Value;
         }
@@ -150,7 +150,7 @@ namespace Garage_Truck_WinfoForms
 
         private void scrool3_Scroll(object sender, ScrollEventArgs e)
         {
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
 
         }
 
@@ -161,12 +161,12 @@ namespace Garage_Truck_WinfoForms
 
         private void scroll4_Scroll(object sender, ScrollEventArgs e)
         {
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
         }
 
         private void scroll5_Scroll(object sender, ScrollEventArgs e)
         {
-            //c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
@@ -207,7 +207,7 @@ namespace Garage_Truck_WinfoForms
             // clean opengl to draw
             //GL.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
             Console.WriteLine(scrool2.Value);
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
 
             //GL.glFlush();
         }
@@ -235,7 +235,7 @@ namespace Garage_Truck_WinfoForms
             c.pos[1] = scroll8.Value;
             c.pos[2] = scroll9.Value;
 
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
         }
 
         private void scroll7_Scroll(object sender, ScrollEventArgs e)
@@ -243,7 +243,7 @@ namespace Garage_Truck_WinfoForms
             c.pos[0] = scroll7.Value;
             c.pos[1] = scroll8.Value;
             c.pos[2] = scroll9.Value;
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
         }
 
         private void scroll8_Scroll(object sender, ScrollEventArgs e)
@@ -251,14 +251,14 @@ namespace Garage_Truck_WinfoForms
             c.pos[0] = scroll7.Value;
             c.pos[1] = scroll8.Value;
             c.pos[2] = scroll9.Value;
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
         }
         private void scroll9_Scroll(object sender, ScrollEventArgs e)
         {
             c.pos[0] = scroll7.Value;
             c.pos[1] = scroll8.Value;
             c.pos[2] = scroll9.Value;
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, (int)eCarMoving.DoNothing);
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
         }
     }
 }
