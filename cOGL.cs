@@ -112,11 +112,11 @@ namespace OpenGL
           GL.glRotatef(90f, 1.0f, 0.0f, 0.0f);
         
 
-          MakeShadowMatrix(ground);
-          GL.glMultMatrixf(cubeXform);
-         
-          DrawObjects(moveCar,backCabinLiftingAngle,true);
-         
+       MakeShadowMatrix(ground);
+       GL.glMultMatrixf(cubeXform);
+    
+       DrawObjects(moveCar,backCabinLiftingAngle,true);
+    
 
 
 
@@ -1279,8 +1279,8 @@ namespace OpenGL
           //projection line from source to plane
           GL.glBegin(GL.GL_LINES);
           GL.glColor3d(0.5, 0.5, 0);
-          GL.glVertex3d(pos[0], pos[1], ground[0, 2] - 0.01);
           GL.glVertex3d(pos[0], pos[1], pos[2]);
+          GL.glVertex3d(pos[0], ground[0, 1] - 0.01, pos[2]);
             
 
 
