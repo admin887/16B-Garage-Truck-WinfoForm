@@ -31,13 +31,13 @@ namespace OpenGL
 
         public cOGL(Control pb)
         {
-            ground[1, 0] = 1;
-            ground[1, 1] = 1;
-            ground[1, 2] = -0.3f;
-
-            ground[0, 0] = 0;
+            ground[0, 0] = 1;
             ground[0, 1] = 1;
             ground[0, 2] = -0.3f;
+
+            ground[1, 0] = 0;
+            ground[1, 1] = 1;
+            ground[1, 2] = -0.3f;
 
             ground[2, 0] = 1;
             ground[2, 1] = 0;
@@ -1280,7 +1280,7 @@ namespace OpenGL
           GL.glBegin(GL.GL_LINES);
           GL.glColor3d(0.5, 0.5, 0);
           GL.glVertex3d(pos[0], pos[1], pos[2]);
-          GL.glVertex3d(pos[0], ground[0, 1] - 0.01, pos[2]);
+          GL.glVertex3d(pos[0], ground[0, 1] -1, pos[2]);
             
 
 

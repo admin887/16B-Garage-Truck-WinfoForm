@@ -231,33 +231,33 @@ namespace Garage_Truck_WinfoForms
                 scrollList[i].Value = (int)f;
                 i++;
             }
-            c.pos[0] = scroll7.Value;
-            c.pos[1] = scroll8.Value;
-            c.pos[2] = scroll9.Value;
+            c.pos[0] = scroll7.Value/100f;
+            c.pos[1] = scroll8.Value / 100f;
+            c.pos[2] = scroll9.Value / 100f;
 
             c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
         }
 
         private void scroll7_Scroll(object sender, ScrollEventArgs e)
         {
-            c.pos[0] = scroll7.Value;
-            c.pos[1] = scroll8.Value;
-            c.pos[2] = scroll9.Value;
+            c.pos[0] = scroll7.Value/100f;
+            c.pos[1] = scroll8.Value / 100f;
+            c.pos[2] = scroll9.Value / 100f;
             c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
         }
 
         private void scroll8_Scroll(object sender, ScrollEventArgs e)
         {
-            c.pos[0] = scroll7.Value;
-            c.pos[1] = scroll8.Value;
-            c.pos[2] = scroll9.Value;
+            c.pos[0] = scroll7.Value / 100f;
+            c.pos[1] = scroll8.Value / 100f;
+            c.pos[2] = scroll9.Value / 100f;
             c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
         }
         private void scroll9_Scroll(object sender, ScrollEventArgs e)
         {
-            c.pos[0] = scroll7.Value;
-            c.pos[1] = scroll8.Value;
-            c.pos[2] = scroll9.Value;
+            c.pos[0] = scroll7.Value / 100f;
+            c.pos[1] = scroll8.Value / 100f;
+            c.pos[2] = scroll9.Value / 100f;
             c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
         }
     }
