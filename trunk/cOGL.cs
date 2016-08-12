@@ -389,8 +389,8 @@ namespace OpenGL
            //GL.glClearDepth(1.0f);
            //
            ////GL.glEnable(GL.GL_LIGHT0);
-           ////GL.glEnable(GL.GL_COLOR_MATERIAL);
-           //GL.glColorMaterial(GL.GL_FRONT_AND_BACK, GL.GL_AMBIENT_AND_DIFFUSE);
+           GL.glEnable(GL.GL_COLOR_MATERIAL);
+           GL.glColorMaterial(GL.GL_FRONT_AND_BACK, GL.GL_AMBIENT_AND_DIFFUSE);
 
             GL.glViewport(-500, -400, 1920, 1080);
         
