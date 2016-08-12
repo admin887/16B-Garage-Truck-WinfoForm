@@ -50,7 +50,6 @@ namespace Garage_Truck_WinfoForms
             this.scrollList.Add(scrool3);
             this.scrollList.Add(scroll4);
             this.scrollList.Add(scroll5);
-            this.scrollList.Add(scroll6);
             this.scrollList.Add(scroll7);
             this.scrollList.Add(scroll8);
             this.scrollList.Add(scroll9);

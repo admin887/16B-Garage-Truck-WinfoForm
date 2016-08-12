@@ -1271,8 +1271,9 @@ namespace OpenGL
           //GL.glDisable(GL.GL_LIGHTING);
           GL.glTranslatef(pos[0], pos[1], pos[2]);
           //Yellow Light source
+         
           GL.glColor3f(1, 1, 0);
-          GLUT.glutSolidSphere(0.05, 8, 8);
+          GLUT.glutSolidSphere(0.15, 8, 8);
           GL.glTranslatef(-pos[0], -pos[1], -pos[2]);
 
            // GL.glEnable(GL.GL_LIGHTING);
