@@ -46,9 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="3DPoint.cs" />
+    <Compile Include="Axis.cs" />
     <Compile Include="cOGL.cs" />
+    <Compile Include="DrawbleComponent.cs" />
+    <Compile Include="DrawbleComponentWithCollection.cs" />
+    <Compile Include="Garbage.cs" />
+    <Compile Include="Grass.cs" />
+    <Compile Include="IDrawable.cs" />
+    <Compile Include="Light.cs" />
     <Compile Include="Load.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="Road.cs" />
     <Compile Include="Save.cs" />
+    <Compile Include="Sky.cs" />
+    <Compile Include="StreetLight.cs" />
     <Compile Include="Texture.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -61,7 +73,15 @@
     <Compile Include="OpenGL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Truck\BackCabin.cs" />
+    <Compile Include="Truck\BackWheels.cs" />
+    <Compile Include="Truck\Chassis.cs" />
+    <Compile Include="Truck\FrontCabin.cs" />
+    <Compile Include="Truck\FrontWheel.cs" />
+    <Compile Include="Truck\Truck.cs" />
     <Compile Include="WGL.cs" />
+    <Compile Include="World.cs" />
+    <Compile Include="WorldComponent.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

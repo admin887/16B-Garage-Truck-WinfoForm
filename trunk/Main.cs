@@ -53,15 +53,9 @@ namespace Garage_Truck_WinfoForms
             this.scrollList.Add(scroll7);
             this.scrollList.Add(scroll8);
             this.scrollList.Add(scroll9);
-
-           
+            
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            c.Draw();
-        }
-     
 
         private void MainForm_KeyUp(object sender, KeyEventArgs e)
         {
@@ -81,10 +75,6 @@ namespace Garage_Truck_WinfoForms
             cam = eCameraMovig.Reset;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            c.Draw();
-        }
 
        
 
@@ -160,12 +150,21 @@ namespace Garage_Truck_WinfoForms
 
         private void scroll4_Scroll(object sender, ScrollEventArgs e)
         {
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
+            c.Truck.backCabinLiftingAngle = scroll4.Value;
+
+            UpdateDisplay();
+
+           // c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
         }
 
         private void scroll5_Scroll(object sender, ScrollEventArgs e)
         {
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
+
+
+           // c.Truck.moveCar = scroll5.Value;
+        //    c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
+
+            UpdateDisplay();
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e)
@@ -230,34 +229,59 @@ namespace Garage_Truck_WinfoForms
                 scrollList[i].Value = (int)f;
                 i++;
             }
-            c.pos[0] = scroll7.Value/100f;
-            c.pos[1] = scroll8.Value / 100f;
-            c.pos[2] = scroll9.Value / 100f;
-
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
+            UpdateDisplay();
         }
 
         private void scroll7_Scroll(object sender, ScrollEventArgs e)
         {
-            c.pos[0] = scroll7.Value/100f;
-            c.pos[1] = scroll8.Value / 100f;
-            c.pos[2] = scroll9.Value / 100f;
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
+           // c.pos[0] = scroll7.Value/100f;
+           // c.pos[1] = scroll8.Value / 100f;
+           // c.pos[2] = scroll9.Value / 100f;
+
+            UpdateDisplay();
         }
 
         private void scroll8_Scroll(object sender, ScrollEventArgs e)
         {
-            c.pos[0] = scroll7.Value / 100f;
-            c.pos[1] = scroll8.Value / 100f;
-            c.pos[2] = scroll9.Value / 100f;
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
+          //  c.pos[0] = scroll7.Value / 100f;
+          //  c.pos[1] = scroll8.Value / 100f;
+          //  c.pos[2] = scroll9.Value / 100f;
+
+            UpdateDisplay();
         }
         private void scroll9_Scroll(object sender, ScrollEventArgs e)
         {
-            c.pos[0] = scroll7.Value / 100f;
-            c.pos[1] = scroll8.Value / 100f;
-            c.pos[2] = scroll9.Value / 100f;
-            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, 0, scroll5.Value);
+          //  c.pos[0] = scroll7.Value / 100f;
+          //  c.pos[1] = scroll8.Value / 100f;
+          //  c.pos[2] = scroll9.Value / 100f;
+
+            UpdateDisplay();
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            c.Truck.ShadowDisplayed = checkBox1.Checked;
+
+            UpdateDisplay();
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            c.Axis.isVisible = false;
+
+            UpdateDisplay();
+        }
+
+        private void UpdateDisplay()
+        {
+            c.Light.LightPos = new Point3D(scroll7.Value / 100f,
+                                     scroll8.Value / 100f,
+                                     scroll9.Value / 100f);
+
+            c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
+        }
+
+
+        
     }
 }
