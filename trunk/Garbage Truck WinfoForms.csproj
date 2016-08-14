@@ -57,6 +57,7 @@
     <Compile Include="Light.cs" />
     <Compile Include="Load.cs" />
     <Compile Include="Point.cs" />
+    <Compile Include="ReflectedWall.cs" />
     <Compile Include="Road.cs" />
     <Compile Include="Save.cs" />
     <Compile Include="Sky.cs" />
