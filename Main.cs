@@ -281,7 +281,19 @@ namespace Garage_Truck_WinfoForms
             c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
         }
 
+        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                c.rw.isVisible = true;
+                    }
+            else
+            {
+                c.rw.isVisible = false;
 
-        
+            }
+
+            UpdateDisplay();
+        }
     }
 }

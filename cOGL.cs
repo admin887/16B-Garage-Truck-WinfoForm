@@ -40,8 +40,9 @@ namespace OpenGL
         public Light Light { get; set; }
         public Truck Truck { get; set; }
         public StreetLight sl { get; set; }
-          
 
+        public ReflectedWall rw { get; set; }
+         
         public cOGL(Control pb)
         {
         //  ground[0, 0] = 1;
@@ -90,6 +91,9 @@ namespace OpenGL
 
        sl = new StreetLight();
       ObjectsToDraw.Add(sl);
+
+           rw = new ReflectedWall(Truck);
+            ObjectsToDraw.Add(rw);
            
 
         }
