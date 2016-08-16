@@ -91,11 +91,11 @@ namespace Garage_Truck_WinfoForms.Truck
                 // createGrass();
                 // createGarbage();
                 // createTop();
-                // GL.glTranslatef(-carMove, 0, 0);
+             
                 // DrawLight();
             }
 
-
+            GL.glTranslatef(-carMove, 0, 0);
             GL.glEnable(GL.GL_LIGHTING);
             GL.glEnable(GL.GL_LIGHT0);
             GL.glEnable(GL.GL_COLOR_MATERIAL);

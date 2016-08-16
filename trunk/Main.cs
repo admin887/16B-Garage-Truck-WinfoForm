@@ -161,7 +161,7 @@ namespace Garage_Truck_WinfoForms
         {
 
 
-           // c.Truck.moveCar = scroll5.Value;
+            c.Truck.moveCar = scroll5.Value;
         //    c.Draw(c.angle = scroll1.Value, c.angle = scrool2.Value, c.angle = scrool3.Value, scroll1.Value, scrool2.Value, scroll4.Value, scroll5.Value);
 
             UpdateDisplay();

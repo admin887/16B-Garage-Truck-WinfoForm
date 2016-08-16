@@ -90,7 +90,7 @@ namespace Garage_Truck_WinfoForms
             GL.glEnable(GL.GL_LIGHTING);
             GL.glBegin(GL.GL_QUADS);
             //!!! for blended REFLECTION 
-            GL.glColor4d(0, 0, 1, 0);
+            GL.glColor4d(0, 0, 1, 0.5f);
             GL.glVertex3d(-3, -3, 0);
             GL.glVertex3d(-3, 3, 0);
             GL.glVertex3d(3, 3, 0);
