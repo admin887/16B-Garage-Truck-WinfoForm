@@ -6,4 +6,4 @@ This application uses a OpenGL for displaying a 3D truck.
 
 
 
-![Screenshot](Untitled.png)
+![Screenshot](SA15.gif)
